@@ -1,6 +1,8 @@
 # LaunchAgent
 
-LaunchAgent provides an easy way to programatically create and maintain `launchd` agents and daemons without needing to manually build Property Lists. 
+LaunchAgent provides an easy way to programatically create and maintain [`launchd`][launchd] agents and daemons without needing to manually build Property Lists. 
+
+[launchd]: http://www.launchd.info
 
 ## Supported Keys
 
