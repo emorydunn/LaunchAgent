@@ -13,7 +13,7 @@ class ProgramTests: XCTestCase {
     // MARK: Test Init
     
     func test_Init_StringArray() {
-        let testProgram = LaunchAgent(program: ["Program", "--arg"])
+        let testProgram = LaunchAgent(label: "Launch Agent Test", program: ["Program", "--arg"])
         
         XCTAssertNil(testProgram.program)
         XCTAssertNotNil(testProgram.programArguments)
@@ -21,21 +21,21 @@ class ProgramTests: XCTestCase {
     }
     
     func test_Init_SingleStringArray() {
-        let testProgram = LaunchAgent(program: ["SingleString"])
+        let testProgram = LaunchAgent(label: "Launch Agent Test", program: ["SingleString"])
         
         XCTAssertEqual(testProgram.program, "SingleString")
         XCTAssertNil(testProgram.programArguments)
     }
     
     func test_Init_SingleString() {
-        let testProgram = LaunchAgent(program: "SingleString")
+        let testProgram = LaunchAgent(label: "Launch Agent Test", program: "SingleString")
         
         XCTAssertEqual(testProgram.program, "SingleString")
         XCTAssertNil(testProgram.programArguments)
     }
     
     func test_Init_VariadicString() {
-        let testProgram = LaunchAgent(program: "Program", "--arg")
+        let testProgram = LaunchAgent(label: "Launch Agent Test", program: "Program", "--arg")
         
         XCTAssertNil(testProgram.program)
         XCTAssertNotNil(testProgram.programArguments)
@@ -45,19 +45,19 @@ class ProgramTests: XCTestCase {
     // Mark: Test Description
     
 //    func test_Description_Program() {
-//        let testProgram = LaunchAgent(program: "SingleString")
+//        let testProgram = LaunchAgent(label: "Launch Agent Test", program: "SingleString")
 //
 //        XCTAssertEqual(testProgram.description, "SingleString")
 //    }
 //
 //    func test_Description_ProgramArgumanets() {
-//        let testProgram = LaunchAgent(program: "Program", "--arg")
+//        let testProgram = LaunchAgent(label: "Launch Agent Test", program: "Program", "--arg")
 //
 //        XCTAssertEqual(testProgram.description, "Program --arg")
 //    }
 //
 //    func test_Description_NilProgram() {
-//        let testProgram = LaunchAgent(program: "")
+//        let testProgram = LaunchAgent(label: "Launch Agent Test", program: "")
 //
 //        testProgram.program = nil
 //        testProgram.programArguments = nil
@@ -69,7 +69,7 @@ class ProgramTests: XCTestCase {
     // MARK: Test Program didSet
     
     func test_SetSingleProgram() {
-        let testProgram = LaunchAgent(program: ["Many", "Args"])
+        let testProgram = LaunchAgent(label: "Launch Agent Test", program: ["Many", "Args"])
         
         XCTAssertNil(testProgram.program)
         XCTAssertNotNil(testProgram.programArguments)
@@ -82,7 +82,7 @@ class ProgramTests: XCTestCase {
     }
     
     func test_SetProgramArguments_SingleArray() {
-        let testProgram = LaunchAgent(program: "SingleProgram")
+        let testProgram = LaunchAgent(label: "Launch Agent Test", program: "SingleProgram")
         
         XCTAssertNotNil(testProgram.program)
         XCTAssertNil(testProgram.programArguments)
@@ -95,7 +95,7 @@ class ProgramTests: XCTestCase {
     }
     
     func test_SetProgramArguments_Array() {
-        let testProgram = LaunchAgent(program: "SingleProgram")
+        let testProgram = LaunchAgent(label: "Launch Agent Test", program: "SingleProgram")
         
         XCTAssertNotNil(testProgram.program)
         XCTAssertNil(testProgram.programArguments)

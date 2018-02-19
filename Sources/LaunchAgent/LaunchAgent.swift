@@ -9,7 +9,8 @@ import Foundation
 
 public class LaunchAgent: Codable {
     
-    public var label: String? = nil
+    public var label: String
+    public var enableGlobbing: Bool? = nil
     public var program: String? = nil {
         didSet {
             if program != nil {
@@ -70,7 +71,8 @@ public class LaunchAgent: Codable {
     
     // Performance
     
-    public init(program: [String]) {
+    public init(label: String, program: [String]) {
+        self.label = label
         if program.count == 1 {
             self.program = program.first
         } else {
@@ -79,12 +81,13 @@ public class LaunchAgent: Codable {
         
     }
     
-    public convenience init(program: String...) {
-        self.init(program: program)
+    public convenience init(label: String, program: String...) {
+        self.init(label: label, program: program)
     }
     
     public enum CodingKeys: String, CodingKey {
         case label = "Label"
+        case enableGlobbing = "EnableGlobbing"
         case program = "Program"
         case programArguments = "ProgramArguments"
         

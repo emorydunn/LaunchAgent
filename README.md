@@ -9,7 +9,15 @@ LaunchAgent provides an easy way to programatically create and maintain [`launch
 LaunchAgent does not currently support all keys, and there are some caveats to some keys it does support. 
 
 Most parameters in the `LaunchAgent` class are optional, and setting `nil` will remove the key from the encoded plist. 
-Some keys use their own type to encapsulate a complex dictionary value. 
+Some keys use their own type to encapsulate a complex dictionary value.
+
+## Basic Config
+| Key Name         | Key type | Supported | Notes |
+|------------------|----------|-----------|-------|
+| Label            | String   | true      |
+| Program          | String   | true      | Either `Program` or `ProgramArguments` can be set. |
+| ProgramArguments | [String] | true      | Either `Program` or `ProgramArguments` can be set. |
+| EnableGlobbing   | Bool     | true      | deprecated in macOS |
 
 ### Program
 | Key Name             | Key type         | Supported | Notes |
