@@ -7,7 +7,13 @@ class LaunchAgentTests: XCTestCase {
 
     func testValidity() {
         let launchAgent = LaunchAgent(program: "/bin/echo", "LaunchAgentTests")
-        let interval = StartCalendarInterval(month: 1, weekday: 1, day: 1, hour: 1, minute: 1)
+        let interval = StartCalendarInterval(
+            month: .january,
+            weekday: .monday,
+            day: 1,
+            hour: 1,
+            minute: 1
+        )
         
 //        let tempDir = URL(fileURLWithPath: NSTemporaryDirectory())
         
