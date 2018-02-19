@@ -7,16 +7,16 @@
 
 import Foundation
 
-class StartCalendarInterval: Codable {
+public class StartCalendarInterval: Codable {
     
-    var month: Int?
-    var weekday: Int?
+    public var month: Int?
+    public var weekday: Int?
     
-    var day: Int?
-    var hour: Int?
-    var minute: Int?
+    public var day: Int?
+    public var hour: Int?
+    public var minute: Int?
     
-    init(month: Int? = nil, weekday: Int? = nil, day: Int? = nil, hour: Int? = nil, minute: Int? = nil) {
+    public init(month: Int? = nil, weekday: Int? = nil, day: Int? = nil, hour: Int? = nil, minute: Int? = nil) {
         self.month = month
         self.weekday = weekday
         self.day = day
