@@ -7,37 +7,59 @@
 
 import Foundation
 
-class LaunchAgent: Codable {
+public class LaunchAgent: Codable {
     
-    var label: String? = nil
-    var program: String? = nil
-    var ProgramArguments: [String]?  = nil
+    public var label: String? = nil
+    public var program: String? = nil {
+        didSet {
+            if program != nil {
+                programArguments = nil
+            }
+            
+        }
+    }
+    
+    public var programArguments: [String]? = nil {
+        didSet {
+            guard let args = programArguments else {
+                return
+            }
+            
+            if args.count == 1 {
+                self.program = args.first
+                programArguments = nil
+            } else {
+                program = nil
+            }
+            
+        }
+    }
     
     // Program
-    var workingDirectory: String? = nil
-    var standardInPath: String? = nil
-    var standardOutPath: String? = nil
-    var standardErrorPath: String? = nil
-    var environmentVariables: [String: String]? = nil
+    public var workingDirectory: String? = nil
+    public var standardInPath: String? = nil
+    public var standardOutPath: String? = nil
+    public var standardErrorPath: String? = nil
+    public var environmentVariables: [String: String]? = nil
     
     // Run Conditions
-    var runAtLoad: Bool? = nil
-    var startInterval: Int? = nil
-    var startCalendarInterval: StartCalendarInterval? = nil
-    var startOnMount: Bool? = nil
-    var onDemand: Bool? = nil
-    var keepAlive: Bool? = nil
-    var watchPaths: [String]? = nil
-    var queueDirectories: [String]? = nil
+    public var runAtLoad: Bool? = nil
+    public var startInterval: Int? = nil
+    public var startCalendarInterval: StartCalendarInterval? = nil
+    public var startOnMount: Bool? = nil
+    public var onDemand: Bool? = nil
+    public var keepAlive: Bool? = nil
+    public var watchPaths: [String]? = nil
+    public var queueDirectories: [String]? = nil
     
     // Security
-    var umask: Int? = nil
+    public var umask: Int? = nil
     
     // Run Constriants
-    var launchOnlyOnce: Bool? = nil
-    var limitLoadToSessionType: [String]? = nil
-    var limitLoadToHosts: [String]? = nil
-    var limitLoadFromHosts: [String]? = nil
+    public var launchOnlyOnce: Bool? = nil
+    public var limitLoadToSessionType: [String]? = nil
+    public var limitLoadToHosts: [String]? = nil
+    public var limitLoadFromHosts: [String]? = nil
     
     
     // Control
@@ -48,15 +70,23 @@ class LaunchAgent: Codable {
     
     // Performance
     
-    
-    init() {
+    public init(program: [String]) {
+        if program.count == 1 {
+            self.program = program.first
+        } else {
+            self.programArguments = program
+        }
         
     }
     
-    enum CodingKeys: String, CodingKey {
+    public convenience init(program: String...) {
+        self.init(program: program)
+    }
+    
+    public enum CodingKeys: String, CodingKey {
         case label = "Label"
         case program = "Program"
-        case ProgramArguments = "ProgramArguments"
+        case programArguments = "ProgramArguments"
         
         // Program
         case workingDirectory = "WorkingDirectory"

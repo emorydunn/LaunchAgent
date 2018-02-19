@@ -13,98 +13,98 @@ class ProgramTests: XCTestCase {
     // MARK: Test Init
     
     func test_Init_StringArray() {
-        let testProgram = Program(program: ["Program", "--arg"])
+        let testProgram = LaunchAgent(program: ["Program", "--arg"])
         
         XCTAssertNil(testProgram.program)
-        XCTAssertNotNil(testProgram.ProgramArguments)
-        XCTAssertEqual(testProgram.ProgramArguments!, ["Program", "--arg"])
+        XCTAssertNotNil(testProgram.programArguments)
+        XCTAssertEqual(testProgram.programArguments!, ["Program", "--arg"])
     }
     
     func test_Init_SingleStringArray() {
-        let testProgram = Program(program: ["SingleString"])
+        let testProgram = LaunchAgent(program: ["SingleString"])
         
         XCTAssertEqual(testProgram.program, "SingleString")
-        XCTAssertNil(testProgram.ProgramArguments)
+        XCTAssertNil(testProgram.programArguments)
     }
     
     func test_Init_SingleString() {
-        let testProgram = Program(program: "SingleString")
+        let testProgram = LaunchAgent(program: "SingleString")
         
         XCTAssertEqual(testProgram.program, "SingleString")
-        XCTAssertNil(testProgram.ProgramArguments)
+        XCTAssertNil(testProgram.programArguments)
     }
     
     func test_Init_VariadicString() {
-        let testProgram = Program(program: "Program", "--arg")
+        let testProgram = LaunchAgent(program: "Program", "--arg")
         
         XCTAssertNil(testProgram.program)
-        XCTAssertNotNil(testProgram.ProgramArguments)
-        XCTAssertEqual(testProgram.ProgramArguments!, ["Program", "--arg"])
+        XCTAssertNotNil(testProgram.programArguments)
+        XCTAssertEqual(testProgram.programArguments!, ["Program", "--arg"])
     }
     
     // Mark: Test Description
     
-    func test_Description_Program() {
-        let testProgram = Program(program: "SingleString")
-        
-        XCTAssertEqual(testProgram.description, "SingleString")
-    }
-    
-    func test_Description_ProgramArgumanets() {
-        let testProgram = Program(program: "Program", "--arg")
-        
-        XCTAssertEqual(testProgram.description, "Program --arg")
-    }
-    
-    func test_Description_NilProgram() {
-        let testProgram = Program(program: "")
-        
-        testProgram.program = nil
-        testProgram.ProgramArguments = nil
-        
-        XCTAssertEqual(testProgram.description, "<no program set>")
-        
-    }
+//    func test_Description_Program() {
+//        let testProgram = LaunchAgent(program: "SingleString")
+//
+//        XCTAssertEqual(testProgram.description, "SingleString")
+//    }
+//
+//    func test_Description_ProgramArgumanets() {
+//        let testProgram = LaunchAgent(program: "Program", "--arg")
+//
+//        XCTAssertEqual(testProgram.description, "Program --arg")
+//    }
+//
+//    func test_Description_NilProgram() {
+//        let testProgram = LaunchAgent(program: "")
+//
+//        testProgram.program = nil
+//        testProgram.programArguments = nil
+//
+//        XCTAssertEqual(testProgram.description, "<no program set>")
+//
+//    }
     
     // MARK: Test Program didSet
     
     func test_SetSingleProgram() {
-        let testProgram = Program(program: ["Many", "Args"])
+        let testProgram = LaunchAgent(program: ["Many", "Args"])
         
         XCTAssertNil(testProgram.program)
-        XCTAssertNotNil(testProgram.ProgramArguments)
+        XCTAssertNotNil(testProgram.programArguments)
         
         testProgram.program = "SingleProgram"
         
-        XCTAssertNil(testProgram.ProgramArguments)
+        XCTAssertNil(testProgram.programArguments)
         XCTAssertEqual(testProgram.program, "SingleProgram")
         
     }
     
     func test_SetProgramArguments_SingleArray() {
-        let testProgram = Program(program: "SingleProgram")
+        let testProgram = LaunchAgent(program: "SingleProgram")
         
         XCTAssertNotNil(testProgram.program)
-        XCTAssertNil(testProgram.ProgramArguments)
+        XCTAssertNil(testProgram.programArguments)
         
-        testProgram.ProgramArguments = ["NewSingleProgram"]
+        testProgram.programArguments = ["NewSingleProgram"]
         
         XCTAssertEqual(testProgram.program, "NewSingleProgram")
-        XCTAssertNil(testProgram.ProgramArguments)
+        XCTAssertNil(testProgram.programArguments)
         
     }
     
     func test_SetProgramArguments_Array() {
-        let testProgram = Program(program: "SingleProgram")
+        let testProgram = LaunchAgent(program: "SingleProgram")
         
         XCTAssertNotNil(testProgram.program)
-        XCTAssertNil(testProgram.ProgramArguments)
+        XCTAssertNil(testProgram.programArguments)
         
-        testProgram.ProgramArguments = ["NewProgram", "--arg"]
+        testProgram.programArguments = ["NewProgram", "--arg"]
         
         XCTAssertNil(testProgram.program, "NewSingleProgram")
-        XCTAssertNotNil(testProgram.ProgramArguments)
-        XCTAssertEqual(testProgram.ProgramArguments!, ["NewProgram", "--arg"])
+        XCTAssertNotNil(testProgram.programArguments)
+        XCTAssertEqual(testProgram.programArguments!, ["NewProgram", "--arg"])
         
     }
 
