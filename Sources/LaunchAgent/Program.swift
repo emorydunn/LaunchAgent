@@ -7,9 +7,9 @@
 
 import Foundation
 
-class Program: Codable {
+public class Program: Codable {
     
-    var program: String? = nil {
+    public var program: String? = nil {
         didSet {
             if program != nil {
                 ProgramArguments = nil
@@ -18,7 +18,7 @@ class Program: Codable {
         }
     }
     
-    var ProgramArguments: [String]? = nil {
+    public var ProgramArguments: [String]? = nil {
         didSet {
             guard let args = ProgramArguments else {
                 return
@@ -33,12 +33,8 @@ class Program: Codable {
             
         }
     }
-    
-    init(program: String) {
-        self.program = program
-    }
-    
-    init(program: [String]) {
+
+    public init(program: [String]) {
         if program.count == 1 {
             self.program = program.first
         } else {
@@ -47,14 +43,14 @@ class Program: Codable {
         
     }
     
-    convenience init(program: String...) {
+    public convenience init(program: String...) {
         self.init(program: program)
     }
     
 }
 
 extension Program: CustomStringConvertible {
-    var description: String {
+    public var description: String {
         return program ?? ProgramArguments?.joined(separator: " ") ?? "<no program set>"
     }
 }
