@@ -14,7 +14,8 @@ Some keys use their own type to encapsulate a complex dictionary value.
 ## Basic Config
 | Key Name         | Key type | Supported | Notes |
 |------------------|----------|-----------|-------|
-| Label            | String   | true      |
+| Label            | String   | true      | |
+| Disabled         | String   | true      | |
 | Program          | String   | true      | Either `Program` or `ProgramArguments` can be set. |
 | ProgramArguments | [String] | true      | Either `Program` or `ProgramArguments` can be set. |
 | EnableGlobbing   | Bool     | true      | deprecated in macOS |

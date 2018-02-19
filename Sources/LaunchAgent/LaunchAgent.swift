@@ -10,6 +10,7 @@ import Foundation
 public class LaunchAgent: Codable {
     
     public var label: String
+    public var disabled: Bool? = nil
     public var enableGlobbing: Bool? = nil
     public var program: String? = nil {
         didSet {
@@ -87,6 +88,7 @@ public class LaunchAgent: Codable {
     
     public enum CodingKeys: String, CodingKey {
         case label = "Label"
+        case disabled = "Disabled"
         case enableGlobbing = "EnableGlobbing"
         case program = "Program"
         case programArguments = "ProgramArguments"
