@@ -24,4 +24,13 @@ public class StartCalendarInterval: Codable {
         self.minute = minute
     }
     
+    public enum CodingKeys: String, CodingKey {
+        case month = "Month"
+        case weekday = "Weekday"
+        
+        case day = "Day"
+        case hour = "Hour"
+        case minute = "Minute"
+    }
+    
 }
