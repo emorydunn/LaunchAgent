@@ -26,6 +26,7 @@
 		62183018203CAF55004147DA /* LaunchAgentValiditytests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62183017203CAF55004147DA /* LaunchAgentValiditytests.swift */; };
 		6218301A203CB766004147DA /* inetdCompatibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62183019203CB766004147DA /* inetdCompatibility.swift */; };
 		6218301C203CB908004147DA /* ResourceLimits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6218301B203CB908004147DA /* ResourceLimits.swift */; };
+		6218301E203CBD50004147DA /* MachService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6218301D203CBD50004147DA /* MachService.swift */; };
 		62A357F8203B811700D36D47 /* LaunchControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A357F7203B811700D36D47 /* LaunchControl.swift */; };
 		D2357F88203BE699004C59E7 /* ProcessType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2357F87203BE699004C59E7 /* ProcessType.swift */; };
 		OBJ_24 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_6 /* Package.swift */; };
@@ -60,6 +61,7 @@
 		62183017203CAF55004147DA /* LaunchAgentValiditytests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchAgentValiditytests.swift; sourceTree = "<group>"; };
 		62183019203CB766004147DA /* inetdCompatibility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = inetdCompatibility.swift; sourceTree = "<group>"; };
 		6218301B203CB908004147DA /* ResourceLimits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceLimits.swift; sourceTree = "<group>"; };
+		6218301D203CBD50004147DA /* MachService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MachService.swift; sourceTree = "<group>"; };
 		62A357F7203B811700D36D47 /* LaunchControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchControl.swift; sourceTree = "<group>"; };
 		D2357F87203BE699004C59E7 /* ProcessType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessType.swift; sourceTree = "<group>"; };
 		"LaunchAgent::LaunchAgent::Product" /* LaunchAgent.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = LaunchAgent.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -148,6 +150,7 @@
 				D2357F87203BE699004C59E7 /* ProcessType.swift */,
 				62183019203CB766004147DA /* inetdCompatibility.swift */,
 				6218301B203CB908004147DA /* ResourceLimits.swift */,
+				6218301D203CBD50004147DA /* MachService.swift */,
 				OBJ_10 /* StartCalendarInterval.swift */,
 			);
 			name = LaunchAgent;
@@ -263,6 +266,7 @@
 				OBJ_41 /* LaunchAgent.swift in Sources */,
 				6218301A203CB766004147DA /* inetdCompatibility.swift in Sources */,
 				D2357F88203BE699004C59E7 /* ProcessType.swift in Sources */,
+				6218301E203CBD50004147DA /* MachService.swift in Sources */,
 				OBJ_42 /* StartCalendarInterval.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

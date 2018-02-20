@@ -79,6 +79,7 @@ public class LaunchAgent: Codable {
     public var throttleInterval: Int? = nil
     
     // IPC
+    public var machServices: [String: MachService]? = nil
     
     // Debug
     public var debug: Bool? = nil
@@ -175,6 +176,7 @@ public class LaunchAgent: Codable {
         case throttleInterval = "ThrottleInterval"
         
         // IPC
+        case machServices = "MachServices"
         
         // Debug
         case debug = "Debug"

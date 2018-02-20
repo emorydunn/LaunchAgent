@@ -99,10 +99,10 @@ Some keys use their own type to encapsulate a complex dictionary value.
 | ThrottleInterval    | Int                | true      |       |
 
 ### IPC
-| Key Name     | Key type | Supported | Notes |
-|--------------|----------|-----------|-------|
-| MachServices |          | false     |       |
-| Sockets      |          | false     |       |
+| Key Name     | Key type               | Supported | Notes |
+|--------------|------------------------|-----------|-------|
+| MachServices | [String: MachService]] | true      |       |
+| Sockets      |                        | false     |       |
 
 
 ### Debug

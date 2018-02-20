@@ -131,10 +131,14 @@ class LaunchAgentValiditytests: XCTestCase {
     }
     
     func testIPC() {
-//        let launchAgent = LaunchAgent(label: "Launch Agent Test", program: "/bin/echo", "LaunchAgentTests")
+        let launchAgent = LaunchAgent(label: "Launch Agent Test", program: "/bin/echo", "LaunchAgentTests")
+        
+        launchAgent.machServices = [
+            "local.svc": MachService(hideUntilCheckIn: true, resetAtClose: true)
+        ]
         
         
-//        XCTAssertEqual(launchAgent.checksum(), "a6018f910f828883096f789d4293db67")
+        XCTAssertEqual(launchAgent.checksum(), "f183b615ad0dee50a5790af4b7d773ed")
     }
     
     func testDebug() {
