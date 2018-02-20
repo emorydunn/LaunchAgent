@@ -58,8 +58,19 @@ public class LaunchControl {
     /// - Throws: errors on encoding the property list
     public func write(_ agent: LaunchAgent, called: String) throws {
         let url = try launchAgentsURL().appendingPathComponent(called)
+        
+        try write(agent, to: url)
+    }
+    
+    /// Writes a LaunchAgent to disk as a property list to the specified URL
+    ///
+    /// - Parameters:
+    ///   - agent: the agent to encode
+    ///   - called: the url at which to write
+    /// - Throws: errors on encoding the property list
+    public func write(_ agent: LaunchAgent, to url: URL) throws {
         try encoder.encode(agent).write(to: url)
-
+        
         agent.url = url
     }
     
