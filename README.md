@@ -86,17 +86,17 @@ Some keys use their own type to encapsulate a complex dictionary value.
 
 
 ### Control
-| Key Name            | Key type | Supported | Notes |
-|---------------------|----------|-----------|-------|
-| AbandonProcessGroup | Bool     | true      |       |
-| EnablePressuredExit | Bool     | true      |       |
-| EnableTransactions  | Bool     | true      |       |
-| ExitTimeOut         | Int      | true      |       |
-| inetdCompatibility  | Bool     | true      |       |
-| HardResourceLimits  |          | false     |       |
-| SoftResourceLimits  |          | false     |       |
-| TimeOut             | Int      | true      |       |
-| ThrottleInterval    | Int      | true      |       |
+| Key Name            | Key type           | Supported | Notes |
+|---------------------|--------------------|-----------|-------|
+| AbandonProcessGroup | Bool               | true      |       |
+| EnablePressuredExit | Bool               | true      |       |
+| EnableTransactions  | Bool               | true      |       |
+| ExitTimeOut         | Int                | true      |       |
+| inetdCompatibility  | inetdCompatibility | true      |       |
+| HardResourceLimits  |                    | false     |       |
+| SoftResourceLimits  |                    | false     |       |
+| TimeOut             | Int                | true      |       |
+| ThrottleInterval    | Int                | true      |       |
 
 ### IPC
 | Key Name     | Key type | Supported | Notes |
@@ -131,4 +131,8 @@ By default all values are set to`nil`, meaning the job will run on any occurrenc
 The Month and Weekday keys are represented by enums for each month and week, respectively. 
 Day, Hour, and Minute values are simply integers. They are checked for validity in their 
 respective time ranges, and will be set to the minimum or maximum value depending on which way they were out of bounds. 
+
+## inetdCompatibility
+
+Encapsulates the `inetdCompatibility` `wait` key. 
 

@@ -117,11 +117,11 @@ class LaunchAgentValiditytests: XCTestCase {
         launchAgent.enablePressuredExit = true
         launchAgent.enableTransactions = true
         launchAgent.exitTimeOut = 30
-//        launchAgent.inetdCompatibility = true
+        launchAgent.inetdCompatibility = inetdCompatibility(wait: true)
         launchAgent.timeOut = 30
         launchAgent.throttleInterval = 30
         
-        XCTAssertEqual(launchAgent.checksum(), "4a50ff991e4ce9282502c4841d15e086")
+        XCTAssertEqual(launchAgent.checksum(), "7d451c6d11f417db831e05684e1ff671")
     }
     
     func testIPC() {

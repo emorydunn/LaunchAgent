@@ -72,7 +72,7 @@ public class LaunchAgent: Codable {
     public var enablePressuredExit: Bool? = nil
     public var enableTransactions: Bool? = nil
     public var exitTimeOut: Int? = nil
-    public var inetdCompatibility: Bool? = nil
+    public var inetdCompatibility: inetdCompatibility? = nil
     // public var HardResourceLimits
     // public var SoftResourceLimits
     public var timeOut: Int? = nil
