@@ -6,7 +6,7 @@
 //
 
 import XCTest
-@testable import LaunchAgent
+import LaunchAgent
 
 extension LaunchAgent {
     func checksum() -> String {
