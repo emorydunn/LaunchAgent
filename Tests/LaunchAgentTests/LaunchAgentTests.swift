@@ -75,3 +75,42 @@ class LaunchAgentTests: XCTestCase {
         
     }
 }
+
+
+class LaunchAgentControlTests: XCTestCase {
+    let agent = LaunchAgent(label: "TestAgent.PythonServer", program: "python", "-m", "SimpleHTTPServer", "8000")
+    
+    override func setUp() {
+        try! LaunchControl.shared.write(agent, called: "TestAgent.plist")
+    }
+    
+    override func tearDown() {
+//        try! FileManager.default.removeItem(at: agent.url!)
+    }
+    
+    func testLoad() {
+        agent.load()
+        
+        XCTAssertEqual(agent.status(), AgentStatus.loaded)
+    }
+    
+    func testUnload() {
+        agent.load()
+        sleep(1)
+        agent.unload()
+        
+        XCTAssertEqual(agent.status(), AgentStatus.unloaded)
+    }
+    
+    func testStartStop() {
+        agent.load()
+        agent.start()
+        sleep(1)
+        
+        XCTAssertEqual(agent.status(), AgentStatus.running)
+        agent.stop()
+        sleep(1)
+        
+        XCTAssertEqual(agent.status(), AgentStatus.loaded)
+    }
+}
