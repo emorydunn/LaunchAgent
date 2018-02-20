@@ -100,3 +100,100 @@ public class LaunchControl {
     }
     
 }
+
+// MARK: - Job control
+extension LaunchControl {
+    /// Run `launchctl start` on the agent
+    ///
+    /// Check the status of the job with `.status(_: LaunchAgent)`
+    public func start(_ agent: LaunchAgent) {
+        let arguments = ["start", agent.label]
+        Process.launchedProcess(launchPath: LaunchControl.launchctl, arguments: arguments)
+    }
+    
+    /// Run `launchctl stop` on the agent
+    ///
+    /// Check the status of the job with `.status(_: LaunchAgent)`
+    public func stop(_ agent: LaunchAgent) {
+        let arguments = ["stop", agent.label]
+        Process.launchedProcess(launchPath: LaunchControl.launchctl, arguments: arguments)
+    }
+    
+    /// Run `launchctl load` on the agent
+    ///
+    /// Check the status of the job with `.status(_: LaunchAgent)`
+    public func load(_ agent: LaunchAgent) {
+        guard let agentURL = agent.url else {
+            return
+        }
+        
+        let arguments = ["load", agentURL.path]
+        Process.launchedProcess(launchPath: LaunchControl.launchctl, arguments: arguments)
+    }
+    
+    /// Run `launchctl unload` on the agent
+    ///
+    /// Check the status of the job with `.status(_: LaunchAgent)`
+    public func unload(_ agent: LaunchAgent) {
+        guard let agentURL = agent.url else {
+            return
+        }
+        
+        let arguments = ["unload", agentURL.path]
+        Process.launchedProcess(launchPath: LaunchControl.launchctl, arguments: arguments)
+    }
+    
+    /// Retreives the status of the LaunchAgent from `launchctl`
+    ///
+    /// - Returns: the agent's status
+    public func status(_ agent: LaunchAgent) -> AgentStatus {
+        // Adapted from https://github.com/zenonas/barmaid/blob/master/Barmaid/LaunchControl.swift
+        
+        let launchctlTask = Process()
+        let grepTask = Process()
+        let cutTask = Process()
+        
+        launchctlTask.launchPath = "/bin/launchctl"
+        launchctlTask.arguments = ["list"]
+        
+        grepTask.launchPath = "/usr/bin/grep"
+        grepTask.arguments = [agent.label]
+        
+        cutTask.launchPath = "/usr/bin/cut"
+        cutTask.arguments = ["-f1"]
+        
+        let pipeLaunchCtlToGrep = Pipe()
+        launchctlTask.standardOutput = pipeLaunchCtlToGrep
+        grepTask.standardInput = pipeLaunchCtlToGrep
+        
+        let pipeGrepToCut = Pipe()
+        grepTask.standardOutput = pipeGrepToCut
+        cutTask.standardInput = pipeGrepToCut
+        
+        let pipeCutToFile = Pipe()
+        cutTask.standardOutput = pipeCutToFile
+        
+        let fileHandle: FileHandle = pipeCutToFile.fileHandleForReading as FileHandle
+        
+        launchctlTask.launch()
+        grepTask.launch()
+        cutTask.launch()
+        
+        
+        let data = fileHandle.readDataToEndOfFile()
+        let stringResult = String(data: data, encoding: .utf8)?.replacingOccurrences(of: "\n", with: "") ?? ""
+        
+        //        if let pid = Int(stringResult) {
+        //            return .running(pid: pid)
+        //        }
+        
+        switch stringResult {
+        case "-":
+            return .loaded
+        case "":
+            return .unloaded
+        default:
+            return .running
+        }
+    }
+}
