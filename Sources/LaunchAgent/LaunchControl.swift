@@ -29,6 +29,10 @@ public class LaunchControl {
     public func read(agent called: String) throws -> LaunchAgent {
         let url = try launchAgentsURL().appendingPathComponent(called)
         
+        return try read(from: url)
+    }
+    
+    public func read(from url: URL) throws -> LaunchAgent {
         return try decoder.decode(LaunchAgent.self, from: Data(contentsOf: url))
     }
 
@@ -37,6 +41,25 @@ public class LaunchControl {
         try encoder.encode(agent).write(to: url)
 
         agent.url = url
+    }
+    
+    func setURL(for agent: LaunchAgent) throws {
+        let contents = try FileManager.default.contentsOfDirectory(
+            at: try launchAgentsURL(),
+            includingPropertiesForKeys: nil,
+            options: [.skipsPackageDescendants, .skipsHiddenFiles, .skipsSubdirectoryDescendants]
+        )
+        
+        contents.forEach { url in
+            let testAgent = try? self.read(from: url)
+            
+            if agent.label == testAgent?.label {
+                agent.url = url
+                return
+            }
+        }
+        
+        
     }
     
 }
