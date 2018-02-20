@@ -4,6 +4,26 @@ import XCTest
 class LaunchAgentTests: XCTestCase {
     
     let testJobMD5 = "fcdeb223b21face810670bdd83844ef8"
+    
+    func testNice() {
+        let agent = LaunchAgent(label: "NiceTest")
+        
+        // Test minimum value
+        agent.nice = -20
+        XCTAssertEqual(agent.nice, -20)
+        
+        // Test maximum value
+        agent.nice = 20
+        XCTAssertEqual(agent.nice, 20)
+        
+        // Test less than minimum value
+        agent.nice = -21
+        XCTAssertEqual(agent.nice, -20)
+        
+        // Test greater than maximum value
+        agent.nice = 21
+        XCTAssertEqual(agent.nice, 20)
+    }
 
     func testValidity() {
         let launchAgent = LaunchAgent(label: "Launch Agent Test", program: "/bin/echo", "LaunchAgentTests")

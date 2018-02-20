@@ -88,7 +88,18 @@ public class LaunchAgent: Codable {
     var legacyTimers: Bool? = nil
     var lowPriorityIO: Bool? = nil
     var lowPriorityBackgroundIO: Bool? = nil
-    var nice: Int? = nil
+    var nice: Int? = nil  {
+        didSet {
+            guard let newInt = nice else {
+                return
+            }
+            if newInt < -20 {
+                nice = -20
+            } else if newInt > 20 {
+                nice = 20
+            }
+        }
+    }
     var processType: ProcessType? = nil
     
     /// Instantiate a new LaunchAgent
