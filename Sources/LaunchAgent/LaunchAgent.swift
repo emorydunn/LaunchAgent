@@ -68,12 +68,28 @@ public class LaunchAgent: Codable {
     
     
     // Control
+    public var abandonProcessGroup: Bool? = nil
+    public var enablePressuredExit: Bool? = nil
+    public var enableTransactions: Bool? = nil
+    public var exitTimeOut: Int? = nil
+    public var inetdCompatibility: Bool? = nil
+    // public var HardResourceLimits
+    // public var SoftResourceLimits
+    public var timeOut: Int? = nil
+    public var throttleInterval: Int? = nil
     
     // IPC
     
     // Debug
+    public var debug: Bool? = nil
+    public var waitForDebugger: Bool? = nil
     
     // Performance
+    var legacyTimers: Bool? = nil
+    var lowPriorityIO: Bool? = nil
+    var lowPriorityBackgroundIO: Bool? = nil
+    var nice: Int? = nil
+    var processType: String? = nil
     
     /// Instantiate a new LaunchAgent
     ///
@@ -137,12 +153,28 @@ public class LaunchAgent: Codable {
         case limitLoadFromHosts = "LimitLoadFromHosts"
         
         // Control
+        case abandonProcessGroup = "AbandonProcessGroup"
+        case enablePressuredExit = "EnablePressuredExit"
+        case enableTransactions = "EnableTransactions"
+        case exitTimeOut = "ExitTimeOut"
+        case inetdCompatibility = "inetdCompatibility"
+        // case hardResourceLimits = "HardResourceLimits"
+        // case softResourceLimits = "SoftResourceLimits"
+        case timeOut = "TimeOut"
+        case throttleInterval = "ThrottleInterval"
         
         // IPC
         
         // Debug
+        case debug = "Debug"
+        case waitForDebugger = "WaitForDebugger"
         
         // Performance
+        case legacyTimers = "LegacyTimers"
+        case lowPriorityIO = "LowPriorityIO"
+        case lowPriorityBackgroundIO = "LowPriorityBackgroundIO"
+        case nice = "Nice"
+        case processType = "ProcessType"
         
     }
     

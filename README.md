@@ -31,7 +31,7 @@ When using either method the `url` of the loaded agent will be set.
 LaunchAgent has `load()`, `unload()`, `start()`, `stop()`, and `status()` methods which do what they say on the tin. 
 
 Load & unload require the agent's URL parameter to be set, or `launchctl` won't be able to locate them. 
-Start, stop, and status are called based on the label. 
+Start, stop, and status are called based on the label. x
 
 
 ## Supported Keys
@@ -88,15 +88,15 @@ Some keys use their own type to encapsulate a complex dictionary value.
 ### Control
 | Key Name            | Key type | Supported | Notes |
 |---------------------|----------|-----------|-------|
-| AbandonProcessGroup | Bool     | false     |       |
-| EnablePressuredExit | Bool     | false     |       |
-| EnableTransactions  | Bool     | false     |       |
-| ExitTimeOut         | Int      | false     |       |
-| inetdCompatibility  | Bool     | false     |       |
+| AbandonProcessGroup | Bool     | true      |       |
+| EnablePressuredExit | Bool     | true      |       |
+| EnableTransactions  | Bool     | true      |       |
+| ExitTimeOut         | Int      | true      |       |
+| inetdCompatibility  | Bool     | true      |       |
 | HardResourceLimits  |          | false     |       |
 | SoftResourceLimits  |          | false     |       |
-| TimeOut             | Int      | false     |       |
-| ThrottleInterval    | Int      | false     |       |
+| TimeOut             | Int      | true      |       |
+| ThrottleInterval    | Int      | true      |       |
 
 ### IPC
 | Key Name     | Key type | Supported | Notes |
@@ -108,17 +108,17 @@ Some keys use their own type to encapsulate a complex dictionary value.
 ### Debug
 | Key Name        | Key type | Supported | Notes |
 |-----------------|----------|-----------|-------|
-| Debug           | Bool     | false     | Deprecated |
-| WaitForDebugger | Bool     | false     |            |
+| Debug           | Bool     | true      | Deprecated |
+| WaitForDebugger | Bool     | true      |            |
 
 ### Performance
 | Key Name                | Key type | Supported | Notes |
 |-------------------------|----------|-----------|-------|
-| LegacyTimers            | Bool     | false     | |
-| LowPriorityIO           | Bool     | false     | |
-| LowPriorityBackgroundIO | Bool     | false     | |
-| Nice                    | Int      | false     | |
-| ProcessType             | String   | false     | |
+| LegacyTimers            | Bool     | true      | |
+| LowPriorityIO           | Bool     | true      | |
+| LowPriorityBackgroundIO | Bool     | true      | |
+| Nice                    | Int      | true      | |
+| ProcessType             | String   | true      | |
 
 
 ## Custom Key Classes
