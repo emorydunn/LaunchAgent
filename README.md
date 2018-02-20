@@ -4,6 +4,36 @@ LaunchAgent provides an easy way to programatically create and maintain [`launch
 
 [launchd]: http://www.launchd.info
 
+## LaunchAgent
+
+A LaunchAgent can be createdinstantiated with either an array of program arguments:
+```swift
+LaunchAgent(label: "local.PythonServer", program: ["python", "-m", "SimpleHTTPServer", "8000"])
+```
+
+or with variadic parameters:
+```swift
+LaunchAgent(label: "local.PythonServer", program: "python", "-m", "SimpleHTTPServer", "8000")
+```
+
+The agent can also be created with only a label, but will be invalid if loaded:
+```swift
+LaunchAgent(label: "local.PythonServer")
+```
+
+### Using LaunchControl to read and write LaunchAgents
+
+The `LaunchControl` class can read and write agents from and to `~/Library/LaunchAgents`. 
+When using either method the `url` of the loaded agent will be set. 
+
+### Controlling LaunchAgents
+
+LaunchAgent has `load()`, `unload()`, `start()`, `stop()`, and `status()` methods which do what they say on the tin. 
+
+Load & unload require the agent's URL parameter to be set, or `launchctl` won't be able to locate them. 
+Start, stop, and status are called based on the label. 
+
+
 ## Supported Keys
 
 LaunchAgent does not currently support all keys, and there are some caveats to some keys it does support. 
