@@ -22,6 +22,8 @@ public class LaunchControl {
     
     /// Provides the user's LaunchAgent directory
     ///
+    /// - Note: If run in a sandbox the directory returned will be inside the application's container
+    ///
     /// - Returns: ~/Library/LaunchAgent
     /// - Throws: FileManager errors
     func launchAgentsURL() throws -> URL {
