@@ -93,8 +93,8 @@ Some keys use their own type to encapsulate a complex dictionary value.
 | EnableTransactions  | Bool               | true      |       |
 | ExitTimeOut         | Int                | true      |       |
 | inetdCompatibility  | inetdCompatibility | true      |       |
-| HardResourceLimits  |                    | false     |       |
-| SoftResourceLimits  |                    | false     |       |
+| HardResourceLimits  | ResourceLimits     | true      |       |
+| SoftResourceLimits  | ResourceLimits     | true      |       |
 | TimeOut             | Int                | true      |       |
 | ThrottleInterval    | Int                | true      |       |
 
@@ -135,4 +135,19 @@ respective time ranges, and will be set to the minimum or maximum value dependin
 ## inetdCompatibility
 
 Encapsulates the `inetdCompatibility` `wait` key. 
+
+## ResourceLimits
+
+Encapsulates the SoftResourceLimits and HardResourceLimits keys: 
+
+- cPU
+- core
+- data
+- fileSize
+- memoryLock
+- numberOfFiles
+- numberOfProcesses
+- residentSetSize
+- stack
+
 

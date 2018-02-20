@@ -113,15 +113,21 @@ class LaunchAgentValiditytests: XCTestCase {
     func testControl() {
         let launchAgent = LaunchAgent(label: "Launch Agent Test", program: "/bin/echo", "LaunchAgentTests")
         
+        let softResource = ResourceLimits(cPU: 1, core: 1, data: 1, fileSize: 1, memoryLock: 1, numberOfFiles: 1, numberOfProcesses: 1, residentSetSize: 1, stack: 1)
+        
+        let hardResource = ResourceLimits(cPU: 2, core: 2, data: 2, fileSize: 2, memoryLock: 2, numberOfFiles: 2, numberOfProcesses: 2, residentSetSize: 2, stack: 2)
+        
         launchAgent.abandonProcessGroup = true
         launchAgent.enablePressuredExit = true
         launchAgent.enableTransactions = true
         launchAgent.exitTimeOut = 30
         launchAgent.inetdCompatibility = inetdCompatibility(wait: true)
+        launchAgent.softResourceLimits = softResource
+        launchAgent.hardResourceLimits = hardResource
         launchAgent.timeOut = 30
         launchAgent.throttleInterval = 30
         
-        XCTAssertEqual(launchAgent.checksum(), "7d451c6d11f417db831e05684e1ff671")
+        XCTAssertEqual(launchAgent.checksum(), "056be4d7e234fc3d17b6f849f8f3b412")
     }
     
     func testIPC() {

@@ -73,8 +73,8 @@ public class LaunchAgent: Codable {
     public var enableTransactions: Bool? = nil
     public var exitTimeOut: Int? = nil
     public var inetdCompatibility: inetdCompatibility? = nil
-    // public var HardResourceLimits
-    // public var SoftResourceLimits
+    public var hardResourceLimits: ResourceLimits? = nil
+    public var softResourceLimits: ResourceLimits? = nil
     public var timeOut: Int? = nil
     public var throttleInterval: Int? = nil
     
@@ -169,8 +169,8 @@ public class LaunchAgent: Codable {
         case enableTransactions = "EnableTransactions"
         case exitTimeOut = "ExitTimeOut"
         case inetdCompatibility = "inetdCompatibility"
-        // case hardResourceLimits = "HardResourceLimits"
-        // case softResourceLimits = "SoftResourceLimits"
+        case hardResourceLimits = "HardResourceLimits"
+        case softResourceLimits = "SoftResourceLimits"
         case timeOut = "TimeOut"
         case throttleInterval = "ThrottleInterval"
         
