@@ -75,6 +75,13 @@ public class LaunchAgent: Codable {
     
     // Performance
     
+    /// Instantiate a new LaunchAgent
+    ///
+    /// - Note: Globbing was deprecated in macOS 10.10, so full paths must be provided
+    ///
+    /// - Parameters:
+    ///   - label: the job's label
+    ///   - program: the job's program arguments
     public init(label: String, program: [String]) {
         self.label = label
         if program.count == 1 {
@@ -85,6 +92,13 @@ public class LaunchAgent: Codable {
         
     }
     
+    /// Instantiate a new LaunchAgent
+    ///
+    /// - Note: Globbing was deprecated in macOS 10.10, so full paths must be provided
+    ///
+    /// - Parameters:
+    ///   - label: the job's label
+    ///   - program: the job's program arguments
     public convenience init(label: String, program: String...) {
         self.init(label: label, program: program)
     }

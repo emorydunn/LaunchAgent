@@ -18,16 +18,25 @@ extension LaunchAgent {
     
     // MARK: LaunchControl
     
+    /// Run `launchctl start` on the agent
+    ///
+    /// Check the status of the job with `.status()`
     public func start() {
         let arguments = ["start", label]
         Process.launchedProcess(launchPath: LaunchControl.launchctl, arguments: arguments)
     }
     
+    /// Run `launchctl stop` on the agent
+    ///
+    /// Check the status of the job with `.status()`
     public func stop() {
         let arguments = ["stop", label]
         Process.launchedProcess(launchPath: LaunchControl.launchctl, arguments: arguments)
     }
     
+    /// Run `launchctl load` on the agent
+    ///
+    /// Check the status of the job with `.status()`
     public func load() {
         guard let agentURL = url else {
             return
@@ -37,6 +46,9 @@ extension LaunchAgent {
         Process.launchedProcess(launchPath: LaunchControl.launchctl, arguments: arguments)
     }
     
+    /// Run `launchctl unload` on the agent
+    ///
+    /// Check the status of the job with `.status()`
     public func unload() {
         guard let agentURL = url else {
             return
@@ -46,6 +58,9 @@ extension LaunchAgent {
         Process.launchedProcess(launchPath: LaunchControl.launchctl, arguments: arguments)
     }
     
+    /// Retreives the status of the LaunchAgent from `launchctl`
+    ///
+    /// - Returns: the agent's status
     public func status() -> AgentStatus {
         // Adapted from https://github.com/zenonas/barmaid/blob/master/Barmaid/LaunchControl.swift
         

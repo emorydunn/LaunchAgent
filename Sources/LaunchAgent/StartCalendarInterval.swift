@@ -12,6 +12,9 @@ public class StartCalendarInterval: Codable {
     public var month: StartMonth?
     public var weekday: StartWeekday?
     
+    /// Day of the month
+    ///
+    /// - Note: Bound to `1...31`. Values outside the range will be set to the closest valid value.
     public var day: Int? {
         didSet {
             guard let newInt = day else {
@@ -24,6 +27,10 @@ public class StartCalendarInterval: Codable {
             }
         }
     }
+    
+    /// Hour of the day
+    ///
+    /// - Note: Bound to `0...23`. Values outside the range will be set to the closest valid value.
     public var hour: Int? {
         didSet {
             guard let newInt = hour else {
@@ -36,6 +43,10 @@ public class StartCalendarInterval: Codable {
             }
         }
     }
+    
+    /// Minute of the hour
+    ///
+    /// - Note: Bound to `0...59`. Values outside the range will be set to the closest valid value.
     public var minute: Int? {
         didSet {
             guard let newInt = minute else {
@@ -49,6 +60,14 @@ public class StartCalendarInterval: Codable {
         }
     }
     
+    /// Set a calendar interval on which to start the job. `nil` values represent any occurance of that key.
+    ///
+    /// - Parameters:
+    ///   - month: month of the year to run the job
+    ///   - weekday: day of the week to run the job
+    ///   - day: day of the month to run the job
+    ///   - hour: hour of the day to run the job
+    ///   - minute: minute of the hour to run the job
     public init(month: StartMonth? = nil, weekday: StartWeekday? = nil, day: Int? = nil, hour: Int? = nil, minute: Int? = nil) {
         self.month = month
         self.weekday = weekday
@@ -68,6 +87,7 @@ public class StartCalendarInterval: Codable {
     
 }
 
+/// Represents the month in the StartCalendarInterval key
 public enum StartMonth: Int, Codable {
     case january = 1
     case february = 2
@@ -83,6 +103,7 @@ public enum StartMonth: Int, Codable {
     case december = 12
 }
 
+/// Represents the weekday in the StartCalendarInterval key
 public enum StartWeekday: Int, Codable {
     case monday = 1
     case tuesday = 2
