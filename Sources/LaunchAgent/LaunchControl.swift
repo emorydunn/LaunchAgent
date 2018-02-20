@@ -20,22 +20,42 @@ public class LaunchControl {
         encoder.outputFormat = .xml
     }
     
+    /// Provides the user's LaunchAgent directory
+    ///
+    /// - Returns: ~/Library/LaunchAgent
+    /// - Throws: FileManager errors
     func launchAgentsURL() throws -> URL {
         let library = try FileManager.default.url(for: .libraryDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
 
         return library.appendingPathComponent("LaunchAgents")
     }
     
+    /// Read a LaunchAgent from the user's LaunchAgents directory
+    ///
+    /// - Parameter called: file name of the job
+    /// - Returns: a LaunchAgent instance
+    /// - Throws: errors on decoding the property list
     public func read(agent called: String) throws -> LaunchAgent {
         let url = try launchAgentsURL().appendingPathComponent(called)
         
         return try read(from: url)
     }
     
+    /// Read a LaunchAgent from disk
+    ///
+    /// - Parameter url: url of the property list
+    /// - Returns:a LaunchAgent instance
+    /// - Throws: errors on decoding the property list
     public func read(from url: URL) throws -> LaunchAgent {
         return try decoder.decode(LaunchAgent.self, from: Data(contentsOf: url))
     }
 
+    /// Writes a LaunchAgent to disk as a property list into the user's LaunchAgents directory
+    ///
+    /// - Parameters:
+    ///   - agent: the agent to encode
+    ///   - called: the file name of the job
+    /// - Throws: errors on encoding the property list
     public func write(_ agent: LaunchAgent, called: String) throws {
         let url = try launchAgentsURL().appendingPathComponent(called)
         try encoder.encode(agent).write(to: url)
@@ -43,6 +63,10 @@ public class LaunchControl {
         agent.url = url
     }
     
+    /// Sets the provided LaunchAgent's URL based on its `label`
+    ///
+    /// - Parameter agent: the LaunchAgent
+    /// - Throws: errors when reading directory contents
     func setURL(for agent: LaunchAgent) throws {
         let contents = try FileManager.default.contentsOfDirectory(
             at: try launchAgentsURL(),
