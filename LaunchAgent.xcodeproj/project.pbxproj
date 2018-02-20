@@ -136,9 +136,9 @@
 			isa = PBXGroup;
 			children = (
 				OBJ_9 /* LaunchAgent.swift */,
-				D2357F87203BE699004C59E7 /* ProcessType.swift */,
 				62183015203BA464004147DA /* LaunchAgent+Status.swift */,
 				62A357F7203B811700D36D47 /* LaunchControl.swift */,
+				D2357F87203BE699004C59E7 /* ProcessType.swift */,
 				OBJ_10 /* StartCalendarInterval.swift */,
 			);
 			name = LaunchAgent;

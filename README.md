@@ -31,7 +31,7 @@ When using either method the `url` of the loaded agent will be set.
 LaunchAgent has `load()`, `unload()`, `start()`, `stop()`, and `status()` methods which do what they say on the tin. 
 
 Load & unload require the agent's URL parameter to be set, or `launchctl` won't be able to locate them. 
-Start, stop, and status are called based on the label. x
+Start, stop, and status are called based on the label. 
 
 
 ## Supported Keys
