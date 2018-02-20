@@ -112,13 +112,13 @@ Some keys use their own type to encapsulate a complex dictionary value.
 | WaitForDebugger | Bool     | true      |            |
 
 ### Performance
-| Key Name                | Key type | Supported | Notes |
-|-------------------------|----------|-----------|-------|
-| LegacyTimers            | Bool     | true      | |
-| LowPriorityIO           | Bool     | true      | |
-| LowPriorityBackgroundIO | Bool     | true      | |
-| Nice                    | Int      | true      | |
-| ProcessType             | String   | true      | |
+| Key Name                | Key type         | Supported | Notes |
+|-------------------------|------------------|-----------|-------|
+| LegacyTimers            | Bool             | true      | |
+| LowPriorityIO           | Bool             | true      | |
+| LowPriorityBackgroundIO | Bool             | true      | |
+| Nice                    | Int              | true      | |
+| ProcessType             | ProcessType enum | true      | |
 
 
 ## Custom Key Classes

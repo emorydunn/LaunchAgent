@@ -24,6 +24,7 @@
 		62183014203B8D65004147DA /* LaunchControlTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62183013203B8D65004147DA /* LaunchControlTests.swift */; };
 		62183016203BA464004147DA /* LaunchAgent+Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62183015203BA464004147DA /* LaunchAgent+Status.swift */; };
 		62A357F8203B811700D36D47 /* LaunchControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A357F7203B811700D36D47 /* LaunchControl.swift */; };
+		D2357F88203BE699004C59E7 /* ProcessType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2357F87203BE699004C59E7 /* ProcessType.swift */; };
 		OBJ_24 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_6 /* Package.swift */; };
 		OBJ_30 /* LaunchAgentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_13 /* LaunchAgentTests.swift */; };
 		OBJ_31 /* ProgramTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_14 /* ProgramTests.swift */; };
@@ -54,6 +55,7 @@
 		62183013203B8D65004147DA /* LaunchControlTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchControlTests.swift; sourceTree = "<group>"; };
 		62183015203BA464004147DA /* LaunchAgent+Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LaunchAgent+Status.swift"; sourceTree = "<group>"; };
 		62A357F7203B811700D36D47 /* LaunchControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchControl.swift; sourceTree = "<group>"; };
+		D2357F87203BE699004C59E7 /* ProcessType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessType.swift; sourceTree = "<group>"; };
 		"LaunchAgent::LaunchAgent::Product" /* LaunchAgent.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = LaunchAgent.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"LaunchAgent::LaunchAgentTests::Product" /* LaunchAgentTests.xctest */ = {isa = PBXFileReference; lastKnownFileType = file; path = LaunchAgentTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		OBJ_10 /* StartCalendarInterval.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartCalendarInterval.swift; sourceTree = "<group>"; };
@@ -134,6 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				OBJ_9 /* LaunchAgent.swift */,
+				D2357F87203BE699004C59E7 /* ProcessType.swift */,
 				62183015203BA464004147DA /* LaunchAgent+Status.swift */,
 				62A357F7203B811700D36D47 /* LaunchControl.swift */,
 				OBJ_10 /* StartCalendarInterval.swift */,
@@ -247,6 +250,7 @@
 				62183016203BA464004147DA /* LaunchAgent+Status.swift in Sources */,
 				62A357F8203B811700D36D47 /* LaunchControl.swift in Sources */,
 				OBJ_41 /* LaunchAgent.swift in Sources */,
+				D2357F88203BE699004C59E7 /* ProcessType.swift in Sources */,
 				OBJ_42 /* StartCalendarInterval.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

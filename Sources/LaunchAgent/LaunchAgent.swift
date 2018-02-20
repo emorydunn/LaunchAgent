@@ -89,7 +89,7 @@ public class LaunchAgent: Codable {
     var lowPriorityIO: Bool? = nil
     var lowPriorityBackgroundIO: Bool? = nil
     var nice: Int? = nil
-    var processType: String? = nil
+    var processType: ProcessType? = nil
     
     /// Instantiate a new LaunchAgent
     ///
