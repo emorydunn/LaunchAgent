@@ -6,7 +6,7 @@
 //
 
 import XCTest
-import LaunchAgent
+@testable import LaunchAgent
 
 class LaunchControlTests: XCTestCase {
 
