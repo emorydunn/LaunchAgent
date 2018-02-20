@@ -105,7 +105,10 @@ class LaunchAgentControlTests: XCTestCase {
     }
     
     override func tearDown() {
-//        try! FileManager.default.removeItem(at: agent.url!)
+        agent.stop()
+        agent.unload()
+        sleep(1)
+        try! FileManager.default.removeItem(at: agent.url!)
     }
     
     func testLoad() {
@@ -118,12 +121,14 @@ class LaunchAgentControlTests: XCTestCase {
         agent.load()
         sleep(1)
         agent.unload()
+        sleep(1)
         
         XCTAssertEqual(agent.status(), AgentStatus.unloaded)
     }
-    
+
     func testStartStop() {
         agent.load()
+        sleep(1)
         agent.start()
         sleep(1)
         
