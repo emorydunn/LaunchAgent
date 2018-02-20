@@ -9,6 +9,9 @@ import Foundation
 
 public class LaunchAgent: Codable {
     
+    public var url: URL? = nil
+    
+    // Basic Properties
     public var label: String
     public var disabled: Bool? = nil
     public var enableGlobbing: Bool? = nil
