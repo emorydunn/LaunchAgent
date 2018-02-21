@@ -80,7 +80,7 @@ public class LaunchControl {
     ///
     /// - Parameter agent: the LaunchAgent
     /// - Throws: errors when reading directory contents
-    func setURL(for agent: LaunchAgent) throws {
+    public func setURL(for agent: LaunchAgent) throws {
         let contents = try FileManager.default.contentsOfDirectory(
             at: try launchAgentsURL(),
             includingPropertiesForKeys: nil,
