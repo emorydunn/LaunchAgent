@@ -8,7 +8,14 @@
 import Foundation
 
 public enum LaunchControlError: Error {
-    case urlNotSet
+    case urlNotSet(label: String)
+    
+    public var localizedDescription: String {
+        switch self {
+        case .urlNotSet(let label):
+            return "The URL is not set for agent \(label)"
+        }
+    }
 }
 
 public class LaunchControl {
@@ -128,7 +135,7 @@ extension LaunchControl {
     /// Check the status of the job with `.status(_: LaunchAgent)`
     public func load(_ agent: LaunchAgent) throws {
         guard let agentURL = agent.url else {
-            throw LaunchControlError.urlNotSet
+            throw LaunchControlError.urlNotSet(label: agent.label)
         }
         
         let arguments = ["load", agentURL.path]
@@ -140,7 +147,7 @@ extension LaunchControl {
     /// Check the status of the job with `.status(_: LaunchAgent)`
     public func unload(_ agent: LaunchAgent) throws {
         guard let agentURL = agent.url else {
-            throw LaunchControlError.urlNotSet
+            throw LaunchControlError.urlNotSet(label: agent.label)
         }
         
         let arguments = ["unload", agentURL.path]
