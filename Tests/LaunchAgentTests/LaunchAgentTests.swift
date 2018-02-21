@@ -35,30 +35,30 @@ class LaunchAgentControlTests: XCTestCase {
     
     override func tearDown() {
         agent.stop()
-        agent.unload()
+        try! agent.unload()
         sleep(1)
         try! FileManager.default.removeItem(at: agent.url!)
     }
     
     func testLoad() {
-        agent.load()
+       XCTAssertNoThrow(try agent.load())
         
         XCTAssertEqual(agent.status(), AgentStatus.loaded)
     }
     
     func testUnload() {
-        agent.load()
+        XCTAssertNoThrow(try agent.load())
         sleep(1)
-        agent.unload()
+        XCTAssertNoThrow(try agent.unload())
         sleep(1)
         
         XCTAssertEqual(agent.status(), AgentStatus.unloaded)
     }
 
     func testStartStop() {
-        agent.load()
+        XCTAssertNoThrow(try agent.load())
         sleep(1)
-        agent.start()
+        XCTAssertNoThrow(try agent.start())
         sleep(1)
         
         XCTAssertEqual(agent.status(), AgentStatus.running)

@@ -44,29 +44,39 @@ class LaunchControlTests: XCTestCase {
     override func tearDown() {
         LaunchControl.shared.stop(agent)
         sleep(1)
-        LaunchControl.shared.unload(agent)
+        XCTAssertNoThrow(try LaunchControl.shared.unload(agent))
         sleep(1)
         try! FileManager.default.removeItem(at: agent.url!)
     }
     
     func testLoad() {
-        LaunchControl.shared.load(agent)
+        XCTAssertNoThrow(try LaunchControl.shared.load(agent))
         sleep(1)
         
         XCTAssertEqual(agent.status(), AgentStatus.loaded)
     }
     
+    func testLoadError() {
+        let testAgent = LaunchAgent(label: "TestAgent")
+        XCTAssertThrowsError(try LaunchControl.shared.load(testAgent))
+    }
+    
     func testUnload() {
-        LaunchControl.shared.load(agent)
+        XCTAssertNoThrow(try LaunchControl.shared.load(agent))
         sleep(1)
-        LaunchControl.shared.unload(agent)
+        XCTAssertNoThrow(try LaunchControl.shared.unload(agent))
         sleep(1)
         
         XCTAssertEqual(agent.status(), AgentStatus.unloaded)
     }
     
+    func testUnloadError() {
+        let testAgent = LaunchAgent(label: "TestAgent")
+        XCTAssertThrowsError(try LaunchControl.shared.unload(testAgent))
+    }
+    
     func testStartStop() {
-        LaunchControl.shared.load(agent)
+        XCTAssertNoThrow(try LaunchControl.shared.load(agent))
         sleep(1)
         LaunchControl.shared.start(agent)
         sleep(1)

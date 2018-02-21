@@ -35,15 +35,15 @@ extension LaunchAgent {
     /// Run `launchctl load` on the agent
     ///
     /// Check the status of the job with `.status()`
-    public func load() {
-        LaunchControl.shared.load(self)
+    public func load() throws {
+        try LaunchControl.shared.load(self)
     }
     
     /// Run `launchctl unload` on the agent
     ///
     /// Check the status of the job with `.status()`
-    public func unload() {
-        LaunchControl.shared.unload(self)
+    public func unload() throws {
+        try LaunchControl.shared.unload(self)
     }
     
     /// Retreives the status of the LaunchAgent from `launchctl`

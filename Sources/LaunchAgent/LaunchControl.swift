@@ -7,6 +7,10 @@
 
 import Foundation
 
+public enum LaunchControlError: Error {
+    case urlNotSet
+}
+
 public class LaunchControl {
     public static let shared = LaunchControl()
     
@@ -122,9 +126,9 @@ extension LaunchControl {
     /// Run `launchctl load` on the agent
     ///
     /// Check the status of the job with `.status(_: LaunchAgent)`
-    public func load(_ agent: LaunchAgent) {
+    public func load(_ agent: LaunchAgent) throws {
         guard let agentURL = agent.url else {
-            return
+            throw LaunchControlError.urlNotSet
         }
         
         let arguments = ["load", agentURL.path]
@@ -134,9 +138,9 @@ extension LaunchControl {
     /// Run `launchctl unload` on the agent
     ///
     /// Check the status of the job with `.status(_: LaunchAgent)`
-    public func unload(_ agent: LaunchAgent) {
+    public func unload(_ agent: LaunchAgent) throws {
         guard let agentURL = agent.url else {
-            return
+            throw LaunchControlError.urlNotSet
         }
         
         let arguments = ["unload", agentURL.path]
