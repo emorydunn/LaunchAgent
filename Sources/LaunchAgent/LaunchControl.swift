@@ -192,7 +192,7 @@ extension LaunchControl {
         
         
         let data = fileHandle.readDataToEndOfFile()
-        let stringResult = String(data: data, encoding: .utf8)?.replacingOccurrences(of: "\n", with: "") ?? ""
+        let stringResult = String(data: data, encoding: .utf8)?.trimmingCharacters(in: .newlines) ?? ""
 
         switch stringResult {
         case "-":
