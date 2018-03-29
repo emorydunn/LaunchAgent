@@ -126,7 +126,7 @@ Some keys use their own type to encapsulate a complex dictionary value.
 ### StartCalendarInterval
 
 The `StartCalendarInterval` encapsulates the dictionary for setting calendar-based job intervals. 
-By default all values are set to`nil`, meaning the job will run on any occurrence of that value. 
+By default all values are set to `nil`, meaning the job will run on any occurrence of that value. 
 
 The Month and Weekday keys are represented by enums for each month and week, respectively. 
 Day, Hour, and Minute values are simply integers. They are checked for validity in their 
@@ -140,7 +140,7 @@ Encapsulates the `inetdCompatibility` `wait` key.
 
 Encapsulates the SoftResourceLimits and HardResourceLimits keys: 
 
-- cPU
+- cpu
 - core
 - data
 - fileSize
