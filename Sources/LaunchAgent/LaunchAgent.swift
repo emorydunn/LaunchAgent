@@ -9,7 +9,12 @@ import Foundation
 
 public class LaunchAgent: Codable {
     
-    public var label: String? = nil
+    public var url: URL? = nil
+    
+    // Basic Properties
+    public var label: String
+    public var disabled: Bool? = nil
+    public var enableGlobbing: Bool? = nil
     public var program: String? = nil {
         didSet {
             if program != nil {
@@ -63,14 +68,50 @@ public class LaunchAgent: Codable {
     
     
     // Control
+    public var abandonProcessGroup: Bool? = nil
+    public var enablePressuredExit: Bool? = nil
+    public var enableTransactions: Bool? = nil
+    public var exitTimeOut: Int? = nil
+    public var inetdCompatibility: inetdCompatibility? = nil
+    public var hardResourceLimits: ResourceLimits? = nil
+    public var softResourceLimits: ResourceLimits? = nil
+    public var timeOut: Int? = nil
+    public var throttleInterval: Int? = nil
     
     // IPC
+    public var machServices: [String: MachService]? = nil
     
     // Debug
+    public var debug: Bool? = nil
+    public var waitForDebugger: Bool? = nil
     
     // Performance
+    public var legacyTimers: Bool? = nil
+    public var lowPriorityIO: Bool? = nil
+    public var lowPriorityBackgroundIO: Bool? = nil
+    public var nice: Int? = nil  {
+        didSet {
+            guard let newInt = nice else {
+                return
+            }
+            if newInt < -20 {
+                nice = -20
+            } else if newInt > 20 {
+                nice = 20
+            }
+        }
+    }
+    public var processType: ProcessType? = nil
     
-    public init(program: [String]) {
+    /// Instantiate a new LaunchAgent
+    ///
+    /// - Note: Globbing was deprecated in macOS 10.10, so full paths must be provided
+    ///
+    /// - Parameters:
+    ///   - label: the job's label
+    ///   - program: the job's program arguments
+    public init(label: String, program: [String]) {
+        self.label = label
         if program.count == 1 {
             self.program = program.first
         } else {
@@ -79,12 +120,21 @@ public class LaunchAgent: Codable {
         
     }
     
-    public convenience init(program: String...) {
-        self.init(program: program)
+    /// Instantiate a new LaunchAgent
+    ///
+    /// - Note: Globbing was deprecated in macOS 10.10, so full paths must be provided
+    ///
+    /// - Parameters:
+    ///   - label: the job's label
+    ///   - program: the job's program arguments
+    public convenience init(label: String, program: String...) {
+        self.init(label: label, program: program)
     }
     
     public enum CodingKeys: String, CodingKey {
         case label = "Label"
+        case disabled = "Disabled"
+        case enableGlobbing = "EnableGlobbing"
         case program = "Program"
         case programArguments = "ProgramArguments"
         
@@ -115,12 +165,29 @@ public class LaunchAgent: Codable {
         case limitLoadFromHosts = "LimitLoadFromHosts"
         
         // Control
+        case abandonProcessGroup = "AbandonProcessGroup"
+        case enablePressuredExit = "EnablePressuredExit"
+        case enableTransactions = "EnableTransactions"
+        case exitTimeOut = "ExitTimeOut"
+        case inetdCompatibility = "inetdCompatibility"
+        case hardResourceLimits = "HardResourceLimits"
+        case softResourceLimits = "SoftResourceLimits"
+        case timeOut = "TimeOut"
+        case throttleInterval = "ThrottleInterval"
         
         // IPC
+        case machServices = "MachServices"
         
         // Debug
+        case debug = "Debug"
+        case waitForDebugger = "WaitForDebugger"
         
         // Performance
+        case legacyTimers = "LegacyTimers"
+        case lowPriorityIO = "LowPriorityIO"
+        case lowPriorityBackgroundIO = "LowPriorityBackgroundIO"
+        case nice = "Nice"
+        case processType = "ProcessType"
         
     }
     
