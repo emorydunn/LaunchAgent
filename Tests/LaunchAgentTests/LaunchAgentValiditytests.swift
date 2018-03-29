@@ -113,9 +113,9 @@ class LaunchAgentValiditytests: XCTestCase {
     func testControl() {
         let launchAgent = LaunchAgent(label: "Launch Agent Test", program: "/bin/echo", "LaunchAgentTests")
         
-        let softResource = ResourceLimits(cPU: 1, core: 1, data: 1, fileSize: 1, memoryLock: 1, numberOfFiles: 1, numberOfProcesses: 1, residentSetSize: 1, stack: 1)
+        let softResource = ResourceLimits(cpu: 1, core: 1, data: 1, fileSize: 1, memoryLock: 1, numberOfFiles: 1, numberOfProcesses: 1, residentSetSize: 1, stack: 1)
         
-        let hardResource = ResourceLimits(cPU: 2, core: 2, data: 2, fileSize: 2, memoryLock: 2, numberOfFiles: 2, numberOfProcesses: 2, residentSetSize: 2, stack: 2)
+        let hardResource = ResourceLimits(cpu: 2, core: 2, data: 2, fileSize: 2, memoryLock: 2, numberOfFiles: 2, numberOfProcesses: 2, residentSetSize: 2, stack: 2)
         
         launchAgent.abandonProcessGroup = true
         launchAgent.enablePressuredExit = true
