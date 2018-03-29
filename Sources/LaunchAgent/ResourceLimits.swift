@@ -9,7 +9,7 @@ import Foundation
 
 public class ResourceLimits: Codable {
     
-    public var cPU: Int?
+    public var cpu: Int?
     public var core: Int?
     public var data: Int?
     public var fileSize: Int?
@@ -19,8 +19,8 @@ public class ResourceLimits: Codable {
     public var residentSetSize: Int?
     public var stack: Int?
     
-    public init(cPU: Int? = nil, core: Int? = nil, data: Int? = nil, fileSize: Int? = nil, memoryLock: Int? = nil, numberOfFiles: Int? = nil, numberOfProcesses: Int? = nil, residentSetSize: Int? = nil, stack: Int? = nil) {
-        self.cPU = cPU
+    public init(cpu: Int? = nil, core: Int? = nil, data: Int? = nil, fileSize: Int? = nil, memoryLock: Int? = nil, numberOfFiles: Int? = nil, numberOfProcesses: Int? = nil, residentSetSize: Int? = nil, stack: Int? = nil) {
+        self.cpu = cpu
         self.core = core
         self.data = data
         self.fileSize = fileSize
@@ -32,7 +32,7 @@ public class ResourceLimits: Codable {
     }
     
     public enum CodingKeys: String, CodingKey {
-        case cPU = "CPU"
+        case cpu = "CPU"
         case core = "Core"
         case data = "Data"
         case fileSize = "FileSize"
