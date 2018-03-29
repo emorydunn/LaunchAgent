@@ -58,10 +58,16 @@ class LaunchAgentControlTests: XCTestCase {
     func testStartStop() {
         XCTAssertNoThrow(try agent.load())
         sleep(1)
-        XCTAssertNoThrow(try agent.start())
+        XCTAssertNoThrow(agent.start())
         sleep(1)
         
-        XCTAssertEqual(agent.status(), AgentStatus.running)
+        switch agent.status() {
+        case .running(_):
+            XCTAssert(true)
+        default:
+            XCTAssert(false)
+        }
+
         agent.stop()
         sleep(1)
         

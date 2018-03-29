@@ -193,18 +193,14 @@ extension LaunchControl {
         
         let data = fileHandle.readDataToEndOfFile()
         let stringResult = String(data: data, encoding: .utf8)?.replacingOccurrences(of: "\n", with: "") ?? ""
-        
-        //        if let pid = Int(stringResult) {
-        //            return .running(pid: pid)
-        //        }
-        
+
         switch stringResult {
         case "-":
             return .loaded
         case "":
             return .unloaded
         default:
-            return .running
+            return .running(pid: Int(stringResult)!)
         }
     }
 }

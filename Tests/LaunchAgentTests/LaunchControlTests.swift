@@ -81,7 +81,13 @@ class LaunchControlTests: XCTestCase {
         LaunchControl.shared.start(agent)
         sleep(1)
         
-        XCTAssertEqual(agent.status(), AgentStatus.running)
+        switch agent.status() {
+        case .running(_):
+            XCTAssert(true)
+        default:
+            XCTAssert(false)
+        }
+        
         LaunchControl.shared.stop(agent)
         sleep(1)
         

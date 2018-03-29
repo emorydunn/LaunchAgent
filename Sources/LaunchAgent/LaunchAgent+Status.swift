@@ -7,10 +7,24 @@
 
 import Foundation
 
-public enum AgentStatus {
-    case running
+public enum AgentStatus: Equatable {
+    
+    case running(pid: Int)
     case loaded
     case unloaded
+    
+    public static func ==(lhs: AgentStatus, rhs: AgentStatus) -> Bool {
+        switch (lhs, rhs) {
+        case ( let .running(lhpid), let .running(rhpid) ):
+            return lhpid == rhpid
+        case (.loaded, .loaded):
+            return true
+        case (.unloaded, .unloaded):
+            return true
+        default:
+            return false
+        }
+    }
     
 }
 
