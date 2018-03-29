@@ -93,6 +93,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		621E97A9206D56E400FE5E8B /* Key Types */ = {
+			isa = PBXGroup;
+			children = (
+				D2357F87203BE699004C59E7 /* ProcessType.swift */,
+				62183019203CB766004147DA /* inetdCompatibility.swift */,
+				6218301B203CB908004147DA /* ResourceLimits.swift */,
+				6218301D203CBD50004147DA /* MachService.swift */,
+				OBJ_10 /* StartCalendarInterval.swift */,
+			);
+			name = "Key Types";
+			path = "Sources/LaunchAgent/Key Types";
+			sourceTree = SOURCE_ROOT;
+		};
 		OBJ_11 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
@@ -147,11 +160,7 @@
 				OBJ_9 /* LaunchAgent.swift */,
 				62183015203BA464004147DA /* LaunchAgent+Status.swift */,
 				62A357F7203B811700D36D47 /* LaunchControl.swift */,
-				D2357F87203BE699004C59E7 /* ProcessType.swift */,
-				62183019203CB766004147DA /* inetdCompatibility.swift */,
-				6218301B203CB908004147DA /* ResourceLimits.swift */,
-				6218301D203CBD50004147DA /* MachService.swift */,
-				OBJ_10 /* StartCalendarInterval.swift */,
+				621E97A9206D56E400FE5E8B /* Key Types */,
 			);
 			name = LaunchAgent;
 			path = Sources/LaunchAgent;
