@@ -74,9 +74,14 @@ Some keys use their own type to encapsulate a complex dictionary value.
 | queueDirectories      | [String]              | true     | |
 
 ### Security
-| Key Name | Key type | Supported | Notes |
-|----------|----------|-----------|-------|
-| umask    | Int      | true      | user must provide decimal version of the permission octal |
+| Key Name      | Key type | Supported | Notes |
+|---------------|----------|-----------|-------|
+| umask         | Int      | true      | user must provide decimal version of the permission octal |
+| sessionCreate | Bool     | true      | |
+| groupName     | String   | true      | |
+| userName      | String   | true      | |
+| initGroups    | Bool     | true      | |
+| rootDirectory | String   | true      | |
 
 ### Run Constriants
 | Key Name               | Key type | Supported | Notes |

@@ -59,6 +59,13 @@ public class LaunchAgent: Codable {
     
     // Security
     public var umask: Int? = nil
+    // System Daemon Security
+    public var sessionCreate: Bool? = nil
+    public var groupName: String? = nil
+    public var userName: String? = nil
+    public var initGroups: Bool? = nil
+    public var rootDirectory: String? = nil
+    
     
     // Run Constriants
     public var launchOnlyOnce: Bool? = nil
@@ -157,6 +164,11 @@ public class LaunchAgent: Codable {
         
         // Security
         case umask = "Umask"
+        case sessionCreate = "SessionCreate"
+        case groupName = "GroupName"
+        case userName = "UserName"
+        case initGroups = "InitGroups"
+        case rootDirectory = "RootDirectory"
         
         // Run Constriants
         case launchOnlyOnce = "LaunchOnlyOnce"
