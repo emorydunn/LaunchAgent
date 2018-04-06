@@ -133,11 +133,13 @@ extension FilePermissions {
     
     /** Init from an Mac-style integer, either decimal or octal.
      
-     To use an octal representation, such as 027 enter `0o027`.
+    Each digit in the octal is subtracted from 7 to get it's Unix value.
      
-     To use an decimal representation, such as 23 enter `23`.
+    To use an octal representation, such as 027 enter `0o027`.
      
-     - Parameter number: number representation of the permissions
+    To use an decimal representation, such as 23 enter `23`.
+     
+    - Parameter number: number representation of the permissions
      */
     public convenience init(mac number: Int) {
         let octal = String(number, radix: 8)
