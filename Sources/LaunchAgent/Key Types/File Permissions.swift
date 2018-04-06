@@ -14,7 +14,7 @@ import Foundation
  - Write: 2
  - Execute: 1
 
- In addition to Unix-style, you can get the Mac-stye [umask](https://ss64.com/osx/umask.html) value.
+ In addition you can get the [umask](https://ss64.com/osx/umask.html) value.
  
 */
 public struct PermissionBits: OptionSet, Codable, CustomStringConvertible {
@@ -37,18 +37,18 @@ public struct PermissionBits: OptionSet, Codable, CustomStringConvertible {
         self.rawValue = rawValue
     }
     
-    /// Set permissions from a Mac-style octal digit
+    /// Set permissions from a umask octal digit
     ///
-    /// - Parameter macOctal: Mac-style octal digit
+    /// - Parameter macOctal: umask octal digit
     public init(umaskValue: Int) {
         self.rawValue = (7 - umaskValue)
     }
     
     /// The symbolic representation of the permissions
     public var description: String {
-        let r = self.contains(.read) ? "r" : ""
-        let w = self.contains(.write) ? "w" : ""
-        let x = self.contains(.execute) ? "x" : ""
+        let r = self.contains(.read) ? "r" : "-"
+        let w = self.contains(.write) ? "w" : "-"
+        let x = self.contains(.execute) ? "x" : "-"
         return r + w + x
         
     }
@@ -112,28 +112,21 @@ public class FilePermissions: CustomStringConvertible {
         return userO + groupO + otherO
     }
     
-    /// Symbolic representation of the permissions, e.g. u+rwx,g+rx,0+rx
+    /// Symbolic representation of the permissions, e.g. -rwxr-xr-x
     public var symbolic: String {
-        var perms: [String] = []
-        
-        if !user.isEmpty { perms.append("u+\(user)") }
-        if !group.isEmpty { perms.append("g+\(group)") }
-        if !other.isEmpty { perms.append("o+\(other)") }
-        
-        return perms.joined(separator: ",")
+        return "-" + user.description + group.description + other.description
     }
     
     public var description: String {
-        return "Permissions \(symbolic)"
+        return "Permissions u+\(user), g+\(group), o+\(other)"
     }
 }
 
-// The file permissions octal for LaunchAgents are inverted from unix
 extension FilePermissions {
     
-    /** Init from an Mac-style integer, either decimal or octal.
+    /** Init from an umask integer, either decimal or octal.
      
-    Each digit in the octal is subtracted from 7 to get it's Unix value.
+    Each digit in the octal is subtracted from 7 to get its value.
      
     To use an octal representation, such as 027 enter `0o027`.
      
@@ -164,7 +157,7 @@ extension FilePermissions {
         return octal.leftPadding(toLength: 3, withPad: "0")
     }
     
-    /// Decimal representation of the Mac-style octal, e.g. 23
+    /// Decimal representation of the umask octal, e.g. 23
     public var umaskDecimal: Int {
         let userO =     user.umaskValue    * 64
         let groupO =    group.umaskValue   * 8

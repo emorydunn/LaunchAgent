@@ -31,11 +31,11 @@ class PermissionBitTests: XCTestCase {
         let readExecute: PermissionBits = [PermissionBits.read, .execute]
         let writeExecute: PermissionBits = [PermissionBits.write, .execute]
         
-        XCTAssertEqual(read.description, "r")
-        XCTAssertEqual(readWrite.description, "rw")
+        XCTAssertEqual(read.description, "r--")
+        XCTAssertEqual(readWrite.description, "rw-")
         XCTAssertEqual(readWriteExecute.description, "rwx")
-        XCTAssertEqual(readExecute.description, "rx")
-        XCTAssertEqual(writeExecute.description, "wx")
+        XCTAssertEqual(readExecute.description, "r-x")
+        XCTAssertEqual(writeExecute.description, "-wx")
         
     }
     
@@ -79,12 +79,12 @@ class FilePermissionsTests: XCTestCase {
     
     func test_symbolic() {
         let file = FilePermissions(0o751)
-        XCTAssertEqual(file.symbolic, "u+rwx,g+rx,o+x")
+        XCTAssertEqual(file.symbolic, "-rwxr-x--x")
     }
     
     func test_description() {
         let file = FilePermissions(0o750)
-        XCTAssertEqual(file.description, "Permissions u+rwx,g+rx")
+        XCTAssertEqual(file.description, "Permissions u+rwx, g+r-x, o+---")
     }
 
 }
