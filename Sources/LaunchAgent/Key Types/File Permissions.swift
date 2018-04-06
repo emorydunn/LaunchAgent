@@ -167,15 +167,3 @@ extension FilePermissions {
     }
     
 }
-
-//extension FilePermissions: Encodable {
-//
-//    enum CodingKeys: String {
-//        case decimal
-//    }
-//
-//    public func encode(to encoder: Encoder) throws {
-//        var container = encoder.container(keyedBy: CodingKeys.self)
-//    }
-//}
-
