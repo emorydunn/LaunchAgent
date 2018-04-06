@@ -166,6 +166,7 @@ Individual permission Unix bits for read, write, and execute.
 - Write: 2
 - Execute: 1
 
- In addition to Unix-style, you can get the Mac-stye [umask](https://ss64.com/osx/umask.html) value. 
- When setting permissions for a LaunchAgent use `.umaskDecimal` to get the value. If you're reading a LaunchAgent 
- `FilePermissions(umask:)` will read in the decimal so the permissions can be updated. 
+In addition you can get the [umask](https://ss64.com/osx/umask.html) value.
+
+When setting permissions for a LaunchAgent use `.umaskDecimal` to get the value. 
+If you're reading a LaunchAgent `FilePermissions(umask:)` will read in the decimal so the permissions can be updated. 
