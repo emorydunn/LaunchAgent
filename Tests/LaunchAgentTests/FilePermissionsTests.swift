@@ -16,12 +16,12 @@ class PermissionBitTests: XCTestCase {
     }
     
     func test_mac_init() {
-        XCTAssertEqual(PermissionBits.init(macOctal: 2), [.read, .execute])
+        XCTAssertEqual(PermissionBits.init(umaskValue: 2), [.read, .execute])
     }
     
     func test_mac_octal() {
         let permissions: PermissionBits = [.read, .write, .execute]
-        XCTAssertEqual(permissions.macOctal, 0)
+        XCTAssertEqual(permissions.umaskValue, 0)
     }
     
     func test_description() {
@@ -53,6 +53,14 @@ class FilePermissionsTests: XCTestCase {
     
     func test_octal_init() {
         let file = FilePermissions(0o750)
+        
+        XCTAssertEqual(file.user, [.read, .write, .execute])
+        XCTAssertEqual(file.group, [.read, .execute])
+        XCTAssertEqual(file.other, [])
+    }
+    
+    func test_decimal_init() {
+        let file = FilePermissions(488)
         
         XCTAssertEqual(file.user, [.read, .write, .execute])
         XCTAssertEqual(file.group, [.read, .execute])
