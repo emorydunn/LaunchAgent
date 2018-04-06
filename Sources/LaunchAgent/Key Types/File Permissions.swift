@@ -7,6 +7,16 @@
 
 import Foundation
 
+/** Individual permission Unix bits for read, write, and execute.
+
+ ## Unix Permissions
+ - Read: 4
+ - Write: 2
+ - Execute: 1
+
+ In addition to Unix-style, you can get the Mac-stye [umask](https://ss64.com/osx/umask.html) value.
+ 
+*/
 public struct PermissionBits: OptionSet, Codable, CustomStringConvertible {
     public let rawValue: Int
     
@@ -14,18 +24,27 @@ public struct PermissionBits: OptionSet, Codable, CustomStringConvertible {
     public static let write = PermissionBits(rawValue: 2)
     public static let execute = PermissionBits(rawValue: 1)
     
-    public var macOctal: Int {
+    
+    /// Mac `umask` value
+    public var umaskValue: Int {
         return 7 - self.rawValue
     }
     
+    /// Set permissions from a Unix-style octal digit
+    ///
+    /// - Parameter rawValue: Unix-style octal digit
     public init(rawValue: Int) {
         self.rawValue = rawValue
     }
     
-    public init(macOctal: Int) {
-        self.rawValue = (7 - macOctal)
+    /// Set permissions from a Mac-style octal digit
+    ///
+    /// - Parameter macOctal: Mac-style octal digit
+    public init(umaskValue: Int) {
+        self.rawValue = (7 - umaskValue)
     }
     
+    /// The symbolic representation of the permissions
     public var description: String {
         let r = self.contains(.read) ? "r" : ""
         let w = self.contains(.write) ? "w" : ""
@@ -35,17 +54,32 @@ public struct PermissionBits: OptionSet, Codable, CustomStringConvertible {
     }
 }
 
+/// Represents the permissions on a file
 public class FilePermissions: CustomStringConvertible {
     public var user: PermissionBits
     public var group: PermissionBits
     public var other: PermissionBits
     
+    /// Init from `PermissionBit`s
+    ///
+    /// - Parameters:
+    ///   - user: user permissions
+    ///   - group: group permissions
+    ///   - other: other permissions
     public required init(user: PermissionBits, group: PermissionBits, other: PermissionBits) {
         self.user = user
         self.group = group
         self.other = other
     }
     
+    /** Init from an integer, either decimal or octal.
+     
+    To use an octal representation, such as 755 enter `0o755`.
+     
+    To use an decimal representation, such as 488 enter `488`.
+    
+    - Parameter number: number representation of the permissions
+    */
     public convenience init(_ number: Int) {
         let octal = String(number, radix: 8)
         let padded = octal.leftPadding(toLength: 3, withPad: "0")
@@ -63,11 +97,13 @@ public class FilePermissions: CustomStringConvertible {
         
     }
     
+    /// The permissions octal, e.g. 755
     public var octal: String {
         let octal = String(decimal, radix: 8)
         return octal.leftPadding(toLength: 3, withPad: "0")
     }
     
+    /// Decimal representation of the permissions, e.g. 488
     public var decimal: Int {
         let userO =     user.rawValue    * 64
         let groupO =    group.rawValue   * 8
@@ -76,6 +112,7 @@ public class FilePermissions: CustomStringConvertible {
         return userO + groupO + otherO
     }
     
+    /// Symbolic representation of the permissions, e.g. u+rwx,g+rx,0+rx
     public var symbolic: String {
         var perms: [String] = []
         
@@ -94,45 +131,56 @@ public class FilePermissions: CustomStringConvertible {
 // The file permissions octal for LaunchAgents are inverted from unix
 extension FilePermissions {
     
+    /** Init from an Mac-style integer, either decimal or octal.
+     
+     To use an octal representation, such as 027 enter `0o027`.
+     
+     To use an decimal representation, such as 23 enter `23`.
+     
+     - Parameter number: number representation of the permissions
+     */
     public convenience init(mac number: Int) {
         let octal = String(number, radix: 8)
         let padded = octal.leftPadding(toLength: 3, withPad: "0")
         
         let userDigit = String(padded[0])
-        let user = PermissionBits(macOctal: Int(userDigit)!)
+        let user = PermissionBits(umaskValue: Int(userDigit)!)
         
         let groupDigit = String(padded[1])
-        let group = PermissionBits(macOctal: Int(groupDigit)!)
+        let group = PermissionBits(umaskValue: Int(groupDigit)!)
         
         let otherDigit = String(padded[2])
-        let other = PermissionBits(macOctal: Int(otherDigit)!)
+        let other = PermissionBits(umaskValue: Int(otherDigit)!)
         
         self.init(user: user, group: group, other: other)
         
     }
     
+    /// The Mac umask octal, e.g. 027
     public var macOctal: String {
         let octal = String(macDecimal, radix: 8)
         return octal.leftPadding(toLength: 3, withPad: "0")
     }
     
+    /// Decimal representation of the Mac-style octal, e.g. 23
     public var macDecimal: Int {
-        let userO =     user.macOctal    * 64
-        let groupO =    group.macOctal   * 8
-        let otherO =    other.macOctal   * 1
+        let userO =     user.umaskValue    * 64
+        let groupO =    group.umaskValue   * 8
+        let otherO =    other.umaskValue   * 1
         
         return userO + groupO + otherO
     }
     
 }
 
-extension FilePermissions: Encodable {
-    
-    enum CodingKeys: String {
-        case decimal
-    }
-    
-    public func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: CodingKeys.self)
-    }
-}
+//extension FilePermissions: Encodable {
+//
+//    enum CodingKeys: String {
+//        case decimal
+//    }
+//
+//    public func encode(to encoder: Encoder) throws {
+//        var container = encoder.container(keyedBy: CodingKeys.self)
+//    }
+//}
+
