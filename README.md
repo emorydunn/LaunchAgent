@@ -76,7 +76,7 @@ Some keys use their own type to encapsulate a complex dictionary value.
 ### Security
 | Key Name      | Key type | Supported | Notes |
 |---------------|----------|-----------|-------|
-| umask         | Int      | true      | user must provide decimal version of the permission octal |
+| umask         | Int      | true      | Use `FilePermissions.umaskDecimal` to get a valid value |
 | sessionCreate | Bool     | true      | |
 | groupName     | String   | true      | |
 | userName      | String   | true      | |
@@ -157,4 +157,15 @@ Encapsulates the SoftResourceLimits and HardResourceLimits keys:
 - residentSetSize
 - stack
 
+## FilePermissions
 
+Individual permission Unix bits for read, write, and execute.
+
+## Unix Permissions
+- Read: 4
+- Write: 2
+- Execute: 1
+
+ In addition to Unix-style, you can get the Mac-stye [umask](https://ss64.com/osx/umask.html) value. 
+ When setting permissions for a LaunchAgent use `.umaskDecimal` to get the value. If you're reading a LaunchAgent 
+ `FilePermissions(umask:)` will read in the decimal so the permissions can be updated. 
