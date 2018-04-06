@@ -30,6 +30,7 @@
 		62A357F8203B811700D36D47 /* LaunchControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A357F7203B811700D36D47 /* LaunchControl.swift */; };
 		62C012D520780B1300354CC2 /* File Permissions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C012D420780B1300354CC2 /* File Permissions.swift */; };
 		62C012D720780B2C00354CC2 /* String Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C012D620780B2C00354CC2 /* String Extensions.swift */; };
+		62C012D9207810C800354CC2 /* FilePermissionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C012D8207810C800354CC2 /* FilePermissionsTests.swift */; };
 		D2357F88203BE699004C59E7 /* ProcessType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2357F87203BE699004C59E7 /* ProcessType.swift */; };
 		OBJ_24 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_6 /* Package.swift */; };
 		OBJ_30 /* LaunchAgentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_13 /* LaunchAgentTests.swift */; };
@@ -67,6 +68,7 @@
 		62A357F7203B811700D36D47 /* LaunchControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchControl.swift; sourceTree = "<group>"; };
 		62C012D420780B1300354CC2 /* File Permissions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "File Permissions.swift"; sourceTree = "<group>"; };
 		62C012D620780B2C00354CC2 /* String Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String Extensions.swift"; sourceTree = "<group>"; };
+		62C012D8207810C800354CC2 /* FilePermissionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilePermissionsTests.swift; sourceTree = "<group>"; };
 		D2357F87203BE699004C59E7 /* ProcessType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessType.swift; sourceTree = "<group>"; };
 		"LaunchAgent::LaunchAgent::Product" /* LaunchAgent.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = LaunchAgent.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"LaunchAgent::LaunchAgentTests::Product" /* LaunchAgentTests.xctest */ = {isa = PBXFileReference; lastKnownFileType = file; path = LaunchAgentTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -127,6 +129,7 @@
 				62183013203B8D65004147DA /* LaunchControlTests.swift */,
 				OBJ_14 /* ProgramTests.swift */,
 				OBJ_15 /* StartCalendarIntervalTests.swift */,
+				62C012D8207810C800354CC2 /* FilePermissionsTests.swift */,
 			);
 			name = LaunchAgentTests;
 			path = Tests/LaunchAgentTests;
@@ -263,6 +266,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
+				62C012D9207810C800354CC2 /* FilePermissionsTests.swift in Sources */,
 				OBJ_30 /* LaunchAgentTests.swift in Sources */,
 				OBJ_31 /* ProgramTests.swift in Sources */,
 				62183018203CAF55004147DA /* LaunchAgentValiditytests.swift in Sources */,
