@@ -70,8 +70,8 @@ class FilePermissionsTests: XCTestCase {
     }
     
     func test_symbolic() {
-        let file = FilePermissions(0o750)
-        XCTAssertEqual(file.symbolic, "u+rwx,g+rx")
+        let file = FilePermissions(0o751)
+        XCTAssertEqual(file.symbolic, "u+rwx,g+rx,o+x")
     }
     
     func test_description() {
