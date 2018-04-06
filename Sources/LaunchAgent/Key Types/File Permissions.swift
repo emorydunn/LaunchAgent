@@ -7,14 +7,14 @@
 
 import Foundation
 
-/** Individual permission Unix bits for read, write, and execute.
+/** Individual permission bits for read, write, and execute.
 
  ## Unix Permissions
  - Read: 4
  - Write: 2
  - Execute: 1
 
- In addition you can get the [umask](https://ss64.com/osx/umask.html) value.
+ In addition you can get the [umask](http://www.tutonics.com/2012/12/linux-file-permissions-chmod-umask.html) value.
  
 */
 public struct PermissionBits: OptionSet, Codable, CustomStringConvertible {
@@ -25,21 +25,21 @@ public struct PermissionBits: OptionSet, Codable, CustomStringConvertible {
     public static let execute = PermissionBits(rawValue: 1)
     
     
-    /// Mac `umask` value
+    /// `umask` value
     public var umaskValue: Int {
         return 7 - self.rawValue
     }
     
-    /// Set permissions from a Unix-style octal digit
+    /// Set permissions from a permission octal digit
     ///
-    /// - Parameter rawValue: Unix-style octal digit
+    /// - Parameter rawValue: permission octal digit
     public init(rawValue: Int) {
         self.rawValue = rawValue
     }
     
     /// Set permissions from a umask octal digit
     ///
-    /// - Parameter macOctal: umask octal digit
+    /// - Parameter umaskValue: umask octal digit
     public init(umaskValue: Int) {
         self.rawValue = (7 - umaskValue)
     }
@@ -151,7 +151,7 @@ extension FilePermissions {
         
     }
     
-    /// The Mac umask octal, e.g. 027
+    /// The umask octal, e.g. 027
     public var umaskOctal: String {
         let octal = String(umaskDecimal, radix: 8)
         return octal.leftPadding(toLength: 3, withPad: "0")
