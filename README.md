@@ -108,7 +108,7 @@ Some keys use their own type to encapsulate a complex dictionary value.
 ### IPC
 | Key Name     | Key type               | Supported | Notes |
 |--------------|------------------------|-----------|-------|
-| MachServices | [String: MachService]] | true      |       |
+| MachServices | [String: MachService]  | true      |       |
 | Sockets      |                        | false     |       |
 
 
