@@ -141,7 +141,7 @@ extension FilePermissions {
      
     - Parameter number: number representation of the permissions
      */
-    public convenience init(mac number: Int) {
+    public convenience init(umask number: Int) {
         let octal = String(number, radix: 8)
         let padded = octal.leftPadding(toLength: 3, withPad: "0")
         
@@ -159,13 +159,13 @@ extension FilePermissions {
     }
     
     /// The Mac umask octal, e.g. 027
-    public var macOctal: String {
-        let octal = String(macDecimal, radix: 8)
+    public var umaskValue: String {
+        let octal = String(umaskDecimal, radix: 8)
         return octal.leftPadding(toLength: 3, withPad: "0")
     }
     
     /// Decimal representation of the Mac-style octal, e.g. 23
-    public var macDecimal: Int {
+    public var umaskDecimal: Int {
         let userO =     user.umaskValue    * 64
         let groupO =    group.umaskValue   * 8
         let otherO =    other.umaskValue   * 1

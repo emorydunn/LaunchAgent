@@ -92,7 +92,7 @@ class FilePermissionsTests: XCTestCase {
 
 class MacFilePermissionsTests: XCTestCase {
     func test_octal_init() {
-        let file = FilePermissions(mac: 0o027)
+        let file = FilePermissions(umask: 0o027)
         
         XCTAssertEqual(file.user, [.read, .write, .execute])
         XCTAssertEqual(file.group, [.read, .execute])
