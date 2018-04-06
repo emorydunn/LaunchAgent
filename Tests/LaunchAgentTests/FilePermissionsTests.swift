@@ -101,11 +101,11 @@ class MacFilePermissionsTests: XCTestCase {
     
     func test_octal() {
         let file = FilePermissions(user: [.read, .write, .execute], group: [.write, .execute], other: [.read, .execute])
-        XCTAssertEqual(file.macOctal, "042")
+        XCTAssertEqual(file.umaskOctal, "042")
     }
     
     func test_decimal() {
         let file = FilePermissions(0o750)
-        XCTAssertEqual(file.macDecimal, 23)
+        XCTAssertEqual(file.umaskDecimal, 23)
     }
 }

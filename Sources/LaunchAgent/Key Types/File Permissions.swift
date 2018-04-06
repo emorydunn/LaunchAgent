@@ -159,7 +159,7 @@ extension FilePermissions {
     }
     
     /// The Mac umask octal, e.g. 027
-    public var umaskValue: String {
+    public var umaskOctal: String {
         let octal = String(umaskDecimal, radix: 8)
         return octal.leftPadding(toLength: 3, withPad: "0")
     }
