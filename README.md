@@ -1,5 +1,10 @@
 # LaunchAgent
 
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)][carthage] [![Swift 4](https://img.shields.io/badge/swift-4-orange.svg?style=flat)][carthage] ![license](https://img.shields.io/github/license/emorydunn/LaunchAgent.svg?style=flat)
+
+[carthage]: https://github.com/Carthage/Carthage
+[swift]: https://developer.apple.com/swift/
+
 LaunchAgent provides an easy way to programatically create and maintain [`launchd`][launchd] agents and daemons without needing to manually build Property Lists. 
 
 [launchd]: http://www.launchd.info
@@ -72,9 +77,14 @@ Some keys use their own type to encapsulate a complex dictionary value.
 | queueDirectories      | [String]              | true     | |
 
 ### Security
-| Key Name | Key type | Supported | Notes |
-|----------|----------|-----------|-------|
-| umask    | Int      | true      | user must provide decimal version of the permission octal |
+| Key Name      | Key type | Supported | Notes |
+|---------------|----------|-----------|-------|
+| umask         | Int      | true      | Use `FilePermissions.umaskDecimal` to get a valid value |
+| sessionCreate | Bool     | true      | |
+| groupName     | String   | true      | |
+| userName      | String   | true      | |
+| initGroups    | Bool     | true      | |
+| rootDirectory | String   | true      | |
 
 ### Run Constriants
 | Key Name               | Key type | Supported | Notes |
@@ -101,7 +111,7 @@ Some keys use their own type to encapsulate a complex dictionary value.
 ### IPC
 | Key Name     | Key type               | Supported | Notes |
 |--------------|------------------------|-----------|-------|
-| MachServices | [String: MachService]] | true      |       |
+| MachServices | [String: MachService]  | true      |       |
 | Sockets      |                        | false     |       |
 
 
@@ -150,4 +160,16 @@ Encapsulates the SoftResourceLimits and HardResourceLimits keys:
 - residentSetSize
 - stack
 
+## FilePermissions
 
+Individual permission Unix bits for read, write, and execute.
+
+## Unix Permissions
+- Read: 4
+- Write: 2
+- Execute: 1
+
+In addition you can get the [umask](https://ss64.com/osx/umask.html) value.
+
+When setting permissions for a LaunchAgent use `.umaskDecimal` to get the value. 
+If you're reading a LaunchAgent `FilePermissions(umask:)` will read in the decimal so the permissions can be updated. 
