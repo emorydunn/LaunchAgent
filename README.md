@@ -1,6 +1,9 @@
 # LaunchAgent
 
-[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)][carthage] [![Swift 4](https://img.shields.io/badge/swift-4-orange.svg?style=flat)][carthage] ![license](https://img.shields.io/github/license/emorydunn/LaunchAgent.svg?style=flat)
+
+[carthage]: https://github.com/Carthage/Carthage
+[swift]: https://developer.apple.com/swift/
 
 LaunchAgent provides an easy way to programatically create and maintain [`launchd`][launchd] agents and daemons without needing to manually build Property Lists. 
 
