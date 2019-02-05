@@ -60,7 +60,9 @@ public class LaunchControl {
     /// - Returns:a LaunchAgent instance
     /// - Throws: errors on decoding the property list
     public func read(from url: URL) throws -> LaunchAgent {
-        return try decoder.decode(LaunchAgent.self, from: Data(contentsOf: url))
+        let agent = try decoder.decode(LaunchAgent.self, from: Data(contentsOf: url))
+        agent.url = url
+        return agent
     }
 
     /// Writes a LaunchAgent to disk as a property list into the user's LaunchAgents directory
