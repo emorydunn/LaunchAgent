@@ -10,11 +10,19 @@ import XCTest
 
 class LaunchControlTests: XCTestCase {
 
-    func testWrite() {
+    func testWrite_withPlist() {
         let agent = LaunchAgent(label: "TestAgent")
         
         XCTAssertNoThrow(try LaunchControl.shared.write(agent, called: "TestAgent.plist"))
 
+    }
+    
+    func testWrite_withoutPlist() {
+        let agent = LaunchAgent(label: "TestAgent")
+        
+        XCTAssertNoThrow(try LaunchControl.shared.write(agent, called: "TestAgent"))
+        XCTAssertEqual(agent.url?.lastPathComponent, "TestAgent.plist")
+        
     }
     
     func testRead() {

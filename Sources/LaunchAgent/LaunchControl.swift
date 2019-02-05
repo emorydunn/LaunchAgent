@@ -79,11 +79,17 @@ public class LaunchControl {
     
     /// Writes a LaunchAgent to disk as a property list to the specified URL
     ///
+    /// `.plist` will be appended to the URL if needed
+    ///
     /// - Parameters:
     ///   - agent: the agent to encode
     ///   - called: the url at which to write
     /// - Throws: errors on encoding the property list
     public func write(_ agent: LaunchAgent, to url: URL) throws {
+        var url = url
+        if url.pathExtension != "plist" {
+            url.appendPathExtension("plist")
+        }
         try encoder.encode(agent).write(to: url)
         
         agent.url = url
