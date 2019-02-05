@@ -7,7 +7,7 @@
 
 import Foundation
 
-public enum LaunchControlError: Error {
+public enum LaunchControlError: Error, LocalizedError {
     case urlNotSet(label: String)
     
     public var localizedDescription: String {
