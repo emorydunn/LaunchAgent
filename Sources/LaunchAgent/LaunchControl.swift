@@ -67,6 +67,19 @@ public class LaunchControl {
 
     /// Writes a LaunchAgent to disk as a property list into the user's LaunchAgents directory
     ///
+    /// The agent's label will be used as the filename with a `.plist` extension.
+    ///
+    /// - Parameters:
+    ///   - agent: the agent to encode
+    /// - Throws: errors on encoding the property list
+    public func write(_ agent: LaunchAgent) throws {
+        let url = try launchAgentsURL().appendingPathComponent("\(agent.label).plist")
+        
+        try write(agent, to: url)
+    }
+    
+    /// Writes a LaunchAgent to disk as a property list into the user's LaunchAgents directory
+    ///
     /// - Parameters:
     ///   - agent: the agent to encode
     ///   - called: the file name of the job

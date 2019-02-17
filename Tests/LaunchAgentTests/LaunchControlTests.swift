@@ -10,6 +10,13 @@ import XCTest
 
 class LaunchControlTests: XCTestCase {
 
+    func testWrite_withoutFilename() {
+        let agent = LaunchAgent(label: "TestAgent")
+        
+        XCTAssertNoThrow(try LaunchControl.shared.write(agent))
+        XCTAssertTrue(FileManager.default.fileExists(atPath: agent.url!.path))
+    }
+
     func testWrite_withPlist() {
         let agent = LaunchAgent(label: "TestAgent")
         
