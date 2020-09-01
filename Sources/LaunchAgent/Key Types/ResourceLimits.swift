@@ -72,14 +72,23 @@ public class ResourceLimits: Codable {
     
     /// launchd.plist keys
     public enum CodingKeys: String, CodingKey {
+        /// CPU
         case cpu = "CPU"
+        /// Core
         case core = "Core"
+        /// Data
         case data = "Data"
+        /// FileSize
         case fileSize = "FileSize"
+        /// MemoryLock
         case memoryLock = "MemoryLock"
+        /// NumberOfFiles
         case numberOfFiles = "NumberOfFiles"
+        /// NumberOfProcesses
         case numberOfProcesses = "NumberOfProcesses"
+        /// ResidentSetSize
         case residentSetSize = "ResidentSetSize"
+        /// Stack
         case stack = "Stack"
     }
 }

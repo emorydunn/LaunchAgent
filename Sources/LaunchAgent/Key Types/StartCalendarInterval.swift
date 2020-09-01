@@ -7,9 +7,29 @@
 
 import Foundation
 
+/// This optional key causes the job to be started every calendar interval as
+/// specified.
+///
+/// Missing arguments are considered to be wildcard. The semantics
+/// are similar to crontab(5) in how firing dates are specified. Multiple
+/// dictionaries may be specified in an array to schedule multiple calendar intervals.
+///
+/// Unlike cron which skips job invocations when the computer is asleep,
+/// launchd will start the job the next time the computer wakes up.  If multiple
+/// intervals transpire before the computer is woken, those events will
+/// be coalesced into one event upon wake from sleep.
+///
+/// - Note: StartInterval and StartCalendarInterval are not aware of each
+/// other. They are evaluated completely independently by the system.
 public class StartCalendarInterval: Codable {
     
+    /// The month (1-12) on which this job will be run.
     public var month: StartMonth?
+    
+    /// The weekday on which this job will be run (0 and 7 are Sunday).
+    ///
+    /// If both Day and Weekday are specificed, then the job will be started
+    /// if either one matches the current date.
     public var weekday: StartWeekday?
     
     /// Day of the month
@@ -76,12 +96,18 @@ public class StartCalendarInterval: Codable {
         self.minute = minute
     }
     
+    /// launchd.plist keys
     public enum CodingKeys: String, CodingKey {
+        /// Month
         case month = "Month"
+        /// Weekday
         case weekday = "Weekday"
         
+        /// Day
         case day = "Day"
+        /// Hour
         case hour = "Hour"
+        /// Minute
         case minute = "Minute"
     }
     
@@ -89,27 +115,46 @@ public class StartCalendarInterval: Codable {
 
 /// Represents the month in the StartCalendarInterval key
 public enum StartMonth: Int, Codable {
+    /// January
     case january = 1
+    /// February
     case february = 2
+    /// March
     case march = 3
+    /// April
     case april = 4
+    /// May
     case may = 5
+    /// June
     case june = 6
+    /// July
     case july = 7
+    /// August
     case august = 8
+    /// September
     case september = 9
+    /// October
     case october = 10
+    /// November
     case november = 11
+    /// December
     case december = 12
 }
 
 /// Represents the weekday in the StartCalendarInterval key
 public enum StartWeekday: Int, Codable {
+    /// Monday
     case monday = 1
+    /// Tuesday
     case tuesday = 2
+    /// Wednesday
     case wednesday = 3
+    /// Thursday
     case thursday = 4
+    /// Friday
     case friday = 5
+    /// Saturday
     case saturday = 6
+    /// Sunday
     case sunday = 7
 }

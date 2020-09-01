@@ -7,9 +7,13 @@
 
 import Foundation
 
+/// Errors related to controlling jobs
 public enum LaunchControlError: Error, LocalizedError {
+    
+    /// The URL is not set for the specified agent
     case urlNotSet(label: String)
     
+    /// Description of the error
     public var localizedDescription: String {
         switch self {
         case .urlNotSet(let label):
@@ -18,7 +22,10 @@ public enum LaunchControlError: Error, LocalizedError {
     }
 }
 
+/// Control agents and daemons.
 public class LaunchControl {
+    
+    /// The shared instance
     public static let shared = LaunchControl()
     
     static let launchctl = "/bin/launchctl"

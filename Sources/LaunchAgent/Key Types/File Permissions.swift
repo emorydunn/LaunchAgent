@@ -18,10 +18,17 @@ import Foundation
  
 */
 public struct PermissionBits: OptionSet, Codable, CustomStringConvertible {
+    
+    /// Raw value
     public let rawValue: Int
     
+    /// Read permission bit
     public static let read = PermissionBits(rawValue: 4)
+    
+    /// Write permission bit
     public static let write = PermissionBits(rawValue: 2)
+    
+    /// Execute permission bit
     public static let execute = PermissionBits(rawValue: 1)
     
     
@@ -56,8 +63,14 @@ public struct PermissionBits: OptionSet, Codable, CustomStringConvertible {
 
 /// Represents the permissions on a file
 public class FilePermissions: CustomStringConvertible {
+    
+    /// User permissions
     public var user: PermissionBits
+    
+    /// Group permissions
     public var group: PermissionBits
+    
+    /// Other permissions
     public var other: PermissionBits
     
     /// Init from `PermissionBit`s
@@ -117,6 +130,7 @@ public class FilePermissions: CustomStringConvertible {
         return "-" + user.description + group.description + other.description
     }
     
+    /// The symbolic representation of the permissions
     public var description: String {
         return "Permissions u+\(user), g+\(group), o+\(other)"
     }

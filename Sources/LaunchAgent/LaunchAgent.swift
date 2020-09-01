@@ -376,66 +376,111 @@ public class LaunchAgent: Codable {
     
     /// launchd.plist keys
     public enum CodingKeys: String, CodingKey {
+        /// Label
         case label = "Label"
+        /// Disabled
         case disabled = "Disabled"
+        /// EnableGlobbing
         case enableGlobbing = "EnableGlobbing"
+        /// Program
         case program = "Program"
+        /// ProgramArguments
         case programArguments = "ProgramArguments"
         
         // Program
+        /// WorkingDirectory
         case workingDirectory = "WorkingDirectory"
+        /// StandardInPath
         case standardInPath = "StandardInPath"
+        /// StandardOutPath
         case standardOutPath = "StandardOutPath"
+        /// StandardErrorPath
         case standardErrorPath = "StandardErrorPath"
+        /// EnvironmentVariables
         case environmentVariables = "EnvironmentVariables"
         
         // Run Conditions
+        /// RunAtLoad
         case runAtLoad = "RunAtLoad"
+        /// StartInterval
         case startInterval = "StartInterval"
+        /// StartCalendarInterval
         case startCalendarInterval = "StartCalendarInterval"
+        /// StartOnMount
         case startOnMount = "StartOnMount"
+        /// OnDemand
         case onDemand = "OnDemand"
+        /// KeepAlive
         case keepAlive = "KeepAlive"
+        /// WatchPaths
         case watchPaths = "WatchPaths"
+        /// QueueDirectories
         case queueDirectories = "QueueDirectories"
         
         // Security
+        /// Umask
         case umask = "Umask"
+        /// SessionCreate
         case sessionCreate = "SessionCreate"
+        /// GroupName
         case groupName = "GroupName"
+        /// UserName
         case userName = "UserName"
+        /// InitGroups
         case initGroups = "InitGroups"
+        /// RootDirectory
         case rootDirectory = "RootDirectory"
         
         // Run Constriants
+        /// LaunchOnlyOnce
         case launchOnlyOnce = "LaunchOnlyOnce"
+        /// LimitLoadToSessionType
         case limitLoadToSessionType = "LimitLoadToSessionType"
+        /// LimitLoadToHosts
         case limitLoadToHosts = "LimitLoadToHosts"
+        /// LimitLoadFromHosts
         case limitLoadFromHosts = "LimitLoadFromHosts"
         
         // Control
+        /// AbandonProcessGroup
         case abandonProcessGroup = "AbandonProcessGroup"
+        /// EnablePressuredExit
         case enablePressuredExit = "EnablePressuredExit"
+        /// EnableTransactions
         case enableTransactions = "EnableTransactions"
+        /// ExitTimeOut
         case exitTimeOut = "ExitTimeOut"
+        /// inetdCompatibility
         case inetdCompatibility = "inetdCompatibility"
+        /// HardResourceLimits
         case hardResourceLimits = "HardResourceLimits"
+        /// SoftResourceLimits
         case softResourceLimits = "SoftResourceLimits"
+        /// TimeOut
         case timeOut = "TimeOut"
+        /// ThrottleInterval
         case throttleInterval = "ThrottleInterval"
         
         // IPC
+        /// MachServices
         case machServices = "MachServices"
         
         // Debug
+        /// Debug
         case debug = "Debug"
+        /// WaitForDebugger
         case waitForDebugger = "WaitForDebugger"
         
         // Performance
+        /// LegacyTimers
         case legacyTimers = "LegacyTimers"
+        /// LowPriorityIO
         case lowPriorityIO = "LowPriorityIO"
+        /// LowPriorityBackgroundIO
         case lowPriorityBackgroundIO = "LowPriorityBackgroundIO"
+        /// Nice
         case nice = "Nice"
+        /// ProcessType
         case processType = "ProcessType"
         
     }

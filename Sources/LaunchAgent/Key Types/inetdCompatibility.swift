@@ -27,6 +27,7 @@ public class inetdCompatibility: Codable {
     
     /// launchd.plist keys
     public enum CodingKeys: String, CodingKey {
+        /// Wait
         case wait = "Wait"
     }
 }

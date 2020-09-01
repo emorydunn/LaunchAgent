@@ -56,7 +56,9 @@ public class MachService: Codable {
     
     /// launchd.plist keys
     public enum CodingKeys: String, CodingKey {
+        /// HideUntilCheckIn
         case hideUntilCheckIn = "HideUntilCheckIn"
+        /// ResetAtClose
         case resetAtClose = "ResetAtClose"
     }
     

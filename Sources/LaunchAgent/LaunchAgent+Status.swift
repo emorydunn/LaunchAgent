@@ -7,10 +7,16 @@
 
 import Foundation
 
+/// The status of a job given by `launchctl list`
 public enum AgentStatus: Equatable {
     
+    /// Indicates the job is running, with the given PID/
     case running(pid: Int)
+    
+    /// Indicates the job is loaded, but not running.
     case loaded
+    
+    /// Indicates the job is unloaded.
     case unloaded
     
     public static func ==(lhs: AgentStatus, rhs: AgentStatus) -> Bool {
