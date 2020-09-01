@@ -4,7 +4,7 @@
 
 ### New
 
-- Fully documented!
+- Fully [documented](https://emorydunn.github.io/LaunchAgent/)!
 
 ### Changed
 
