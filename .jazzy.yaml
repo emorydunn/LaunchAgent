@@ -1,0 +1,5 @@
+author_url: http://emorydunn.com
+author: Emory Dunn
+github_url: https://github.com/emorydunn/LaunchAgent
+exclude:
+  - Sources/LaunchAgent/String Extensions.swift
