@@ -43,7 +43,7 @@ public class LaunchAgent: Codable {
     /// - Note: If `program` is empty the first item is used as the path to the executable.
     public var programArguments: [String]? = nil
     
-    // Program
+    // MARK: Program
     /// This optional key is used to specify a directory to chdir(2) to before
     /// running the job.
     public var workingDirectory: String? = nil
@@ -85,7 +85,7 @@ public class LaunchAgent: Codable {
     /// ignored.
     public var environmentVariables: [String: String]? = nil
     
-    // Run Conditions
+    // MARK: Run Conditions
     /// This optional key is used to control whether your job is launched once at
     /// the time the job is loaded.
     public var runAtLoad: Bool? = nil
@@ -127,7 +127,7 @@ public class LaunchAgent: Codable {
     /// tories specified are not empty.
     public var queueDirectories: [String]? = nil
     
-    // Security
+    // MARK: Security
     /// This optional key specifies what value should be passed to umask(2)
     /// before running the job.
     ///
@@ -140,7 +140,8 @@ public class LaunchAgent: Codable {
     /// behavior will be to set a umask(2) according to the strtoul(3) parsing
     /// rules.
     public var umask: Int? = nil
-    // System Daemon Security
+    
+    // MARK: System Daemon Security
     
     /// This key specifies that the job should be spawned into a new security
     /// audit session rather than the default session for the context is belongs
@@ -198,7 +199,7 @@ public class LaunchAgent: Codable {
     public var limitLoadFromHosts: [String]? = nil
     
     
-    // Control
+    // MARK: Control
     /// When a job dies, launchd kills any remaining processes with the same
     /// process group ID as the job.
     ///
@@ -268,7 +269,7 @@ public class LaunchAgent: Codable {
     /// encourages developers to amortize the cost of program invocation.
     public var throttleInterval: Int? = nil
     
-    // IPC
+    // MARK: IPC
     /// This optional key is used to specify Mach services to be registered with
     /// the Mach bootstrap namespace.
     ///
@@ -278,7 +279,7 @@ public class LaunchAgent: Codable {
     /// advertised.
     public var machServices: [String: MachService]? = nil
     
-    // Debug
+    // MARK: Debug
     /// This optional key specifies that launchd should adjust its log mask temporarily
     /// to LOG_DEBUG while dealing with this job.
     public var debug: Bool? = nil
@@ -287,7 +288,7 @@ public class LaunchAgent: Codable {
     /// state so that a debugger can be attached to the process as early as possible (at the first instruction).
     public var waitForDebugger: Bool? = nil
     
-    // Performance
+    // MARK: Performance
     
     /// This optional key controls the behavior of timers created by the job.
     ///
@@ -360,6 +361,7 @@ public class LaunchAgent: Codable {
         self.init(label: label, program: program)
     }
     
+    // MARK: - Codable
     /// launchd.plist keys
     public enum CodingKeys: String, CodingKey {
         /// Label
