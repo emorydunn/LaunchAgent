@@ -1,6 +1,6 @@
 # LaunchAgent
 
-![SwiftPM] ![Swift5.2] ![license] ![build]
+![SwiftPM] ![Swift5.2] ![license] ![build] ![coverage]
 
 [SwiftPM]: https://img.shields.io/badge/SwiftPM-compatible-success.svg
 [swift]: https://developer.apple.com/swift/
@@ -8,14 +8,18 @@
 [spm]: https://swift.org/package-manager/
 [license]: https://img.shields.io/github/license/emorydunn/LaunchAgent.svg?style=flat
 [build]: https://github.com/emorydunn/LaunchAgent/workflows/Swift/badge.svg
+[docs]: https://emorydunn.github.io/LaunchAgent/
+[coverage]: https://emorydunn.github.io/LaunchAgent/badge.svg
 
-LaunchAgent provides an easy way to programatically create and maintain [`launchd`][launchd] agents and daemons without needing to manually build Property Lists.
+LaunchAgent provides an easy way to pragmatically create and maintain [`launchd`][launchd] agents and daemons without needing to manually build Property Lists.
+
+Take a look at the full [documentation][docs].
 
 [launchd]: http://www.launchd.info
 
 ## LaunchAgent
 
-A LaunchAgent can be createdinstantiated with either an array of program arguments:
+A LaunchAgent can be created with either an array of program arguments:
 ```swift
 LaunchAgent(label: "local.PythonServer", program: ["python", "-m", "SimpleHTTPServer", "8000"])
 ```
@@ -42,7 +46,6 @@ do {
 } catch {
     print("Unexpected error:" error)
 }
-
 ```
 
 ### Using LaunchControl to read and write LaunchAgents
@@ -70,8 +73,8 @@ Some keys use their own type to encapsulate a complex dictionary value.
 |------------------|----------|-----------|-------|
 | Label            | String   | true      | |
 | Disabled         | String   | true      | |
-| Program          | String   | true      | Either `Program` or `ProgramArguments` can be set. |
-| ProgramArguments | [String] | true      | Either `Program` or `ProgramArguments` can be set. |
+| Program          | String   | true      | |
+| ProgramArguments | [String] | true      | |
 | EnableGlobbing   | Bool     | true      | deprecated in macOS |
 
 ### Program
@@ -105,7 +108,7 @@ Some keys use their own type to encapsulate a complex dictionary value.
 | initGroups    | Bool     | true      | |
 | rootDirectory | String   | true      | |
 
-### Run Constriants
+### Run Constraints
 | Key Name               | Key type | Supported | Notes |
 |------------------------|----------|-----------|-------|
 | launchOnlyOnce         | Bool     | true      | |
