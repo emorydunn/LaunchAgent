@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>StartCalendarInterval Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+    <script src="../js/lunr.min.js" defer></script>
+    <script src="../js/typeahead.jquery.js" defer></script>
+    <script src="../js/jazzy.search.js" defer></script>
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Class/StartCalendarInterval" class="dashAnchor"></a>
+    <a title="StartCalendarInterval Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html"> Docs</a> (100% documented)</p>
+        <p class="header-right"><a href="https://github.com/emorydunn/LaunchAgent"><img src="../img/gh.png"/>View on GitHub</a></p>
+        <p class="header-right">
+          <form role="search" action="../search.json">
+            <input type="text" placeholder="Search documentation" data-typeahead>
+          </form>
+        </p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html"> Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        StartCalendarInterval Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/FilePermissions.html">FilePermissions</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LaunchAgent.html">LaunchAgent</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LaunchAgent/CodingKeys.html">– CodingKeys</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LaunchControl.html">LaunchControl</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MachService.html">MachService</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MachService/CodingKeys.html">– CodingKeys</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ResourceLimits.html">ResourceLimits</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ResourceLimits/CodingKeys.html">– CodingKeys</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/StartCalendarInterval.html">StartCalendarInterval</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/StartCalendarInterval/CodingKeys.html">– CodingKeys</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/inetdCompatibility.html">inetdCompatibility</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/inetdCompatibility/CodingKeys.html">– CodingKeys</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/AgentStatus.html">AgentStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/LaunchControlError.html">LaunchControlError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/ProcessType.html">ProcessType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/StartMonth.html">StartMonth</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/StartWeekday.html">StartWeekday</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Structs.html">Structures</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/PermissionBits.html">PermissionBits</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>StartCalendarInterval</h1>
+              <div class="declaration">
+                <div class="language">
+                  
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">StartCalendarInterval</span> <span class="p">:</span> <span class="kt">Codable</span></code></pre>
+
+                </div>
+              </div>
+            <p>This optional key causes the job to be started every calendar interval as
+specified.</p>
+
+<p>Missing arguments are considered to be wildcard. The semantics
+are similar to crontab(5) in how firing dates are specified. Multiple
+dictionaries may be specified in an array to schedule multiple calendar intervals.</p>
+
+<p>Unlike cron which skips job invocations when the computer is asleep,
+launchd will start the job the next time the computer wakes up.  If multiple
+intervals transpire before the computer is woken, those events will
+be coalesced into one event upon wake from sleep.</p>
+<div class="aside aside-note">
+    <p class="aside-title">Note</p>
+    StartInterval and StartCalendarInterval are not aware of each
+other. They are evaluated completely independently by the system.
+
+</div>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11LaunchAgent21StartCalendarIntervalC5monthAA0C5MonthOSgvp"></a>
+                    <a name="//apple_ref/swift/Property/month" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11LaunchAgent21StartCalendarIntervalC5monthAA0C5MonthOSgvp">month</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The month (1-12) on which this job will be run.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">month</span><span class="p">:</span> <span class="kt"><a href="../Enums/StartMonth.html">StartMonth</a></span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11LaunchAgent21StartCalendarIntervalC7weekdayAA0C7WeekdayOSgvp"></a>
+                    <a name="//apple_ref/swift/Property/weekday" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11LaunchAgent21StartCalendarIntervalC7weekdayAA0C7WeekdayOSgvp">weekday</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The weekday on which this job will be run (0 and 7 are Sunday).</p>
+
+<p>If both Day and Weekday are specificed, then the job will be started
+if either one matches the current date.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">weekday</span><span class="p">:</span> <span class="kt"><a href="../Enums/StartWeekday.html">StartWeekday</a></span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11LaunchAgent21StartCalendarIntervalC3daySiSgvp"></a>
+                    <a name="//apple_ref/swift/Property/day" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11LaunchAgent21StartCalendarIntervalC3daySiSgvp">day</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Day of the month</p>
+<div class="aside aside-note">
+    <p class="aside-title">Note</p>
+    Bound to <code>1...31</code>. Values outside the range will be set to the closest valid value.
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">day</span><span class="p">:</span> <span class="kt">Int</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11LaunchAgent21StartCalendarIntervalC4hourSiSgvp"></a>
+                    <a name="//apple_ref/swift/Property/hour" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11LaunchAgent21StartCalendarIntervalC4hourSiSgvp">hour</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Hour of the day</p>
+<div class="aside aside-note">
+    <p class="aside-title">Note</p>
+    Bound to <code>0...23</code>. Values outside the range will be set to the closest valid value.
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">hour</span><span class="p">:</span> <span class="kt">Int</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11LaunchAgent21StartCalendarIntervalC6minuteSiSgvp"></a>
+                    <a name="//apple_ref/swift/Property/minute" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11LaunchAgent21StartCalendarIntervalC6minuteSiSgvp">minute</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Minute of the hour</p>
+<div class="aside aside-note">
+    <p class="aside-title">Note</p>
+    Bound to <code>0...59</code>. Values outside the range will be set to the closest valid value.
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">minute</span><span class="p">:</span> <span class="kt">Int</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11LaunchAgent21StartCalendarIntervalC5month7weekday3day4hour6minuteAcA0C5MonthOSg_AA0C7WeekdayOSgSiSgA2Otcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(month:weekday:day:hour:minute:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11LaunchAgent21StartCalendarIntervalC5month7weekday3day4hour6minuteAcA0C5MonthOSg_AA0C7WeekdayOSgSiSgA2Otcfc">init(month:<wbr>weekday:<wbr>day:<wbr>hour:<wbr>minute:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Set a calendar interval on which to start the job. <code>nil</code> values represent any occurance of that key.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">month</span><span class="p">:</span> <span class="kt"><a href="../Enums/StartMonth.html">StartMonth</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">weekday</span><span class="p">:</span> <span class="kt"><a href="../Enums/StartWeekday.html">StartWeekday</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">day</span><span class="p">:</span> <span class="kt">Int</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">hour</span><span class="p">:</span> <span class="kt">Int</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">minute</span><span class="p">:</span> <span class="kt">Int</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>month</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>month of the year to run the job</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>weekday</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>day of the week to run the job</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>day</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>day of the month to run the job</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>hour</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>hour of the day to run the job</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>minute</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>minute of the hour to run the job</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11LaunchAgent21StartCalendarIntervalC10CodingKeysO"></a>
+                    <a name="//apple_ref/swift/Enum/CodingKeys" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11LaunchAgent21StartCalendarIntervalC10CodingKeysO">CodingKeys</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>launchd.plist keys</p>
+
+                        <a href="../Classes/StartCalendarInterval/CodingKeys.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">CodingKeys</span> <span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="kt">CodingKey</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2020 <a class="link" href="http://emorydunn.com" target="_blank" rel="external">Emory Dunn</a>. All rights reserved. (Last updated: 2020-09-01)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

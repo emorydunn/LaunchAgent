@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>MachService Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+    <script src="../js/lunr.min.js" defer></script>
+    <script src="../js/typeahead.jquery.js" defer></script>
+    <script src="../js/jazzy.search.js" defer></script>
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Class/MachService" class="dashAnchor"></a>
+    <a title="MachService Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html"> Docs</a> (100% documented)</p>
+        <p class="header-right"><a href="https://github.com/emorydunn/LaunchAgent"><img src="../img/gh.png"/>View on GitHub</a></p>
+        <p class="header-right">
+          <form role="search" action="../search.json">
+            <input type="text" placeholder="Search documentation" data-typeahead>
+          </form>
+        </p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html"> Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        MachService Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/FilePermissions.html">FilePermissions</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LaunchAgent.html">LaunchAgent</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LaunchAgent/CodingKeys.html">– CodingKeys</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LaunchControl.html">LaunchControl</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MachService.html">MachService</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MachService/CodingKeys.html">– CodingKeys</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ResourceLimits.html">ResourceLimits</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ResourceLimits/CodingKeys.html">– CodingKeys</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/StartCalendarInterval.html">StartCalendarInterval</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/StartCalendarInterval/CodingKeys.html">– CodingKeys</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/inetdCompatibility.html">inetdCompatibility</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/inetdCompatibility/CodingKeys.html">– CodingKeys</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/AgentStatus.html">AgentStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/LaunchControlError.html">LaunchControlError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/ProcessType.html">ProcessType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/StartMonth.html">StartMonth</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/StartWeekday.html">StartWeekday</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Structs.html">Structures</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/PermissionBits.html">PermissionBits</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>MachService</h1>
+              <div class="declaration">
+                <div class="language">
+                  
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">MachService</span> <span class="p">:</span> <span class="kt">Codable</span></code></pre>
+
+                </div>
+              </div>
+            <p>This optional key is used to specify Mach services to be registered with
+the Mach bootstrap namespace.</p>
+
+<p>Each key in this dictionary should be the
+name of a service to be advertised. The value of the key must be a
+boolean and set to true or a dictionary in order for the service to be
+advertised.</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11LaunchAgent11MachServiceC16hideUntilCheckInSbvp"></a>
+                    <a name="//apple_ref/swift/Property/hideUntilCheckIn" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11LaunchAgent11MachServiceC16hideUntilCheckInSbvp">hideUntilCheckIn</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Reserve the name in the namespace, but cause <code>bootstrap_look_up()</code> to
+fail until the job has checked in with launchd.</p>
+
+<p>This option is incompatible with<code>xpc(3)</code>, which relies on the con-
+stant availability of services. This option also encourages polling
+for service availability and is therefore generally discouraged.
+Future implementations will penalize use of this option in subtle
+and creative ways.</p>
+
+<p>Jobs can dequeue messages from the MachServices they advertised
+with <code>xpc_connection_create_mach_service(3)</code> or <code>bootstrap_check_in()</code>
+API (to obtain the underlying port&rsquo;s receive right) and the Mach
+APIs to dequeue messages from that port.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">hideUntilCheckIn</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11LaunchAgent11MachServiceC12resetAtCloseSbvp"></a>
+                    <a name="//apple_ref/swift/Property/resetAtClose" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11LaunchAgent11MachServiceC12resetAtCloseSbvp">resetAtClose</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The default value for this key is false, and so the port is recy-
+cled, thus leaving clients to remain oblivious to the demand nature
+of the job.</p>
+
+<p>If the value is set to true, clients receive port death
+notifications when the job lets go of the receive right. The port
+will be recreated atomically with respect to <code>bootstrap_look_up()</code>
+calls, so that clients can trust that after receiving a port-death
+notification, the new port will have already been recreated. Set-
+ting the value to true should be done with care. Not all clients
+may be able to handle this behavior. The default value is false.</p>
+<div class="aside aside-note">
+    <p class="aside-title">Note</p>
+    This option is not compatible with <code>xpc(3)</code>, which automat-
+ically handles notifying clients of interrupted connections and
+server death.
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">resetAtClose</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11LaunchAgent11MachServiceC16hideUntilCheckIn12resetAtCloseACSb_Sbtcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(hideUntilCheckIn:resetAtClose:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11LaunchAgent11MachServiceC16hideUntilCheckIn12resetAtCloseACSb_Sbtcfc">init(hideUntilCheckIn:<wbr>resetAtClose:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Instantiate a new object</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">hideUntilCheckIn</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">,</span> <span class="nv">resetAtClose</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11LaunchAgent11MachServiceC10CodingKeysO"></a>
+                    <a name="//apple_ref/swift/Enum/CodingKeys" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11LaunchAgent11MachServiceC10CodingKeysO">CodingKeys</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>launchd.plist keys</p>
+
+                        <a href="../Classes/MachService/CodingKeys.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">CodingKeys</span> <span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="kt">CodingKey</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2020 <a class="link" href="http://emorydunn.com" target="_blank" rel="external">Emory Dunn</a>. All rights reserved. (Last updated: 2020-09-01)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

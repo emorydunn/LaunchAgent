@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>ResourceLimits Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+    <script src="../js/lunr.min.js" defer></script>
+    <script src="../js/typeahead.jquery.js" defer></script>
+    <script src="../js/jazzy.search.js" defer></script>
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Class/ResourceLimits" class="dashAnchor"></a>
+    <a title="ResourceLimits Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html"> Docs</a> (100% documented)</p>
+        <p class="header-right"><a href="https://github.com/emorydunn/LaunchAgent"><img src="../img/gh.png"/>View on GitHub</a></p>
+        <p class="header-right">
+          <form role="search" action="../search.json">
+            <input type="text" placeholder="Search documentation" data-typeahead>
+          </form>
+        </p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html"> Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        ResourceLimits Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/FilePermissions.html">FilePermissions</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LaunchAgent.html">LaunchAgent</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LaunchAgent/CodingKeys.html">– CodingKeys</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LaunchControl.html">LaunchControl</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MachService.html">MachService</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MachService/CodingKeys.html">– CodingKeys</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ResourceLimits.html">ResourceLimits</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ResourceLimits/CodingKeys.html">– CodingKeys</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/StartCalendarInterval.html">StartCalendarInterval</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/StartCalendarInterval/CodingKeys.html">– CodingKeys</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/inetdCompatibility.html">inetdCompatibility</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/inetdCompatibility/CodingKeys.html">– CodingKeys</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/AgentStatus.html">AgentStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/LaunchControlError.html">LaunchControlError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/ProcessType.html">ProcessType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/StartMonth.html">StartMonth</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/StartWeekday.html">StartWeekday</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Structs.html">Structures</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/PermissionBits.html">PermissionBits</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>ResourceLimits</h1>
+              <div class="declaration">
+                <div class="language">
+                  
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">ResourceLimits</span> <span class="p">:</span> <span class="kt">Codable</span></code></pre>
+
+                </div>
+              </div>
+            <p>Resource limits to be imposed on the job. These adjust variables set with setrlimit(2).</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11LaunchAgent14ResourceLimitsC3cpuSiSgvp"></a>
+                    <a name="//apple_ref/swift/Property/cpu" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11LaunchAgent14ResourceLimitsC3cpuSiSgvp">cpu</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The maximum amount of cpu time (in seconds) to be used by each process.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">cpu</span><span class="p">:</span> <span class="kt">Int</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11LaunchAgent14ResourceLimitsC4coreSiSgvp"></a>
+                    <a name="//apple_ref/swift/Property/core" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11LaunchAgent14ResourceLimitsC4coreSiSgvp">core</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The largest size (in bytes) core file that may be created.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">core</span><span class="p">:</span> <span class="kt">Int</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11LaunchAgent14ResourceLimitsC4dataSiSgvp"></a>
+                    <a name="//apple_ref/swift/Property/data" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11LaunchAgent14ResourceLimitsC4dataSiSgvp">data</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The maximum size (in bytes) of the data segment for a process; this
+defines how far a program may extend its break with the sbrk(2)
+system call.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">data</span><span class="p">:</span> <span class="kt">Int</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11LaunchAgent14ResourceLimitsC8fileSizeSiSgvp"></a>
+                    <a name="//apple_ref/swift/Property/fileSize" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11LaunchAgent14ResourceLimitsC8fileSizeSiSgvp">fileSize</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The largest size (in bytes) file that may be created.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">fileSize</span><span class="p">:</span> <span class="kt">Int</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11LaunchAgent14ResourceLimitsC10memoryLockSiSgvp"></a>
+                    <a name="//apple_ref/swift/Property/memoryLock" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11LaunchAgent14ResourceLimitsC10memoryLockSiSgvp">memoryLock</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The maximum size (in bytes) which a process may lock into memory
+using the mlock(2) function.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">memoryLock</span><span class="p">:</span> <span class="kt">Int</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11LaunchAgent14ResourceLimitsC13numberOfFilesSiSgvp"></a>
+                    <a name="//apple_ref/swift/Property/numberOfFiles" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11LaunchAgent14ResourceLimitsC13numberOfFilesSiSgvp">numberOfFiles</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The maximum number of open files for this process.</p>
+
+<p>Setting this value in a system wide daemon will set the sysctl(3) kern.maxfiles
+(SoftResourceLimits) or kern.maxfilesperproc (HardResourceLimits)
+value in addition to the setrlimit(2) values.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">numberOfFiles</span><span class="p">:</span> <span class="kt">Int</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11LaunchAgent14ResourceLimitsC17numberOfProcessesSiSgvp"></a>
+                    <a name="//apple_ref/swift/Property/numberOfProcesses" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11LaunchAgent14ResourceLimitsC17numberOfProcessesSiSgvp">numberOfProcesses</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The maximum number of simultaneous processes for this UID.</p>
+
+<p>Setting this value in a system wide daemon will set the sysctl(3) kern.max-
+proc (SoftResourceLimits) or kern.maxprocperuid (HardResourceLimits)
+value in addition to the setrlimit(2) values.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">numberOfProcesses</span><span class="p">:</span> <span class="kt">Int</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11LaunchAgent14ResourceLimitsC15residentSetSizeSiSgvp"></a>
+                    <a name="//apple_ref/swift/Property/residentSetSize" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11LaunchAgent14ResourceLimitsC15residentSetSizeSiSgvp">residentSetSize</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The maximum size (in bytes) to which a process&rsquo;s resident set size
+may grow.</p>
+
+<p>This imposes a limit on the amount of physical memory to
+be given to a process; if memory is tight, the system will prefer
+to take memory from processes that are exceeding their declared
+resident set size.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">residentSetSize</span><span class="p">:</span> <span class="kt">Int</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11LaunchAgent14ResourceLimitsC5stackSiSgvp"></a>
+                    <a name="//apple_ref/swift/Property/stack" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11LaunchAgent14ResourceLimitsC5stackSiSgvp">stack</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The maximum size (in bytes) of the stack segment for a process;
+this defines how far a program&rsquo;s stack segment may be extended.</p>
+
+<p>Stack extension is performed automatically by the system.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">stack</span><span class="p">:</span> <span class="kt">Int</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11LaunchAgent14ResourceLimitsC3cpu4core4data8fileSize10memoryLock13numberOfFiles0lM9Processes011residentSetI05stackACSiSg_A8Mtcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(cpu:core:data:fileSize:memoryLock:numberOfFiles:numberOfProcesses:residentSetSize:stack:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11LaunchAgent14ResourceLimitsC3cpu4core4data8fileSize10memoryLock13numberOfFiles0lM9Processes011residentSetI05stackACSiSg_A8Mtcfc">init(cpu:<wbr>core:<wbr>data:<wbr>fileSize:<wbr>memoryLock:<wbr>numberOfFiles:<wbr>numberOfProcesses:<wbr>residentSetSize:<wbr>stack:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Instantiate a new object.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">cpu</span><span class="p">:</span> <span class="kt">Int</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">core</span><span class="p">:</span> <span class="kt">Int</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">data</span><span class="p">:</span> <span class="kt">Int</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">fileSize</span><span class="p">:</span> <span class="kt">Int</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">memoryLock</span><span class="p">:</span> <span class="kt">Int</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">numberOfFiles</span><span class="p">:</span> <span class="kt">Int</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">numberOfProcesses</span><span class="p">:</span> <span class="kt">Int</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">residentSetSize</span><span class="p">:</span> <span class="kt">Int</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">stack</span><span class="p">:</span> <span class="kt">Int</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11LaunchAgent14ResourceLimitsC10CodingKeysO"></a>
+                    <a name="//apple_ref/swift/Enum/CodingKeys" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11LaunchAgent14ResourceLimitsC10CodingKeysO">CodingKeys</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>launchd.plist keys</p>
+
+                        <a href="../Classes/ResourceLimits/CodingKeys.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">CodingKeys</span> <span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="kt">CodingKey</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2020 <a class="link" href="http://emorydunn.com" target="_blank" rel="external">Emory Dunn</a>. All rights reserved. (Last updated: 2020-09-01)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

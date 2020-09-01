@@ -1,0 +1,1990 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>LaunchAgent Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+    <script src="../js/lunr.min.js" defer></script>
+    <script src="../js/typeahead.jquery.js" defer></script>
+    <script src="../js/jazzy.search.js" defer></script>
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Class/LaunchAgent" class="dashAnchor"></a>
+    <a title="LaunchAgent Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html"> Docs</a> (100% documented)</p>
+        <p class="header-right"><a href="https://github.com/emorydunn/LaunchAgent"><img src="../img/gh.png"/>View on GitHub</a></p>
+        <p class="header-right">
+          <form role="search" action="../search.json">
+            <input type="text" placeholder="Search documentation" data-typeahead>
+          </form>
+        </p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html"> Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        LaunchAgent Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/FilePermissions.html">FilePermissions</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LaunchAgent.html">LaunchAgent</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LaunchAgent/CodingKeys.html">– CodingKeys</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LaunchControl.html">LaunchControl</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MachService.html">MachService</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MachService/CodingKeys.html">– CodingKeys</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ResourceLimits.html">ResourceLimits</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ResourceLimits/CodingKeys.html">– CodingKeys</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/StartCalendarInterval.html">StartCalendarInterval</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/StartCalendarInterval/CodingKeys.html">– CodingKeys</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/inetdCompatibility.html">inetdCompatibility</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/inetdCompatibility/CodingKeys.html">– CodingKeys</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/AgentStatus.html">AgentStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/LaunchControlError.html">LaunchControlError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/ProcessType.html">ProcessType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/StartMonth.html">StartMonth</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/StartWeekday.html">StartWeekday</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Structs.html">Structures</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/PermissionBits.html">PermissionBits</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>LaunchAgent</h1>
+              <div class="declaration">
+                <div class="language">
+                  
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">LaunchAgent</span> <span class="p">:</span> <span class="kt">Codable</span></code></pre>
+
+                </div>
+              </div>
+            <p>The primary class used to control a Launch Agent</p>
+
+<p>For detailed information on agents see <a href="https://www.launchd.info">https://www.launchd.info</a>.</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11LaunchAgentAAC3url10Foundation3URLVSgvp"></a>
+                    <a name="//apple_ref/swift/Property/url" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11LaunchAgentAAC3url10Foundation3URLVSgvp">url</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Location on disk of the agent</p>
+
+<p><code><a href="../Classes/LaunchControl.html">LaunchControl</a></code> can be used to attempt to set the URL automatically:</p>
+<pre class="highlight swift"><code><span class="kt">LaunchControl</span><span class="o">.</span><span class="n">shared</span><span class="o">.</span><span class="nf">setURL</span><span class="p">(</span><span class="nv">for</span><span class="p">:</span> <span class="n">agent</span><span class="p">)</span>
+</code></pre>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">url</span><span class="p">:</span> <span class="kt">URL</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11LaunchAgentAAC5labelSSvp"></a>
+                    <a name="//apple_ref/swift/Property/label" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11LaunchAgentAAC5labelSSvp">label</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Contains a unique string that identifies your daemon to launchd.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">label</span><span class="p">:</span> <span class="kt">String</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11LaunchAgentAAC8disabledSbSgvp"></a>
+                    <a name="//apple_ref/swift/Property/disabled" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11LaunchAgentAAC8disabledSbSgvp">disabled</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Whether the agent is enabled.</p>
+
+<p>This must be <code>true</code> in order to load or start the agent.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">disabled</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11LaunchAgentAAC14enableGlobbingSbSgvp"></a>
+                    <a name="//apple_ref/swift/Property/enableGlobbing" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11LaunchAgentAAC14enableGlobbingSbSgvp">enableGlobbing</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Whether to enable shell globbing.</p>
+<div class="aside aside-important">
+    <p class="aside-title">Important</p>
+    Support for globbing was removed in macOS 10.10
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">enableGlobbing</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11LaunchAgentAAC7programSSSgvp"></a>
+                    <a name="//apple_ref/swift/Property/program" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11LaunchAgentAAC7programSSSgvp">program</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The program to be executed</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">program</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11LaunchAgentAAC16programArgumentsSaySSGSgvp"></a>
+                    <a name="//apple_ref/swift/Property/programArguments" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11LaunchAgentAAC16programArgumentsSaySSGSgvp">programArguments</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Contains the arguments used to launch your daemon</p>
+<div class="aside aside-note">
+    <p class="aside-title">Note</p>
+    If <code><a href="../Classes/LaunchAgent.html#/s:11LaunchAgentAAC7programSSSgvp">program</a></code> is empty the first item is used as the path to the executable.
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">programArguments</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">]?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Program"></a>
+                <a name="//apple_ref/swift/Section/Program" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Program"></a>
+                  <h3 class="section-name"><p>Program</p>
+</h3>
+                </div>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11LaunchAgentAAC16workingDirectorySSSgvp"></a>
+                    <a name="//apple_ref/swift/Property/workingDirectory" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11LaunchAgentAAC16workingDirectorySSSgvp">workingDirectory</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This optional key is used to specify a directory to chdir(2) to before
+running the job.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">workingDirectory</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11LaunchAgentAAC14standardInPathSSSgvp"></a>
+                    <a name="//apple_ref/swift/Property/standardInPath" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11LaunchAgentAAC14standardInPathSSSgvp">standardInPath</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This optional key specifies that the given path should be mapped to the
+job&rsquo;s stdin(4), and that the contents of that file will be readable from
+the job&rsquo;s stdin(4).</p>
+
+<p>If the file does not exist, no data will be deliv-
+ered to the process&rsquo; stdin(4)</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">standardInPath</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11LaunchAgentAAC15standardOutPathSSSgvp"></a>
+                    <a name="//apple_ref/swift/Property/standardOutPath" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11LaunchAgentAAC15standardOutPathSSSgvp">standardOutPath</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This optional key specifies that the given path should be mapped to the
+job&rsquo;s stdout(4), and that any writes to the job&rsquo;s stdout(4) will go to
+the given file.</p>
+
+<p>If the file does not exist, it will be created with
+writable permissions and ownership reflecting the user and/or group specified
+as the UserName and/or GroupName, respectively (if set) and permissions
+reflecting the umask(2) specified by the Umask key, if set.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">standardOutPath</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11LaunchAgentAAC17standardErrorPathSSSgvp"></a>
+                    <a name="//apple_ref/swift/Property/standardErrorPath" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11LaunchAgentAAC17standardErrorPathSSSgvp">standardErrorPath</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This optional key specifies that the given path should be mapped to the
+job&rsquo;s stderr(4), and that any writes to the job&rsquo;s stderr(4) will go to
+the given file.</p>
+
+<p>Note that this file is opened as readable and writable as
+mandated by the POSIX specification for unclear reasons.  If the file
+does not exist, it will be created with ownership reflecting the user
+and/or group specified as the UserName and/or GroupName, respectively (if
+set) and permissions reflecting the umask(2) specified by the Umask key,
+if set.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">standardErrorPath</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11LaunchAgentAAC20environmentVariablesSDyS2SGSgvp"></a>
+                    <a name="//apple_ref/swift/Property/environmentVariables" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11LaunchAgentAAC20environmentVariablesSDyS2SGSgvp">environmentVariables</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This optional key is used to specify additional environmental variables
+to be set before running the job. Each key in the dictionary is the name
+of an environment variable, with the corresponding value being a string
+representing the desired value.  NOTE: Values other than strings will be
+ignored.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">environmentVariables</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span> <span class="p">:</span> <span class="kt">String</span><span class="p">]?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Run%20Conditions"></a>
+                <a name="//apple_ref/swift/Section/Run Conditions" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Run%20Conditions"></a>
+                  <h3 class="section-name"><p>Run Conditions</p>
+</h3>
+                </div>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11LaunchAgentAAC9runAtLoadSbSgvp"></a>
+                    <a name="//apple_ref/swift/Property/runAtLoad" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11LaunchAgentAAC9runAtLoadSbSgvp">runAtLoad</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This optional key is used to control whether your job is launched once at
+the time the job is loaded.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">runAtLoad</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11LaunchAgentAAC13startIntervalSiSgvp"></a>
+                    <a name="//apple_ref/swift/Property/startInterval" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11LaunchAgentAAC13startIntervalSiSgvp">startInterval</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This optional key causes the job to be started every N seconds.</p>
+
+<p>If the system is asleep during the time of the next scheduled interval firing,
+that interval will be missed due to shortcomings in kqueue(3).  If the
+job is running during an interval firing, that interval firing will like-wise be missed.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">startInterval</span><span class="p">:</span> <span class="kt">Int</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11LaunchAgentAAC21startCalendarIntervalAA05StartdE0CSgvp"></a>
+                    <a name="//apple_ref/swift/Property/startCalendarInterval" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11LaunchAgentAAC21startCalendarIntervalAA05StartdE0CSgvp">startCalendarInterval</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This optional key causes the job to be started every calendar interval as
+specified.</p>
+
+<p>Missing arguments are considered to be wildcard. The semantics
+are similar to crontab(5) in how firing dates are specified. Multiple
+dictionaries may be specified in an array to schedule multiple calendar
+intervals.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">startCalendarInterval</span><span class="p">:</span> <span class="kt"><a href="../Classes/StartCalendarInterval.html">StartCalendarInterval</a></span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11LaunchAgentAAC12startOnMountSbSgvp"></a>
+                    <a name="//apple_ref/swift/Property/startOnMount" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11LaunchAgentAAC12startOnMountSbSgvp">startOnMount</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This optional key causes the job to be started every time a filesystem is
+mounted.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">startOnMount</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11LaunchAgentAAC8onDemandSbSgvp"></a>
+                    <a name="//apple_ref/swift/Property/onDemand" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11LaunchAgentAAC8onDemandSbSgvp">onDemand</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This key does nothing if set to true. If set to false, this key is equiv-
+alent to specifying a true value for the KeepAlive key. This key should
+not be used. Please remove this key from your launchd.plist.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">onDemand</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11LaunchAgentAAC9keepAliveSbSgvp"></a>
+                    <a name="//apple_ref/swift/Property/keepAlive" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11LaunchAgentAAC9keepAliveSbSgvp">keepAlive</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This key specifies whether your daemon launches on-demand or must always be running.
+It is recommended that you design your daemon to be launched on-demand.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">keepAlive</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11LaunchAgentAAC10watchPathsSaySSGSgvp"></a>
+                    <a name="//apple_ref/swift/Property/watchPaths" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11LaunchAgentAAC10watchPathsSaySSGSgvp">watchPaths</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This optional key causes the job to be started if any one of the listed
+paths are modified.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">watchPaths</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">]?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11LaunchAgentAAC16queueDirectoriesSaySSGSgvp"></a>
+                    <a name="//apple_ref/swift/Property/queueDirectories" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11LaunchAgentAAC16queueDirectoriesSaySSGSgvp">queueDirectories</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This optional key keeps the job alive as long as the directory or direc-
+tories specified are not empty.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">queueDirectories</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">]?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Security"></a>
+                <a name="//apple_ref/swift/Section/Security" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Security"></a>
+                  <h3 class="section-name"><p>Security</p>
+</h3>
+                </div>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11LaunchAgentAAC5umaskSiSgvp"></a>
+                    <a name="//apple_ref/swift/Property/umask" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11LaunchAgentAAC5umaskSiSgvp">umask</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This optional key specifies what value should be passed to umask(2)
+before running the job.</p>
+
+<p>If the value specified is an integer, it must be
+a decimal representation of the desired umask, as property lists do not
+support encoding integers in octal. If a string is given, the string will
+be converted into an integer as per the rules described in strtoul(3),
+and an octal value may be specified by prefixing the string with a &lsquo;0&rsquo;.
+If a string that does not cleanly convert to an integer is specified, the
+behavior will be to set a umask(2) according to the strtoul(3) parsing
+rules.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">umask</span><span class="p">:</span> <span class="kt">Int</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/System%20Daemon%20Security"></a>
+                <a name="//apple_ref/swift/Section/System Daemon Security" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/System%20Daemon%20Security"></a>
+                  <h3 class="section-name"><p>System Daemon Security</p>
+</h3>
+                </div>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11LaunchAgentAAC13sessionCreateSbSgvp"></a>
+                    <a name="//apple_ref/swift/Property/sessionCreate" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11LaunchAgentAAC13sessionCreateSbSgvp">sessionCreate</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This key specifies that the job should be spawned into a new security
+audit session rather than the default session for the context is belongs
+to. See <code>auditon(2)</code> for details.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">sessionCreate</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11LaunchAgentAAC9groupNameSSSgvp"></a>
+                    <a name="//apple_ref/swift/Property/groupName" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11LaunchAgentAAC9groupNameSSSgvp">groupName</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This optional key specifies the group to run the job as.</p>
+
+<p>This key is only applicable for services that are loaded into the privileged system
+domain. If UserName is set and GroupName is not, then the group will be
+set to the primary group of the user.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">groupName</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11LaunchAgentAAC8userNameSSSgvp"></a>
+                    <a name="//apple_ref/swift/Property/userName" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11LaunchAgentAAC8userNameSSSgvp">userName</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This optional key specifies the user to run the job as.</p>
+
+<p>This key is only applicable for services that are loaded into the privileged system
+domain.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">userName</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11LaunchAgentAAC10initGroupsSbSgvp"></a>
+                    <a name="//apple_ref/swift/Property/initGroups" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11LaunchAgentAAC10initGroupsSbSgvp">initGroups</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This optional key specifies whether initgroups(3) to initialize the group
+list for the job.</p>
+
+<p>The default is true. This key will be ignored if the
+UserName key is not set. Note that for agents, the UserName key is ignored.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">initGroups</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11LaunchAgentAAC13rootDirectorySSSgvp"></a>
+                    <a name="//apple_ref/swift/Property/rootDirectory" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11LaunchAgentAAC13rootDirectorySSSgvp">rootDirectory</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This optional key is used to specify a directory to chroot(2) to before
+running the job.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">rootDirectory</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11LaunchAgentAAC14launchOnlyOnceSbSgvp"></a>
+                    <a name="//apple_ref/swift/Property/launchOnlyOnce" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11LaunchAgentAAC14launchOnlyOnceSbSgvp">launchOnlyOnce</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This optional key specifies whether the job can only be run once and only
+once.</p>
+
+<p>In other words, if the job cannot be safely respawned without a
+full machine reboot, then set this key to be true.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">launchOnlyOnce</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11LaunchAgentAAC22limitLoadToSessionTypeSaySSGSgvp"></a>
+                    <a name="//apple_ref/swift/Property/limitLoadToSessionType" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11LaunchAgentAAC22limitLoadToSessionTypeSaySSGSgvp">limitLoadToSessionType</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This configuration file only applies to sessions of the type(s) speci-
+fied.</p>
+
+<p>This key only applies to jobs which are agents. There are no distinct
+sessions in the privileged system context.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">limitLoadToSessionType</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">]?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11LaunchAgentAAC16limitLoadToHostsSaySSGSgvp"></a>
+                    <a name="//apple_ref/swift/Property/limitLoadToHosts" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11LaunchAgentAAC16limitLoadToHostsSaySSGSgvp">limitLoadToHosts</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This configuration file only applies to the hosts listed with this key.</p>
+<div class="aside aside-important">
+    <p class="aside-title">Important</p>
+    This key is no longer supported.
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">limitLoadToHosts</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">]?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11LaunchAgentAAC18limitLoadFromHostsSaySSGSgvp"></a>
+                    <a name="//apple_ref/swift/Property/limitLoadFromHosts" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11LaunchAgentAAC18limitLoadFromHostsSaySSGSgvp">limitLoadFromHosts</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This configuration file only applies to hosts NOT listed with this key.</p>
+<div class="aside aside-important">
+    <p class="aside-title">Important</p>
+    This key is no longer supported.
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">limitLoadFromHosts</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">]?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Control"></a>
+                <a name="//apple_ref/swift/Section/Control" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Control"></a>
+                  <h3 class="section-name"><p>Control</p>
+</h3>
+                </div>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11LaunchAgentAAC19abandonProcessGroupSbSgvp"></a>
+                    <a name="//apple_ref/swift/Property/abandonProcessGroup" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11LaunchAgentAAC19abandonProcessGroupSbSgvp">abandonProcessGroup</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>When a job dies, launchd kills any remaining processes with the same
+process group ID as the job.</p>
+
+<p>Setting this key to true disables that behavior.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">abandonProcessGroup</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11LaunchAgentAAC19enablePressuredExitSbSgvp"></a>
+                    <a name="//apple_ref/swift/Property/enablePressuredExit" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11LaunchAgentAAC19enablePressuredExitSbSgvp">enablePressuredExit</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This key opts the job into the system&rsquo;s Pressured Exit facility.</p>
+
+<p>Use of this key implies EnableTransactions , and also lets the system consider
+process eligible for reclamation under memory pressure when it&rsquo;s inac-
+tive. See <code>xpc_main(3)</code> for details. Jobs that opt into Pressured Exit will
+be automatically relaunched if they exit or crash while holding open
+transactions.</p>
+<div class="aside aside-note">
+    <p class="aside-title">Note</p>
+    <code>launchd(8)</code> does not respect EnablePressuredExit for jobs that have
+KeepAlive set to true.
+
+</div><div class="aside aside-important">
+    <p class="aside-title">Important</p>
+    Jobs which opt into Pressured Exit will ignore SIGTERM rather
+than exiting by default, so a <code>dispatch(3)</code> source must be used when han-
+dling this signal.
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">enablePressuredExit</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11LaunchAgentAAC18enableTransactionsSbSgvp"></a>
+                    <a name="//apple_ref/swift/Property/enableTransactions" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11LaunchAgentAAC18enableTransactionsSbSgvp">enableTransactions</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This key instructs launchd that the job uses <code>xpc_transaction_begin(3)</code> and
+<code>xpc_transaction_end(3)</code> to track outstanding transactions.</p>
+
+<p>When a process has an outstanding transaction, it is considered active, otherwise inac-
+tive. A transaction is automatically created when an XPC message expect-
+ing a reply is received, until the reply is sent or the request message
+is discarded. When launchd stops an active process, it sends SIGTERM
+first, and then SIGKILL after a reasonable timeout. If the process is
+inactive, SIGKILL is sent immediately.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">enableTransactions</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11LaunchAgentAAC11exitTimeOutSiSgvp"></a>
+                    <a name="//apple_ref/swift/Property/exitTimeOut" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11LaunchAgentAAC11exitTimeOutSiSgvp">exitTimeOut</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The amount of time launchd waits between sending the SIGTERM signal and
+before sending a SIGKILL signal when the job is to be stopped.</p>
+
+<p>The default value is system-defined. The value zero is interpreted as infinity and
+should not be used, as it can stall system shutdown forever.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">exitTimeOut</span><span class="p">:</span> <span class="kt">Int</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11LaunchAgentAAC18inetdCompatibilityAaCCSgvp"></a>
+                    <a name="//apple_ref/swift/Property/inetdCompatibility" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11LaunchAgentAAC18inetdCompatibilityAaCCSgvp">inetdCompatibility</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The presence of this key specifies that the daemon expects to be run as
+if it were launched from inetd.</p>
+<div class="aside aside-important">
+    <p class="aside-title">Important</p>
+    For new projects, this key should be avoided.
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">inetdCompatibility</span><span class="p">:</span> <span class="n">inetdCompatibility</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11LaunchAgentAAC18hardResourceLimitsAA0dE0CSgvp"></a>
+                    <a name="//apple_ref/swift/Property/hardResourceLimits" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11LaunchAgentAAC18hardResourceLimitsAA0dE0CSgvp">hardResourceLimits</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Resource limits to be imposed on the job. These adjust variables set with setrlimit(2).</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">hardResourceLimits</span><span class="p">:</span> <span class="kt"><a href="../Classes/ResourceLimits.html">ResourceLimits</a></span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11LaunchAgentAAC18softResourceLimitsAA0dE0CSgvp"></a>
+                    <a name="//apple_ref/swift/Property/softResourceLimits" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11LaunchAgentAAC18softResourceLimitsAA0dE0CSgvp">softResourceLimits</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Resource limits to be imposed on the job. These adjust variables set with setrlimit(2).</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">softResourceLimits</span><span class="p">:</span> <span class="kt"><a href="../Classes/ResourceLimits.html">ResourceLimits</a></span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11LaunchAgentAAC7timeOutSiSgvp"></a>
+                    <a name="//apple_ref/swift/Property/timeOut" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11LaunchAgentAAC7timeOutSiSgvp">timeOut</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The recommended idle time out (in seconds) to pass to the job.</p>
+
+<p>This key never did anything interesting and is no longer implemented. Jobs seeking
+to exit when idle should use the EnablePressuredExit key to opt into the
+system mechanism for reclaiming killable jobs under memory pressure.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">timeOut</span><span class="p">:</span> <span class="kt">Int</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11LaunchAgentAAC16throttleIntervalSiSgvp"></a>
+                    <a name="//apple_ref/swift/Property/throttleInterval" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11LaunchAgentAAC16throttleIntervalSiSgvp">throttleInterval</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This key lets one override the default throttling policy imposed on jobs
+by launchd.</p>
+
+<p>The value is in seconds, and by default, jobs will not be
+spawned more than once every 10 seconds. The principle behind this is
+that jobs should linger around just in case they are needed again in the
+near future. This not only reduces the latency of responses, but it
+encourages developers to amortize the cost of program invocation.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">throttleInterval</span><span class="p">:</span> <span class="kt">Int</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/IPC"></a>
+                <a name="//apple_ref/swift/Section/IPC" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/IPC"></a>
+                  <h3 class="section-name"><p>IPC</p>
+</h3>
+                </div>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11LaunchAgentAAC12machServicesSDySSAA11MachServiceCGSgvp"></a>
+                    <a name="//apple_ref/swift/Property/machServices" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11LaunchAgentAAC12machServicesSDySSAA11MachServiceCGSgvp">machServices</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This optional key is used to specify Mach services to be registered with
+the Mach bootstrap namespace.</p>
+
+<p>Each key in this dictionary should be the
+name of a service to be advertised. The value of the key must be a
+boolean and set to true or a dictionary in order for the service to be
+advertised.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">machServices</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span> <span class="p">:</span> <span class="kt"><a href="../Classes/MachService.html">MachService</a></span><span class="p">]?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Debug"></a>
+                <a name="//apple_ref/swift/Section/Debug" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Debug"></a>
+                  <h3 class="section-name"><p>Debug</p>
+</h3>
+                </div>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11LaunchAgentAAC5debugSbSgvp"></a>
+                    <a name="//apple_ref/swift/Property/debug" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11LaunchAgentAAC5debugSbSgvp">debug</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This optional key specifies that launchd should adjust its log mask temporarily
+to LOG_DEBUG while dealing with this job.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">debug</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11LaunchAgentAAC15waitForDebuggerSbSgvp"></a>
+                    <a name="//apple_ref/swift/Property/waitForDebugger" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11LaunchAgentAAC15waitForDebuggerSbSgvp">waitForDebugger</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This optional key specifies that launchd should launch the job in a suspended
+state so that a debugger can be attached to the process as early as possible (at the first instruction).</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">waitForDebugger</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Performance"></a>
+                <a name="//apple_ref/swift/Section/Performance" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Performance"></a>
+                  <h3 class="section-name"><p>Performance</p>
+</h3>
+                </div>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11LaunchAgentAAC12legacyTimersSbSgvp"></a>
+                    <a name="//apple_ref/swift/Property/legacyTimers" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11LaunchAgentAAC12legacyTimersSbSgvp">legacyTimers</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This optional key controls the behavior of timers created by the job.</p>
+
+<p>By default on OS X Mavericks version 10.9 and later, timers created by
+launchd jobs are coalesced. Batching the firing of timers with similar
+deadlines improves the overall energy efficiency of the system. If this
+key is set to true, timers created by the job will opt into less effi-
+cient but more precise behavior and not be coalesced with other timers.
+This key may have no effect if the job&rsquo;s ProcessType is not set to Interactive.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">legacyTimers</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11LaunchAgentAAC13lowPriorityIOSbSgvp"></a>
+                    <a name="//apple_ref/swift/Property/lowPriorityIO" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11LaunchAgentAAC13lowPriorityIOSbSgvp">lowPriorityIO</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This optional key specifies whether the kernel should consider this
+daemon to be low priority when doing filesystem I/O.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">lowPriorityIO</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11LaunchAgentAAC23lowPriorityBackgroundIOSbSgvp"></a>
+                    <a name="//apple_ref/swift/Property/lowPriorityBackgroundIO" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11LaunchAgentAAC23lowPriorityBackgroundIOSbSgvp">lowPriorityBackgroundIO</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This optional key specifies whether the kernel should consider this
+daemon to be low priority when doing filesystem I/O when the process is
+throttled with the Darwin-background classification.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">lowPriorityBackgroundIO</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11LaunchAgentAAC4niceSiSgvp"></a>
+                    <a name="//apple_ref/swift/Property/nice" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11LaunchAgentAAC4niceSiSgvp">nice</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This optional key specifies what nice(3) value should be applied to the daemon.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">nice</span><span class="p">:</span> <span class="kt">Int</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11LaunchAgentAAC11processTypeAA07ProcessD0OSgvp"></a>
+                    <a name="//apple_ref/swift/Property/processType" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11LaunchAgentAAC11processTypeAA07ProcessD0OSgvp">processType</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This optional key describes, at a high level, the intended purpose of the
+job.</p>
+
+<p>The system will apply resource limits based on what kind of job it
+is. If left unspecified, the system will apply light resource limits to
+the job, throttling its CPU usage and I/O bandwidth. This classification
+is preferable to using the HardResourceLimits, SoftResourceLimits and
+Nice keys.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">processType</span><span class="p">:</span> <span class="kt"><a href="../Enums/ProcessType.html">ProcessType</a></span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11LaunchAgentAAC5label7programABSS_SaySSGtcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(label:program:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11LaunchAgentAAC5label7programABSS_SaySSGtcfc">init(label:<wbr>program:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Instantiate a new LaunchAgent</p>
+<div class="aside aside-note">
+    <p class="aside-title">Note</p>
+    <p>Globbing was deprecated in macOS 10.10, so full paths must be provided</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">label</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">program</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">])</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>label</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the job&rsquo;s label</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>program</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the job&rsquo;s program arguments</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11LaunchAgentAAC5label7programABSS_SSdtcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(label:program:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11LaunchAgentAAC5label7programABSS_SSdtcfc">init(label:<wbr>program:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Instantiate a new LaunchAgent</p>
+<div class="aside aside-note">
+    <p class="aside-title">Note</p>
+    <p>Globbing was deprecated in macOS 10.10, so full paths must be provided</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">label</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">program</span><span class="p">:</span> <span class="kt">String</span><span class="o">...</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>label</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the job&rsquo;s label</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>program</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the job&rsquo;s program arguments</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Codable"></a>
+                <a name="//apple_ref/swift/Section/Codable" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Codable"></a>
+                  <h3 class="section-name"><p>Codable</p>
+</h3>
+                </div>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11LaunchAgentAAC10CodingKeysO"></a>
+                    <a name="//apple_ref/swift/Enum/CodingKeys" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11LaunchAgentAAC10CodingKeysO">CodingKeys</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>launchd.plist keys</p>
+
+                        <a href="../Classes/LaunchAgent/CodingKeys.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">CodingKeys</span> <span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="kt">CodingKey</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/LaunchControl"></a>
+                <a name="//apple_ref/swift/Section/LaunchControl" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/LaunchControl"></a>
+                  <h3 class="section-name"><p>LaunchControl</p>
+</h3>
+                </div>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11LaunchAgentAAC5startyyF"></a>
+                    <a name="//apple_ref/swift/Method/start()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11LaunchAgentAAC5startyyF">start()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Run <code>launchctl start</code> on the agent</p>
+
+<p>Check the status of the job with <code><a href="../Classes/LaunchAgent.html#/s:11LaunchAgentAAC6statusAA0B6StatusOyF">.status()</a></code></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">start</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11LaunchAgentAAC4stopyyF"></a>
+                    <a name="//apple_ref/swift/Method/stop()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11LaunchAgentAAC4stopyyF">stop()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Run <code>launchctl stop</code> on the agent</p>
+
+<p>Check the status of the job with <code><a href="../Classes/LaunchAgent.html#/s:11LaunchAgentAAC6statusAA0B6StatusOyF">.status()</a></code></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">stop</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11LaunchAgentAAC4loadyyKF"></a>
+                    <a name="//apple_ref/swift/Method/load()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11LaunchAgentAAC4loadyyKF">load()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Run <code>launchctl load</code> on the agent</p>
+
+<p>Check the status of the job with <code><a href="../Classes/LaunchAgent.html#/s:11LaunchAgentAAC6statusAA0B6StatusOyF">.status()</a></code></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">load</span><span class="p">()</span> <span class="k">throws</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11LaunchAgentAAC6unloadyyKF"></a>
+                    <a name="//apple_ref/swift/Method/unload()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11LaunchAgentAAC6unloadyyKF">unload()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Run <code>launchctl unload</code> on the agent</p>
+
+<p>Check the status of the job with <code><a href="../Classes/LaunchAgent.html#/s:11LaunchAgentAAC6statusAA0B6StatusOyF">.status()</a></code></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">unload</span><span class="p">()</span> <span class="k">throws</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11LaunchAgentAAC6statusAA0B6StatusOyF"></a>
+                    <a name="//apple_ref/swift/Method/status()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11LaunchAgentAAC6statusAA0B6StatusOyF">status()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Retreives the status of the LaunchAgent from <code>launchctl</code></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">status</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Enums/AgentStatus.html">AgentStatus</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>the agent&rsquo;s status</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2020 <a class="link" href="http://emorydunn.com" target="_blank" rel="external">Emory Dunn</a>. All rights reserved. (Last updated: 2020-09-01)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

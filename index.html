@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>  Reference</title>
+    <link rel="stylesheet" type="text/css" href="css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="js/jquery.min.js" defer></script>
+    <script src="js/jazzy.js" defer></script>
+    
+    <script src="js/lunr.min.js" defer></script>
+    <script src="js/typeahead.jquery.js" defer></script>
+    <script src="js/jazzy.search.js" defer></script>
+  </head>
+  <body>
+    <a title="  Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="index.html"> Docs</a> (100% documented)</p>
+        <p class="header-right"><a href="https://github.com/emorydunn/LaunchAgent"><img src="img/gh.png"/>View on GitHub</a></p>
+        <p class="header-right">
+          <form role="search" action="search.json">
+            <input type="text" placeholder="Search documentation" data-typeahead>
+          </form>
+        </p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="index.html"> Reference</a>
+        <img id="carat" src="img/carat.png" />
+          Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Classes/FilePermissions.html">FilePermissions</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/LaunchAgent.html">LaunchAgent</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/LaunchAgent/CodingKeys.html">– CodingKeys</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/LaunchControl.html">LaunchControl</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/MachService.html">MachService</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/MachService/CodingKeys.html">– CodingKeys</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/ResourceLimits.html">ResourceLimits</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/ResourceLimits/CodingKeys.html">– CodingKeys</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/StartCalendarInterval.html">StartCalendarInterval</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/StartCalendarInterval/CodingKeys.html">– CodingKeys</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/inetdCompatibility.html">inetdCompatibility</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/inetdCompatibility/CodingKeys.html">– CodingKeys</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Enums/AgentStatus.html">AgentStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/LaunchControlError.html">LaunchControlError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/ProcessType.html">ProcessType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/StartMonth.html">StartMonth</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/StartWeekday.html">StartWeekday</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Structs.html">Structures</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Structs/PermissionBits.html">PermissionBits</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            
+            <h1 id='launchagent' class='heading'>LaunchAgent</h1>
+
+<p><img src="https://img.shields.io/badge/SwiftPM-compatible-success.svg" alt="SwiftPM"> <img src="https://img.shields.io/badge/swift-5.2-orange.svg?style=flat" alt="Swift5.2"> <img src="https://img.shields.io/github/license/emorydunn/LaunchAgent.svg?style=flat" alt="license"> <img src="https://github.com/emorydunn/LaunchAgent/workflows/Swift/badge.svg" alt="build"> <img src="https://emorydunn.github.io/LaunchAgent/badge.svg" alt="coverage"></p>
+
+<p>LaunchAgent provides an easy way to pragmatically create and maintain <a href="http://www.launchd.info"><code>launchd</code></a> agents and daemons without needing to manually build Property Lists.</p>
+
+<p>Take a look at the full <a href="https://emorydunn.github.io/LaunchAgent/">documentation</a>.</p>
+<h2 id='launchagent' class='heading'>LaunchAgent</h2>
+
+<p>A LaunchAgent can be created with either an array of program arguments:</p>
+<pre class="highlight swift"><code><span class="kt">LaunchAgent</span><span class="p">(</span><span class="nv">label</span><span class="p">:</span> <span class="s">"local.PythonServer"</span><span class="p">,</span> <span class="nv">program</span><span class="p">:</span> <span class="p">[</span><span class="s">"python"</span><span class="p">,</span> <span class="s">"-m"</span><span class="p">,</span> <span class="s">"SimpleHTTPServer"</span><span class="p">,</span> <span class="s">"8000"</span><span class="p">])</span>
+</code></pre>
+
+<p>or with variadic parameters:</p>
+<pre class="highlight swift"><code><span class="kt">LaunchAgent</span><span class="p">(</span><span class="nv">label</span><span class="p">:</span> <span class="s">"local.PythonServer"</span><span class="p">,</span> <span class="nv">program</span><span class="p">:</span> <span class="s">"python"</span><span class="p">,</span> <span class="s">"-m"</span><span class="p">,</span> <span class="s">"SimpleHTTPServer"</span><span class="p">,</span> <span class="s">"8000"</span><span class="p">)</span>
+</code></pre>
+
+<p>The agent can also be created with only a label, but will be invalid if loaded:</p>
+<pre class="highlight swift"><code><span class="kt">LaunchAgent</span><span class="p">(</span><span class="nv">label</span><span class="p">:</span> <span class="s">"local.PythonServer"</span><span class="p">)</span>
+</code></pre>
+
+<p>When creating a new agent it needs to be written to disk:</p>
+<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">agent</span> <span class="o">=</span> <span class="kt">LaunchAgent</span><span class="p">(</span><span class="nv">label</span><span class="p">:</span> <span class="s">"local.PythonServer"</span><span class="p">,</span> <span class="nv">program</span><span class="p">:</span> <span class="s">"python"</span><span class="p">,</span> <span class="s">"-m"</span><span class="p">,</span> <span class="s">"SimpleHTTPServer"</span><span class="p">,</span> <span class="s">"8000"</span><span class="p">)</span>
+
+<span class="k">do</span> <span class="p">{</span>
+    <span class="k">try</span> <span class="kt">LaunchControl</span><span class="o">.</span><span class="n">shared</span><span class="o">.</span><span class="nf">write</span><span class="p">(</span><span class="n">agent</span><span class="p">)</span>
+    <span class="k">try</span> <span class="n">agent</span><span class="o">.</span><span class="nf">load</span><span class="p">()</span>
+    <span class="n">agent</span><span class="o">.</span><span class="nf">start</span><span class="p">()</span>
+<span class="p">}</span> <span class="k">catch</span> <span class="p">{</span>
+    <span class="nf">print</span><span class="p">(</span><span class="s">"Unexpected error:"</span> <span class="n">error</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre>
+<h3 id='using-launchcontrol-to-read-and-write-launchagents' class='heading'>Using LaunchControl to read and write LaunchAgents</h3>
+
+<p>The <code><a href="Classes/LaunchControl.html">LaunchControl</a></code> class can read agents from and write agents to <code>~/Library/LaunchAgents</code>.
+When using either method the <code>url</code> of the loaded agent will be set.</p>
+<h3 id='controlling-launchagents' class='heading'>Controlling LaunchAgents</h3>
+
+<p>LaunchAgent has <code>load()</code>, <code>unload()</code>, <code>start()</code>, <code>stop()</code>, and <code>status()</code> methods which do what they say on the tin.</p>
+
+<p>Load &amp; unload require the agent&rsquo;s URL parameter to be set, or <code>launchctl</code> won&rsquo;t be able to locate them.
+Start, stop, and status are called based on the label.</p>
+<h2 id='supported-keys' class='heading'>Supported Keys</h2>
+
+<p>LaunchAgent does not currently support all keys, and there are some caveats to some keys it does support.</p>
+
+<p>Most parameters in the <code><a href="Classes/LaunchAgent.html">LaunchAgent</a></code> class are optional, and setting <code>nil</code> will remove the key from the encoded plist.
+Some keys use their own type to encapsulate a complex dictionary value.</p>
+<h2 id='basic-config' class='heading'>Basic Config</h2>
+
+<table><thead>
+<tr>
+<th>Key Name</th>
+<th>Key type</th>
+<th>Supported</th>
+<th>Notes</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Label</td>
+<td>String</td>
+<td>true</td>
+<td></td>
+</tr>
+<tr>
+<td>Disabled</td>
+<td>String</td>
+<td>true</td>
+<td></td>
+</tr>
+<tr>
+<td>Program</td>
+<td>String</td>
+<td>true</td>
+<td></td>
+</tr>
+<tr>
+<td>ProgramArguments</td>
+<td>[String]</td>
+<td>true</td>
+<td></td>
+</tr>
+<tr>
+<td>EnableGlobbing</td>
+<td>Bool</td>
+<td>true</td>
+<td>deprecated in macOS</td>
+</tr>
+</tbody></table>
+<h3 id='program' class='heading'>Program</h3>
+
+<table><thead>
+<tr>
+<th>Key Name</th>
+<th>Key type</th>
+<th>Supported</th>
+<th>Notes</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>workingDirectory</td>
+<td>String</td>
+<td>true</td>
+<td></td>
+</tr>
+<tr>
+<td>standardInPath</td>
+<td>String</td>
+<td>true</td>
+<td></td>
+</tr>
+<tr>
+<td>standardOutPath</td>
+<td>String</td>
+<td>true</td>
+<td></td>
+</tr>
+<tr>
+<td>standardErrorPath</td>
+<td>String</td>
+<td>true</td>
+<td></td>
+</tr>
+<tr>
+<td>environmentVariables</td>
+<td>[String: String]</td>
+<td>true</td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id='run-conditions' class='heading'>Run Conditions</h3>
+
+<table><thead>
+<tr>
+<th>Key Name</th>
+<th>Key type</th>
+<th>Supported</th>
+<th>Notes</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>runAtLoad</td>
+<td>Bool</td>
+<td>true</td>
+<td></td>
+</tr>
+<tr>
+<td>startInterval</td>
+<td>Int</td>
+<td>true</td>
+<td></td>
+</tr>
+<tr>
+<td>startCalendarInterval</td>
+<td>StartCalendarInterval</td>
+<td>true</td>
+<td></td>
+</tr>
+<tr>
+<td>startOnMount</td>
+<td>Bool</td>
+<td>true</td>
+<td></td>
+</tr>
+<tr>
+<td>onDemand</td>
+<td>Bool</td>
+<td>true</td>
+<td></td>
+</tr>
+<tr>
+<td>keepAlive</td>
+<td>Bool</td>
+<td>true</td>
+<td></td>
+</tr>
+<tr>
+<td>watchPaths</td>
+<td>[String]</td>
+<td>true</td>
+<td></td>
+</tr>
+<tr>
+<td>queueDirectories</td>
+<td>[String]</td>
+<td>true</td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id='security' class='heading'>Security</h3>
+
+<table><thead>
+<tr>
+<th>Key Name</th>
+<th>Key type</th>
+<th>Supported</th>
+<th>Notes</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>umask</td>
+<td>Int</td>
+<td>true</td>
+<td>Use <code><a href="Classes/FilePermissions.html#/s:11LaunchAgent15FilePermissionsC12umaskDecimalSivp">FilePermissions.umaskDecimal</a></code> to get a valid value</td>
+</tr>
+<tr>
+<td>sessionCreate</td>
+<td>Bool</td>
+<td>true</td>
+<td></td>
+</tr>
+<tr>
+<td>groupName</td>
+<td>String</td>
+<td>true</td>
+<td></td>
+</tr>
+<tr>
+<td>userName</td>
+<td>String</td>
+<td>true</td>
+<td></td>
+</tr>
+<tr>
+<td>initGroups</td>
+<td>Bool</td>
+<td>true</td>
+<td></td>
+</tr>
+<tr>
+<td>rootDirectory</td>
+<td>String</td>
+<td>true</td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id='run-constraints' class='heading'>Run Constraints</h3>
+
+<table><thead>
+<tr>
+<th>Key Name</th>
+<th>Key type</th>
+<th>Supported</th>
+<th>Notes</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>launchOnlyOnce</td>
+<td>Bool</td>
+<td>true</td>
+<td></td>
+</tr>
+<tr>
+<td>limitLoadToSessionType</td>
+<td>[String]</td>
+<td>true</td>
+<td>Always encodes as an array</td>
+</tr>
+<tr>
+<td>limitLoadToHosts</td>
+<td>[String]</td>
+<td>true</td>
+<td></td>
+</tr>
+<tr>
+<td>limitLoadFromHosts</td>
+<td>[String]</td>
+<td>true</td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id='control' class='heading'>Control</h3>
+
+<table><thead>
+<tr>
+<th>Key Name</th>
+<th>Key type</th>
+<th>Supported</th>
+<th>Notes</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>AbandonProcessGroup</td>
+<td>Bool</td>
+<td>true</td>
+<td></td>
+</tr>
+<tr>
+<td>EnablePressuredExit</td>
+<td>Bool</td>
+<td>true</td>
+<td></td>
+</tr>
+<tr>
+<td>EnableTransactions</td>
+<td>Bool</td>
+<td>true</td>
+<td></td>
+</tr>
+<tr>
+<td>ExitTimeOut</td>
+<td>Int</td>
+<td>true</td>
+<td></td>
+</tr>
+<tr>
+<td>inetdCompatibility</td>
+<td>inetdCompatibility</td>
+<td>true</td>
+<td></td>
+</tr>
+<tr>
+<td>HardResourceLimits</td>
+<td>ResourceLimits</td>
+<td>true</td>
+<td></td>
+</tr>
+<tr>
+<td>SoftResourceLimits</td>
+<td>ResourceLimits</td>
+<td>true</td>
+<td></td>
+</tr>
+<tr>
+<td>TimeOut</td>
+<td>Int</td>
+<td>true</td>
+<td></td>
+</tr>
+<tr>
+<td>ThrottleInterval</td>
+<td>Int</td>
+<td>true</td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id='ipc' class='heading'>IPC</h3>
+
+<table><thead>
+<tr>
+<th>Key Name</th>
+<th>Key type</th>
+<th>Supported</th>
+<th>Notes</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>MachServices</td>
+<td>[String: MachService]</td>
+<td>true</td>
+<td></td>
+</tr>
+<tr>
+<td>Sockets</td>
+<td></td>
+<td>false</td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id='debug' class='heading'>Debug</h3>
+
+<table><thead>
+<tr>
+<th>Key Name</th>
+<th>Key type</th>
+<th>Supported</th>
+<th>Notes</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Debug</td>
+<td>Bool</td>
+<td>true</td>
+<td>Deprecated</td>
+</tr>
+<tr>
+<td>WaitForDebugger</td>
+<td>Bool</td>
+<td>true</td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id='performance' class='heading'>Performance</h3>
+
+<table><thead>
+<tr>
+<th>Key Name</th>
+<th>Key type</th>
+<th>Supported</th>
+<th>Notes</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>LegacyTimers</td>
+<td>Bool</td>
+<td>true</td>
+<td></td>
+</tr>
+<tr>
+<td>LowPriorityIO</td>
+<td>Bool</td>
+<td>true</td>
+<td></td>
+</tr>
+<tr>
+<td>LowPriorityBackgroundIO</td>
+<td>Bool</td>
+<td>true</td>
+<td></td>
+</tr>
+<tr>
+<td>Nice</td>
+<td>Int</td>
+<td>true</td>
+<td></td>
+</tr>
+<tr>
+<td>ProcessType</td>
+<td>ProcessType enum</td>
+<td>true</td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id='custom-key-classes' class='heading'>Custom Key Classes</h2>
+<h3 id='startcalendarinterval' class='heading'>StartCalendarInterval</h3>
+
+<p>The <code><a href="Classes/StartCalendarInterval.html">StartCalendarInterval</a></code> encapsulates the dictionary for setting calendar-based job intervals.
+By default all values are set to <code>nil</code>, meaning the job will run on any occurrence of that value.</p>
+
+<p>The Month and Weekday keys are represented by enums for each month and week, respectively.
+Day, Hour, and Minute values are simply integers. They are checked for validity in their
+respective time ranges, and will be set to the minimum or maximum value depending on which way they were out of bounds.</p>
+<h2 id='inetdcompatibility' class='heading'>inetdCompatibility</h2>
+
+<p>Encapsulates the <code><a href="Classes/inetdCompatibility.html">inetdCompatibility</a></code> <code>wait</code> key.</p>
+<h2 id='resourcelimits' class='heading'>ResourceLimits</h2>
+
+<p>Encapsulates the SoftResourceLimits and HardResourceLimits keys:</p>
+
+<ul>
+<li>cpu</li>
+<li>core</li>
+<li>data</li>
+<li>fileSize</li>
+<li>memoryLock</li>
+<li>numberOfFiles</li>
+<li>numberOfProcesses</li>
+<li>residentSetSize</li>
+<li>stack</li>
+</ul>
+<h2 id='filepermissions' class='heading'>FilePermissions</h2>
+
+<p>Individual permission Unix bits for read, write, and execute.</p>
+<h2 id='unix-permissions' class='heading'>Unix Permissions</h2>
+
+<ul>
+<li>Read: 4</li>
+<li>Write: 2</li>
+<li>Execute: 1</li>
+</ul>
+
+<p>In addition you can get the <a href="https://ss64.com/osx/umask.html">umask</a> value.</p>
+
+<p>When setting permissions for a LaunchAgent use <code>.umaskDecimal</code> to get the value.
+If you&rsquo;re reading a LaunchAgent <code>FilePermissions(umask:)</code> will read in the decimal so the permissions can be updated.</p>
+
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2020 <a class="link" href="http://emorydunn.com" target="_blank" rel="external">Emory Dunn</a>. All rights reserved. (Last updated: 2020-09-01)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>
