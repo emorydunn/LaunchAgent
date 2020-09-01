@@ -76,24 +76,11 @@ class ProgramTests: XCTestCase {
         
         testProgram.program = "SingleProgram"
         
-        XCTAssertNil(testProgram.programArguments)
         XCTAssertEqual(testProgram.program, "SingleProgram")
         
     }
     
-    func test_SetProgramArguments_SingleArray() {
-        let testProgram = LaunchAgent(label: "Launch Agent Test", program: "SingleProgram")
-        
-        XCTAssertNotNil(testProgram.program)
-        XCTAssertNil(testProgram.programArguments)
-        
-        testProgram.programArguments = ["NewSingleProgram"]
-        
-        XCTAssertEqual(testProgram.program, "NewSingleProgram")
-        XCTAssertNil(testProgram.programArguments)
-        
-    }
-    
+
     func test_SetProgramArguments_Array() {
         let testProgram = LaunchAgent(label: "Launch Agent Test", program: "SingleProgram")
         
@@ -102,7 +89,7 @@ class ProgramTests: XCTestCase {
         
         testProgram.programArguments = ["NewProgram", "--arg"]
         
-        XCTAssertNil(testProgram.program, "NewSingleProgram")
+        XCTAssertEqual(testProgram.program, "SingleProgram")
         XCTAssertNotNil(testProgram.programArguments)
         XCTAssertEqual(testProgram.programArguments!, ["NewProgram", "--arg"])
         

@@ -6,6 +6,10 @@
 
 - Fully documented!
 
+### Changed
+
+- Setting `program` and `programArguments` no longer changes the other's value.
+
 ## 0.2.2
 
 ### New

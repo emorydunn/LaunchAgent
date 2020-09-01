@@ -41,21 +41,7 @@ public class LaunchAgent: Codable {
     /// Contains the arguments used to launch your daemon
     ///
     /// - Note: If `program` is empty the first item is used as the path to the executable.
-    public var programArguments: [String]? = nil {
-        didSet {
-            guard let args = programArguments else {
-                return
-            }
-            
-            if args.count == 1 {
-                self.program = args.first
-                programArguments = nil
-            } else {
-                program = nil
-            }
-            
-        }
-    }
+    public var programArguments: [String]? = nil
     
     // Program
     /// This optional key is used to specify a directory to chdir(2) to before
