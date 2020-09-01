@@ -1,13 +1,15 @@
 # LaunchAgent
 
-[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)][carthage] [![SwiftPM compatible](https://img.shields.io/badge/SwiftPM-compatible-success.svg)][spm] [![Swift 4](https://img.shields.io/badge/swift-4-orange.svg?style=flat)][carthage] ![license](https://img.shields.io/github/license/emorydunn/LaunchAgent.svg?style=flat)
+![SwiftPM] ![Swift5.2] ![license] ![build]
 
-
-[carthage]: https://github.com/Carthage/Carthage
+[SwiftPM]: https://img.shields.io/badge/SwiftPM-compatible-success.svg
 [swift]: https://developer.apple.com/swift/
+[Swift5.2]: https://img.shields.io/badge/swift-5.2-orange.svg?style=flat
 [spm]: https://swift.org/package-manager/
+[license]: https://img.shields.io/github/license/emorydunn/LaunchAgent.svg?style=flat
+[build]: https://github.com/emorydunn/LaunchAgent/workflows/Swift/badge.svg
 
-LaunchAgent provides an easy way to programatically create and maintain [`launchd`][launchd] agents and daemons without needing to manually build Property Lists. 
+LaunchAgent provides an easy way to programatically create and maintain [`launchd`][launchd] agents and daemons without needing to manually build Property Lists.
 
 [launchd]: http://www.launchd.info
 
@@ -45,22 +47,22 @@ do {
 
 ### Using LaunchControl to read and write LaunchAgents
 
-The `LaunchControl` class can read agents from and write agents to `~/Library/LaunchAgents`. 
-When using either method the `url` of the loaded agent will be set. 
+The `LaunchControl` class can read agents from and write agents to `~/Library/LaunchAgents`.
+When using either method the `url` of the loaded agent will be set.
 
 ### Controlling LaunchAgents
 
-LaunchAgent has `load()`, `unload()`, `start()`, `stop()`, and `status()` methods which do what they say on the tin. 
+LaunchAgent has `load()`, `unload()`, `start()`, `stop()`, and `status()` methods which do what they say on the tin.
 
-Load & unload require the agent's URL parameter to be set, or `launchctl` won't be able to locate them. 
-Start, stop, and status are called based on the label. 
+Load & unload require the agent's URL parameter to be set, or `launchctl` won't be able to locate them.
+Start, stop, and status are called based on the label.
 
 
 ## Supported Keys
 
-LaunchAgent does not currently support all keys, and there are some caveats to some keys it does support. 
+LaunchAgent does not currently support all keys, and there are some caveats to some keys it does support.
 
-Most parameters in the `LaunchAgent` class are optional, and setting `nil` will remove the key from the encoded plist. 
+Most parameters in the `LaunchAgent` class are optional, and setting `nil` will remove the key from the encoded plist.
 Some keys use their own type to encapsulate a complex dictionary value.
 
 ## Basic Config
@@ -152,20 +154,20 @@ Some keys use their own type to encapsulate a complex dictionary value.
 
 ### StartCalendarInterval
 
-The `StartCalendarInterval` encapsulates the dictionary for setting calendar-based job intervals. 
-By default all values are set to `nil`, meaning the job will run on any occurrence of that value. 
+The `StartCalendarInterval` encapsulates the dictionary for setting calendar-based job intervals.
+By default all values are set to `nil`, meaning the job will run on any occurrence of that value.
 
-The Month and Weekday keys are represented by enums for each month and week, respectively. 
-Day, Hour, and Minute values are simply integers. They are checked for validity in their 
-respective time ranges, and will be set to the minimum or maximum value depending on which way they were out of bounds. 
+The Month and Weekday keys are represented by enums for each month and week, respectively.
+Day, Hour, and Minute values are simply integers. They are checked for validity in their
+respective time ranges, and will be set to the minimum or maximum value depending on which way they were out of bounds.
 
 ## inetdCompatibility
 
-Encapsulates the `inetdCompatibility` `wait` key. 
+Encapsulates the `inetdCompatibility` `wait` key.
 
 ## ResourceLimits
 
-Encapsulates the SoftResourceLimits and HardResourceLimits keys: 
+Encapsulates the SoftResourceLimits and HardResourceLimits keys:
 
 - cpu
 - core
@@ -188,5 +190,5 @@ Individual permission Unix bits for read, write, and execute.
 
 In addition you can get the [umask](https://ss64.com/osx/umask.html) value.
 
-When setting permissions for a LaunchAgent use `.umaskDecimal` to get the value. 
-If you're reading a LaunchAgent `FilePermissions(umask:)` will read in the decimal so the permissions can be updated. 
+When setting permissions for a LaunchAgent use `.umaskDecimal` to get the value.
+If you're reading a LaunchAgent `FilePermissions(umask:)` will read in the decimal so the permissions can be updated.
