@@ -1,14 +1,28 @@
 # LaunchAgent
 
-## 0.1.0
+## 0.2.3
 
-- Initial release
+### New
+
+- Fully documented!
+
+## 0.2.2
+
+### New
+
+- Add write method that defaults to agent label (#1)
+
+## 0.2.1
+
+### Updates
+- Set the agents URL when writing
+- Append `.plist` to URL if needed when writing
 
 ## 0.2.0
 
 ### Updates
 - Expand tests
-- Fix umask 
+- Fix umask
 
 ### New Keys
 - sessionCreate
@@ -17,8 +31,8 @@
 - initGroups
 - rootDirectory
 
-## 0.2.1
 
-### Updates
-- Set the agents URL when writing
-- Append `.plist` to URL if needed when writing
+## 0.1.0
+
+- Initial release
+
