@@ -28,9 +28,24 @@ The agent can also be created with only a label, but will be invalid if loaded:
 LaunchAgent(label: "local.PythonServer")
 ```
 
+When creating a new agent it needs to be written to disk:
+
+```swift
+let agent = LaunchAgent(label: "local.PythonServer", program: "python", "-m", "SimpleHTTPServer", "8000")
+
+do {
+    try LaunchControl.shared.write(agent)
+    try agent.load()
+    agent.start()
+} catch {
+    print("Unexpected error:" error)
+}
+
+```
+
 ### Using LaunchControl to read and write LaunchAgents
 
-The `LaunchControl` class can read and write agents from and to `~/Library/LaunchAgents`. 
+The `LaunchControl` class can read agents from and write agents to `~/Library/LaunchAgents`. 
 When using either method the `url` of the loaded agent will be set. 
 
 ### Controlling LaunchAgents
