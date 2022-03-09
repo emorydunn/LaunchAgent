@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SystemConfiguration
 
 /// Errors related to controlling jobs
 public enum LaunchControlError: Error, LocalizedError {
@@ -34,7 +35,12 @@ public class LaunchControl {
     let encoder = PropertyListEncoder()
     let decoder = PropertyListDecoder()
     
+    private var uid: uid_t = 0
+    private var gid: gid_t = 0
+    
     init() {
+        SCDynamicStoreCopyConsoleUser(nil, &uid, &gid)
+        
         encoder.outputFormat = .xml
     }
     
@@ -179,6 +185,14 @@ extension LaunchControl {
         }
         
         let arguments = ["unload", agentURL.path]
+        Process.launchedProcess(launchPath: LaunchControl.launchctl, arguments: arguments)
+    }
+    
+    /// Run `launchctl bootout` on the agent
+    ///
+    /// Check the status of the job with `.status(_: LaunchAgent)`
+    public func bootout(_ agent: LaunchAgent) throws {        
+        let arguments = ["bootout", "gui/\(uid)/\(agent.label)"]
         Process.launchedProcess(launchPath: LaunchControl.launchctl, arguments: arguments)
     }
     

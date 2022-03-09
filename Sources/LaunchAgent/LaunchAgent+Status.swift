@@ -66,6 +66,13 @@ extension LaunchAgent {
         try LaunchControl.shared.unload(self)
     }
     
+    /// Run `launchctl bootout` on the agent
+    ///
+    /// Check the status of the job with `.status()`
+    public func bootout() throws {
+        try LaunchControl.shared.bootout(self)
+    }
+    
     /// Retreives the status of the LaunchAgent from `launchctl`
     ///
     /// - Returns: the agent's status
