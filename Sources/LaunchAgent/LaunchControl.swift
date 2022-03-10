@@ -188,6 +188,18 @@ extension LaunchControl {
         Process.launchedProcess(launchPath: LaunchControl.launchctl, arguments: arguments)
     }
     
+    /// Run `launchctl bootstrap` on the agent
+    ///
+    /// Check the status of the job with `.status(_: LaunchAgent)`
+    public func bootstrap(_ agent: LaunchAgent) throws {
+        guard let agentURL = agent.url else {
+            throw LaunchControlError.urlNotSet(label: agent.label)
+        }
+        
+        let arguments = ["bootstrap", "gui/\(uid)", agentURL.path]
+        Process.launchedProcess(launchPath: LaunchControl.launchctl, arguments: arguments)
+    }
+    
     /// Run `launchctl bootout` on the agent
     ///
     /// Check the status of the job with `.status(_: LaunchAgent)`

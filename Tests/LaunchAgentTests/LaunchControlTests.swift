@@ -90,6 +90,32 @@ class LaunchControlTests: XCTestCase {
         XCTAssertThrowsError(try LaunchControl.shared.unload(testAgent))
     }
     
+    func testBootstrap() {
+        XCTAssertNoThrow(try LaunchControl.shared.bootstrap(agent))
+        sleep(1)
+        
+        XCTAssertEqual(agent.status(), AgentStatus.loaded)
+    }
+    
+    func testBootstrapError() {
+        let testAgent = LaunchAgent(label: "TestAgent")
+        XCTAssertThrowsError(try LaunchControl.shared.bootstrap(testAgent))
+    }
+    
+    func testBootout() {
+        XCTAssertNoThrow(try LaunchControl.shared.load(agent))
+        sleep(1)
+        XCTAssertNoThrow(try LaunchControl.shared.bootout(agent))
+        sleep(1)
+        
+        XCTAssertEqual(agent.status(), AgentStatus.unloaded)
+    }
+    
+    func testBootoutError() {
+        let testAgent = LaunchAgent(label: "TestAgent")
+        XCTAssertThrowsError(try LaunchControl.shared.bootout(testAgent))
+    }
+    
     func testStartStop() {
         XCTAssertNoThrow(try LaunchControl.shared.load(agent))
         sleep(1)

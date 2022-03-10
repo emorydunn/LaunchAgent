@@ -66,6 +66,13 @@ extension LaunchAgent {
         try LaunchControl.shared.unload(self)
     }
     
+    /// Run `launchctl bootstrap` on the agent
+    ///
+    /// Check the status of the job with `.status()`
+    public func bootstrap() throws {
+        try LaunchControl.shared.bootstrap(self)
+    }
+    
     /// Run `launchctl bootout` on the agent
     ///
     /// Check the status of the job with `.status()`
