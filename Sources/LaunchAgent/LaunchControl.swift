@@ -191,6 +191,7 @@ extension LaunchControl {
     /// Run `launchctl bootstrap` on the agent
     ///
     /// Check the status of the job with `.status(_: LaunchAgent)`
+    @available(macOS, introduced: 10.10)
     public func bootstrap(_ agent: LaunchAgent) throws {
         guard let agentURL = agent.url else {
             throw LaunchControlError.urlNotSet(label: agent.label)
@@ -203,6 +204,7 @@ extension LaunchControl {
     /// Run `launchctl bootout` on the agent
     ///
     /// Check the status of the job with `.status(_: LaunchAgent)`
+    @available(macOS, introduced: 10.10)
     public func bootout(_ agent: LaunchAgent) throws {        
         let arguments = ["bootout", "gui/\(uid)/\(agent.label)"]
         Process.launchedProcess(launchPath: LaunchControl.launchctl, arguments: arguments)
