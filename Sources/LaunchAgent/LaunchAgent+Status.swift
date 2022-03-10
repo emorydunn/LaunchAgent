@@ -55,6 +55,7 @@ extension LaunchAgent {
     /// Run `launchctl load` on the agent
     ///
     /// Check the status of the job with `.status()`
+    @available(macOS, deprecated: 10.11)
     public func load() throws {
         try LaunchControl.shared.load(self)
     }
@@ -62,6 +63,7 @@ extension LaunchAgent {
     /// Run `launchctl unload` on the agent
     ///
     /// Check the status of the job with `.status()`
+    @available(macOS, deprecated: 10.11)
     public func unload() throws {
         try LaunchControl.shared.unload(self)
     }
@@ -69,7 +71,7 @@ extension LaunchAgent {
     /// Run `launchctl bootstrap` on the agent
     ///
     /// Check the status of the job with `.status()`
-    @available(macOS, introduced: 10.10)
+    @available(macOS, introduced: 10.11)
     public func bootstrap() throws {
         try LaunchControl.shared.bootstrap(self)
     }
@@ -77,7 +79,7 @@ extension LaunchAgent {
     /// Run `launchctl bootout` on the agent
     ///
     /// Check the status of the job with `.status()`
-    @available(macOS, introduced: 10.10)
+    @available(macOS, introduced: 10.11)
     public func bootout() throws {
         try LaunchControl.shared.bootout(self)
     }
