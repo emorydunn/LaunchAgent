@@ -207,8 +207,12 @@ extension LaunchControl {
     ///
     /// Check the status of the job with `.status(_: LaunchAgent)`
     @available(macOS, introduced: 10.11)
-    public func bootout(_ agent: LaunchAgent) throws {        
-        let arguments = ["bootout", "gui/\(uid)/\(agent.label)"]
+    public func bootout(_ agent: LaunchAgent) throws {
+        guard let agentURL = agent.url else {
+            throw LaunchControlError.urlNotSet(label: agent.label)
+        }
+        
+        let arguments = ["bootout", "gui/\(uid)", agentURL.path]
         Process.launchedProcess(launchPath: LaunchControl.launchctl, arguments: arguments)
     }
     
