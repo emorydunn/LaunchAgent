@@ -1,7 +1,7 @@
 Pod::Spec.new do |spec|
   spec.name         = "LaunchAgent"
-  spec.version      = "0.2.3"
-  spec.summary      = "Programatically create and maintain launchd agents and daemons without manually building Property Lists. "
+  spec.version      = "0.3.0"
+  spec.summary      = "Programmatically create and maintain launchd agents and daemons without manually building Property Lists. "
   spec.homepage     = "https://github.com/emorydunn/LaunchAgent"
   spec.license      = { :type => "MIT", :file => "LICENSE.md" }
   spec.author       = "Emory Dunn"
