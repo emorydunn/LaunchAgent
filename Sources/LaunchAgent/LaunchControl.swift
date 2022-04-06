@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SystemConfiguration
 
 /// Errors related to controlling jobs
 public enum LaunchControlError: Error, LocalizedError {
@@ -34,7 +35,12 @@ public class LaunchControl {
     let encoder = PropertyListEncoder()
     let decoder = PropertyListDecoder()
     
+    private var uid: uid_t = 0
+    private var gid: gid_t = 0
+    
     init() {
+        SCDynamicStoreCopyConsoleUser(nil, &uid, &gid)
+        
         encoder.outputFormat = .xml
     }
     
@@ -161,6 +167,7 @@ extension LaunchControl {
     /// Run `launchctl load` on the agent
     ///
     /// Check the status of the job with `.status(_: LaunchAgent)`
+    @available(macOS, deprecated: 10.11)
     public func load(_ agent: LaunchAgent) throws {
         guard let agentURL = agent.url else {
             throw LaunchControlError.urlNotSet(label: agent.label)
@@ -173,12 +180,39 @@ extension LaunchControl {
     /// Run `launchctl unload` on the agent
     ///
     /// Check the status of the job with `.status(_: LaunchAgent)`
+    @available(macOS, deprecated: 10.11)
     public func unload(_ agent: LaunchAgent) throws {
         guard let agentURL = agent.url else {
             throw LaunchControlError.urlNotSet(label: agent.label)
         }
         
         let arguments = ["unload", agentURL.path]
+        Process.launchedProcess(launchPath: LaunchControl.launchctl, arguments: arguments)
+    }
+    
+    /// Run `launchctl bootstrap` on the agent
+    ///
+    /// Check the status of the job with `.status(_: LaunchAgent)`
+    @available(macOS, introduced: 10.11)
+    public func bootstrap(_ agent: LaunchAgent) throws {
+        guard let agentURL = agent.url else {
+            throw LaunchControlError.urlNotSet(label: agent.label)
+        }
+        
+        let arguments = ["bootstrap", "gui/\(uid)", agentURL.path]
+        Process.launchedProcess(launchPath: LaunchControl.launchctl, arguments: arguments)
+    }
+    
+    /// Run `launchctl bootout` on the agent
+    ///
+    /// Check the status of the job with `.status(_: LaunchAgent)`
+    @available(macOS, introduced: 10.11)
+    public func bootout(_ agent: LaunchAgent) throws {
+        guard let agentURL = agent.url else {
+            throw LaunchControlError.urlNotSet(label: agent.label)
+        }
+        
+        let arguments = ["bootout", "gui/\(uid)", agentURL.path]
         Process.launchedProcess(launchPath: LaunchControl.launchctl, arguments: arguments)
     }
     
