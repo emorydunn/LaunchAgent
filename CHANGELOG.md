@@ -1,5 +1,12 @@
 # LaunchAgent
 
+## 0.3.0
+
+### New
+
+- Support for bootstrap & bootout introduced in macOS 10.10
+- Support for CocoaPods
+
 ## 0.2.3
 
 ### New
